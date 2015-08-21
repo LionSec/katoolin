@@ -12,10 +12,8 @@ Automatically install all Kali linux tools
 
 # Instalation
 - sudo su
-- it clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin && chmod +x /usr/bin/katoolin
+- git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin && chmod +x /usr/bin/katoolin
 - sudo katoolin 
----------------or--------------
-python katoolin.py
 
 #Usage
 - Just select the number of a tool to install it
@@ -29,10 +27,9 @@ Please visit https://github.com/LionSec/wifresti/issues
 
 #Contact
 
-
--Website : http://lionsec.net
--Youtube : https://youtube.com/inf98es
--Facebook : https://facebook.com/in98
--Twitter: @LionSec1
--Email : ledonman@gmail.com
+- Website : http://lionsec.net
+- Youtube : https://youtube.com/inf98es
+- Facebook : https://facebook.com/in98
+- Twitter: @LionSec1
+- Email : ledonman@gmail.com
 
