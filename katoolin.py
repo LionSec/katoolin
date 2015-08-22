@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import os
-import sys
 import sys, traceback
 
 def main():
