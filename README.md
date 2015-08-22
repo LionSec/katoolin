@@ -28,8 +28,8 @@ Automatically install all Kali linux tools
 Please visit https://github.com/LionSec/wifresti/issues
 
 #Donate
-Paypal : informatica98es@gmail.com
-skrill : informatica98es@gmail.com
+- Paypal : informatica98es@gmail.com
+- skrill : informatica98es@gmail.com
 
 
 #Contact
@@ -38,6 +38,6 @@ skrill : informatica98es@gmail.com
 - Youtube : https://youtube.com/inf98es
 - Facebook : https://facebook.com/in98
 - Twitter: @LionSec1
-- Email : 
+- Email : ledonman@gmail.com
 
 
