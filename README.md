@@ -4,7 +4,7 @@ Automatically install all Kali linux tools
 
 # Features
 - Add Kali linux repositories
-- Remove kali linux repositorie
+- Remove kali linux repositories
 - Install Kali linux tools
 
 # Requirements
