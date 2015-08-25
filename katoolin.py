@@ -1004,7 +1004,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "gohome":
 								inicio1()   
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y Armitage Backdoor-Factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn Linux-Exploit-Suggester Maltego-Teeth SET ShellNoob sqlmap THC-IPV6 Yersinia")						
+								cmd = os.system("apt-get install -y Binwalk bulk-extractor chntpw Cuckoo dc3dd ddrescue DFF Dumpzilla extundelete Foremost Galleta Guymager iPhone-Backup-Analyzer p0f pdf-parser pdfid pdgmail peepdf RegRipper Volatility Xplico")						
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "10":
