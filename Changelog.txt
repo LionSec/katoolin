@@ -1,3 +1,6 @@
+---------------------------------------------25 / 10 / 2015----------------------------------------------------
+Added control for superuser permission and sudo request
+
 ---------------------------------------------24 / 10 / 2015----------------------------------------------------
 Pulled tzikuri/master changes, apt-get remove --purge <packet>
 Added clear way to quit

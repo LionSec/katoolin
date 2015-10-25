@@ -4,6 +4,15 @@ import os
 import sys, traceback
 
 def main():
+
+	euid = os.geteuid()
+	if euid != 0:
+		print "Katoolin need root permission. Running sudo..."
+		args = ['sudo', sys.executable] + sys.argv + [os.environ]
+		os.execlpe('sudo', *args)
+	else
+		print "Katoolin is running as sudo"
+
 	try:
 		print '''
 
@@ -114,7 +123,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 \033[1;32mquit\033[1;m	\033[1;33mClose katoolin\033[1;m
 
 		'''
-				elif opcion0 == "0" :
+				elif opcion0 == "0" or opcion0 == "quit":
 					print 'Goodbye'
 					sys.exit(0)
 
