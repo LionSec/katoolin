@@ -10,7 +10,7 @@ def main():
 		print "Katoolin need root permission. Running sudo..."
 		args = ['sudo', sys.executable] + sys.argv + [os.environ]
 		os.execlpe('sudo', *args)
-	else
+	else:
 		print "Katoolin is running as sudo"
 
 	try:
