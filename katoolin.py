@@ -100,7 +100,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 						cmd1 = os.system("apt-get install kali-menu")
 				elif opcion0 == "5":
 					print ''' 
-****************** +Commands+ ****************** 
+****************** +Commands+ ******************
 
 
 \033[1;32mback\033[1;m 	\033[1;33mGo back\033[1;m
