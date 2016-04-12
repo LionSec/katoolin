@@ -2,6 +2,6 @@
 The problem of uppercases characters in the installation script has been solved .
 ---------------------------------------------12 / 04 / 2016----------------------------------------------------
 Removed non-working inguma from repos.
-Added -y to apt-get install calls to avoid the need to type Y or N to install packages (for automation purposes).
+Added -y to apt-get install calls to avoid the need to type Y or N to install packages.
 Fixed typos/inconsistencies in README.
 Tested on Debian Jessie.
