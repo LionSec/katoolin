@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=8VxCWVoZEEE
 
 # I have some questions!
 
-Please visit https://github.com/LionSec/wifresti/issues
+Please visit https://github.com/LionSec/katoolin/issues
 
 # Donations
 - Paypal : informatica98es@gmail.com
