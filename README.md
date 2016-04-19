@@ -35,7 +35,7 @@ After before updating your system , please remove all Kali-linux repositories to
 Please visit https://github.com/LionSec/katoolin/issues
 
 # Donations
-- Paypal : informatica98es@gmail.com
+- Paypal : https://www.paypal.me/lionsec
 - skrill : informatica98es@gmail.com
 
 
