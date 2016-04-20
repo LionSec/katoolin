@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=8VxCWVoZEEE
 - By installing armitage , you will install metasploit
 
 # Warning
-After before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
+Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
 
 # I have some questions!
 
