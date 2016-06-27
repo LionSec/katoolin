@@ -18,7 +18,7 @@ def main():
 
 
  \033[1;32m+ -- -- +=[ Author: LionSec | Homepage: www.lionsec.net\033[1;m
- \033[1;32m+ -- -- +=[ 330 Tools \033[1;m
+ \033[1;32m+ -- -- +=[ 331 Tools \033[1;m
 
 		'''
 		def inicio1():
@@ -307,23 +307,24 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							print '''
 \033[1;36m=+[ Vulnerability Analysis\033[1;m
 
- 1) BBQSQL				18) ohrwurm
- 2) BED					19) openvas-administrator
- 3) cisco-auditing-tool			20) openvas-cli
- 4) cisco-global-exploiter		21) openvas-manager
- 5) cisco-ocs				22) openvas-scanner
- 6) cisco-torch				23) Oscanner
- 7) copy-router-config			24) Powerfuzzer
- 8) DBPwAudit				25) sfuzz
- 9) Doona				26) SidGuesser
-10) DotDotPwn				27) SIPArmyKnife
-11) Greenbone Security Assistant	28) sqlmap
-12) GSD					29) Sqlninja
-13) HexorBase				30) sqlsus
-14) Inguma				31) THC-IPV6
-15) jSQL				32) tnscmd10g
-16) Lynis				33) unix-privesc-check
-17) Nmap				34) Yersinia
+ 1) BBQSQL				18) Nmap
+ 2) BED					19)ohrwurm
+ 3) cisco-auditing-tool			20) openvas-administrator
+ 4) cisco-global-exploiter		21) openvas-cli
+ 5) cisco-ocs				22) openvas-manager
+ 6) cisco-torch				23) openvas-scanner
+ 7) copy-router-config			24) Oscanner
+ 8) commix				25) Powerfuzzer
+ 9) DBPwAudit				26) sfuzz
+10) DoonaDot				27) SidGuesser
+11) DotPwn				28) SIPArmyKnife
+12) Greenbone Security Assistant 	29) sqlmap
+13) GSD					30) Sqlninja
+14) HexorBase				31) sqlsus
+15) Inguma				32) THC-IPV6
+16) jSQL				33) tnscmd10g
+17) Lynis				34) unix-privesc-check
+					35) Yersinia
 
 0) Install all Vulnerability Analysis tools
 				 
@@ -348,58 +349,60 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "7":
 								cmd = os.system("apt-get install copy-router-config")
 							elif opcion2 == "8":
-								cmd = os.system("echo 'download page : http://www.cqure.net/wp/tools/database/dbpwaudit/'")
+								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/commix.git")
 							elif opcion2 == "9":
-								cmd = os.system("apt-get install doona")
+								cmd = os.system("echo 'download page : http://www.cqure.net/wp/tools/database/dbpwaudit/'")
 							elif opcion2 == "10":
-								cmd = os.system("apt-get install dotdotpwn")
+								cmd = os.system("apt-get install doona")
 							elif opcion2 == "11":
-								cmd = os.system("apt-get install greenbone-security-assistant")
+								cmd = os.system("apt-get install dotdotpwn")
 							elif opcion2 == "12":
-								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/gsd.git")
+								cmd = os.system("apt-get install greenbone-security-assistant")
 							elif opcion2 == "13":
-								cmd = os.system("apt-get install hexorbase")
+								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/gsd.git")
 							elif opcion2 == "14":
-								print "Please download inguma from : http://inguma.sourceforge.net"
+								cmd = os.system("apt-get install hexorbase")
 							elif opcion2 == "15":
-								cmd = os.system("apt-get install jsql")
+								print "Please download inguma from : http://inguma.sourceforge.net"
 							elif opcion2 == "16":
-								cmd = os.system("apt-get install lynis")
+								cmd = os.system("apt-get install jsql")
 							elif opcion2 == "17":
-								cmd = os.system("apt-get install nmap")
+								cmd = os.system("apt-get install lynis")
 							elif opcion2 == "18":
-								cmd = os.system("apt-get install ohrwurm")
+								cmd = os.system("apt-get install nmap")
 							elif opcion2 == "19":
-								cmd = os.system("apt-get install openvas-administrator")
+								cmd = os.system("apt-get install ohrwurm")
 							elif opcion2 == "20":
-								cmd = os.system("apt-get install openvas-cli")
+								cmd = os.system("apt-get install openvas-administrator")
 							elif opcion2 == "21":
-								cmd = os.system("apt-get install openvas-manager")
+								cmd = os.system("apt-get install openvas-cli")
 							elif opcion2 == "22":
-								cmd = os.system("apt-get install openvas-scanner")
+								cmd = os.system("apt-get install openvas-manager")
 							elif opcion2 == "23":
-								cmd = os.system("apt-get install oscanner")
+								cmd = os.system("apt-get install openvas-scanner")
 							elif opcion2 == "24":
-								cmd = os.system("apt-get install powerfuzzer")
+								cmd = os.system("apt-get install oscanner")
 							elif opcion2 == "25":
-								cmd = os.system("apt-get install sfuzz")
+								cmd = os.system("apt-get install powerfuzzer")
 							elif opcion2 == "26":
-								cmd = os.system("apt-get install sidguesser")
+								cmd = os.system("apt-get install sfuzz")
 							elif opcion2 == "27":
-								cmd = os.system("apt-get install siparmyknife")
+								cmd = os.system("apt-get install sidguesser")
 							elif opcion2 == "28":
-								cmd = os.system("apt-get install sqlmap")
+								cmd = os.system("apt-get install siparmyknife")
 							elif opcion2 == "29":
-								cmd = os.system("apt-get install sqlninja")
+								cmd = os.system("apt-get install sqlmap")
 							elif opcion2 == "30":
-								cmd = os.system("apt-get install sqlsus")
+								cmd = os.system("apt-get install sqlninja")
 							elif opcion2 == "31":
-								cmd = os.system("apt-get install thc-ipv6")
+								cmd = os.system("apt-get install sqlsus")
 							elif opcion2 == "32":
-								cmd = os.system("apt-get install tnscmd10g")
+								cmd = os.system("apt-get install thc-ipv6")
 							elif opcion2 == "33":
-								cmd = os.system("apt-get install unix-privesc-check")
+								cmd = os.system("apt-get install tnscmd10g")
 							elif opcion2 == "34":
+								cmd = os.system("apt-get install unix-privesc-check")
+							elif opcion2 == "35":
 								cmd = os.system("apt-get install yersinia")
 							elif opcion2 == "back":
 								inicio()
@@ -512,26 +515,27 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							print '''
 \033[1;36m=+[ Web Applications\033[1;m
 
- 1) apache-users				21) plecost
- 2) Arachni					22) Powerfuzzer
- 3) BBQSQL					23) ProxyStrike
- 4) BlindElephant				24) Recon-ng
- 5) Burp Suite					25) Skipfish
- 6) CutyCapt					26) sqlmap
- 7) DAVTest					27) Sqlninja
- 8) deblaze					28) sqlsus
- 9) DIRB 					29) ua-tester
-10) DirBuster					30) Uniscan	
-11) fimap					31) Vega
-12) FunkLoad					32) w3af	 
-13) Grabber					33) WebScarab
-14) jboss-autopwn				34) Webshag
-15) joomscan					35) WebSlayer	
-16) jSQL					36) WebSploit
-17) Maltego Teeth 				37) Wfuzz
-18) PadBuster					38) WPScan
-19) Paros 					39) XSSer
-20) Parsero					40) zaproxy
+ 1) apache-users			21) Parsero
+ 2) Arachni				22) plecost
+ 3) BBQSQL				23) Powerfuzzer
+ 4) BlindElephant			24) ProxyStrike
+ 5) Burp Suite				25) Recon-ng
+ 6) commix				26) Skipfish
+ 7) CutyCapt				27) sqlmap
+ 8) DAVTest				28) Sqlninja
+ 9) deblaze				29) sqlsus
+10) DIRB				30) ua-tester
+11) DirBuster				31) Uniscan
+12) fimap				32) Vega
+13) FunkLoad				33) w3af
+14) Grabber				34) WebScarab
+15) jboss-autopwn			35) Webshag
+16) joomscan				36) WebSlayer
+17) jSQL				37) WebSploit
+18) Maltego Teeth			38) Wfuzz
+19) PadBuster				39) WPScan
+20) Paros				40) XSSer
+					41) zaproxy
 
 0) Install all Web Applications tools
 				 
@@ -555,72 +559,74 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "6":
 								cmd = os.system("apt-get install cutycapt")
 							elif opcion2 == "7":
-								cmd = os.system("apt-get install davtest")
+								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/commix.git")
 							elif opcion2 == "8":
-								cmd = os.system("apt-get install deblaze")
+								cmd = os.system("apt-get install davtest")
 							elif opcion2 == "9":
-								cmd = os.system("apt-get install dirb")
+								cmd = os.system("apt-get install deblaze")
 							elif opcion2 == "10":
-								cmd = os.system("apt-get install dirbuster")
+								cmd = os.system("apt-get install dirb")
 							elif opcion2 == "11":
-								cmd = os.system("apt-get install fimap")
+								cmd = os.system("apt-get install dirbuster")
 							elif opcion2 == "12":
-								cmd = os.system("apt-get install funkload")
+								cmd = os.system("apt-get install fimap")
 							elif opcion2 == "13":
-								cmd = os.system("apt-get install grabber")
+								cmd = os.system("apt-get install funkload")
 							elif opcion2 == "14":
-								cmd = os.system("apt-get install jboss-autopwn")
+								cmd = os.system("apt-get install grabber")
 							elif opcion2 == "15":
-								cmd = os.system("apt-get install joomscan")
+								cmd = os.system("apt-get install jboss-autopwn")
 							elif opcion2 == "16":
-								cmd = os.system("apt-get install jsql")
+								cmd = os.system("apt-get install joomscan")
 							elif opcion2 == "17":
-								cmd = os.system("apt-get install maltego-teeth")
+								cmd = os.system("apt-get install jsql")
 							elif opcion2 == "18":
-								cmd = os.system("apt-get install padbuster")
+								cmd = os.system("apt-get install maltego-teeth")
 							elif opcion2 == "19":
-								cmd = os.system("apt-get install paros")
+								cmd = os.system("apt-get install padbuster")
 							elif opcion2 == "20":
-								cmd = os.system("apt-get install parsero")
+								cmd = os.system("apt-get install paros")
 							elif opcion2 == "21":
-								cmd = os.system("apt-get install plecost")
+								cmd = os.system("apt-get install parsero")
 							elif opcion2 == "22":
-								cmd = os.system("apt-get install powerfuzzer")
+								cmd = os.system("apt-get install plecost")
 							elif opcion2 == "23":
-								cmd = os.system("apt-get install proxystrike")
+								cmd = os.system("apt-get install powerfuzzer")
 							elif opcion2 == "24":
-								cmd = os.system("apt-get install recon-ng")
+								cmd = os.system("apt-get install proxystrike")
 							elif opcion2 == "25":
-								cmd = os.system("apt-get install skipfish")
+								cmd = os.system("apt-get install recon-ng")
 							elif opcion2 == "26":
-								cmd = os.system("apt-get install sqlmap")
+								cmd = os.system("apt-get install skipfish")
 							elif opcion2 == "27":
-								cmd = os.system("apt-get install sqlninja")
+								cmd = os.system("apt-get install sqlmap")
 							elif opcion2 == "28":
-								cmd = os.system("apt-get install sqlsus")
+								cmd = os.system("apt-get install sqlninja")
 							elif opcion2 == "29":
-								cmd = os.system("apt-get install ua-tester")
+								cmd = os.system("apt-get install sqlsus")
 							elif opcion2 == "30":
-								cmd = os.system("apt-get install uniscan")
+								cmd = os.system("apt-get install ua-tester")
 							elif opcion2 == "31":
-								cmd = os.system("apt-get install vega")
+								cmd = os.system("apt-get install uniscan")
 							elif opcion2 == "32":
-								cmd = os.system("apt-get install w3af")
+								cmd = os.system("apt-get install vega")
 							elif opcion2 == "33":
-								cmd = os.system("apt-get install webscarab")
+								cmd = os.system("apt-get install w3af")
 							elif opcion2 == "34":
-								cmd = os.system("apt-get install webshag")
+								cmd = os.system("apt-get install webscarab")
 							elif opcion2 == "35":
-								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/webslayer.git")
+								cmd = os.system("apt-get install webshag")
 							elif opcion2 == "36":
-								cmd = os.system("apt-get install websploit")
+								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/webslayer.git")
 							elif opcion2 == "37":
-								cmd = os.system("apt-get install wfuzz")
+								cmd = os.system("apt-get install websploit")
 							elif opcion2 == "38":
-								cmd = os.system("apt-get install wpscan")
+								cmd = os.system("apt-get install wfuzz")
 							elif opcion2 == "39":
-								cmd = os.system("apt-get install xsser")
+								cmd = os.system("apt-get install wpscan")
 							elif opcion2 == "40":
+								cmd = os.system("apt-get install xsser")
+							elif opcion2 == "41":
 								cmd = os.system("apt-get install zaproxy")										
 							elif opcion2 == "back":
 								inicio()
@@ -845,7 +851,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 								cmd = os.system("apt-get install pipal")
 							elif opcion2 == "back":
 								inicio()
-		 					elif opcion2 == "gohome":
+							elif opcion2 == "gohome":
 								inicio1()   
 							elif opcion2 == "0":
 								cmd = os.system("apt-get install -y casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal")  
@@ -863,15 +869,16 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  5) cisco-global-exploiter	
  6) cisco-ocs
  7) cisco-torch
- 8) crackle
- 9) jboss-autopwn
-10) Linux Exploit Suggester
-11) Maltego Teeth
-12) SET
-13) ShellNoob
-14) sqlmap
-15) THC-IPV6
-16) Yersinia
+ 8) commix
+ 9) crackle
+10) jboss-autopwn
+11) Linux Exploit Suggester
+12) Maltego Teeth
+13) SET
+14) ShellNoob
+15) sqlmap
+16) THC-IPV6
+17) Yersinia
 
 0) Install all Exploitation Tools
 				 
@@ -896,22 +903,24 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "7":
 								cmd = os.system("apt-get install cisco-torch")
 							elif opcion2 == "8":
-								cmd = os.system("apt-get install crackle")
+								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/commix.git")
 							elif opcion2 == "9":
-								cmd = os.system("apt-get install jboss-autopwn")
+								cmd = os.system("apt-get install crackle")
 							elif opcion2 == "10":
-								cmd = os.system("apt-get install linux-exploit-suggester")
+								cmd = os.system("apt-get install jboss-autopwn")
 							elif opcion2 == "11":
-								cmd = os.system("apt-get install maltego-teeth")
+								cmd = os.system("apt-get install linux-exploit-suggester")
 							elif opcion2 == "12":
-								cmd = os.system("apt-get install set")
+								cmd = os.system("apt-get install maltego-teeth")
 							elif opcion2 == "13":
-								cmd = os.system("apt-get install shellnoob")
+								cmd = os.system("apt-get install set")
 							elif opcion2 == "14":
-								cmd = os.system("apt-get install sqlmap")
+								cmd = os.system("apt-get install shellnoob")
 							elif opcion2 == "15":
-								cmd = os.system("apt-get install thc-ipv6")
+								cmd = os.system("apt-get install sqlmap")
 							elif opcion2 == "16":
+								cmd = os.system("apt-get install thc-ipv6")
+							elif opcion2 == "17":
 								cmd = os.system("apt-get install yersinia")
 							elif opcion2 == "back":
 								inicio()
@@ -936,9 +945,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  8) DFF					18) pdfid
  9) diStorm3				19) pdgmail
 10) Dumpzilla				20) peepdf
-             				21) RegRipper
-             				22) Volatility
-             				23) Xplico
+					21) RegRipper
+					22) Volatility
+					23) Xplico
 
 0) Install all Forensics Tools
 				 
