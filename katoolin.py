@@ -349,7 +349,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "7":
 								cmd = os.system("apt-get install copy-router-config")
 							elif opcion2 == "8":
-								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && python commix/commix.py --install")
+								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install")
 							elif opcion2 == "9":
 								cmd = os.system("echo 'download page : http://www.cqure.net/wp/tools/database/dbpwaudit/'")
 							elif opcion2 == "10":
@@ -559,7 +559,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "6":
 								cmd = os.system("apt-get install cutycapt")
 							elif opcion2 == "7":
-								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && python commix/commix.py --install")
+								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install")
 							elif opcion2 == "8":
 								cmd = os.system("apt-get install davtest")
 							elif opcion2 == "9":
@@ -903,7 +903,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "7":
 								cmd = os.system("apt-get install cisco-torch")
 							elif opcion2 == "8":
-								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && python commix/commix.py --install")
+								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install")
 							elif opcion2 == "9":
 								cmd = os.system("apt-get install crackle")
 							elif opcion2 == "10":
