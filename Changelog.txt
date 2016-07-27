@@ -5,3 +5,11 @@ The problem of uppercases characters in the installation script has been solved 
 ---------------------------------------------19 / 04 / 2016----------------------------------------------------
 
 Removed Inguma from the menu to bypass issue with installation (By Jayson Grace : https://github.com/l50)
+
+---------------------------------------------27 / 08 / 2016----------------------------------------------------
+Katoolin v1.1
+fixed : Dependencies error for webshag and regripper , sqldic , ntop.
+fixed : #27
+fixed : #28
+fixed : #21
+fixed : #9
