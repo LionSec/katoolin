@@ -138,7 +138,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                             for kt in kalitool:
                                     if not cmd0 = os.system("apt-get -f install %s" % kt):
                                             print ("Install the kali-tool: %s failed" % kt)
-                            cmd = os.system("wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/") 
+                            cmd = os.system("wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")
                         while opcion1 == "1":
                             print ('''
 \033[1;36m=+[ Information Gathering\033[1;m
