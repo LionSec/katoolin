@@ -364,7 +364,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                             elif opcion2 == "14":
                                 cmd = os.system("apt-get install hexorbase")
                             elif opcion2 == "15":
-                                print ("Please download inguma from : http://inguma.sourceforge.net")
+                                print ('Please download inguma from : http://inguma.sourceforge.net')
                             elif opcion2 == "16":
                                 cmd = os.system("apt-get install jsql")
                             elif opcion2 == "17":
@@ -615,7 +615,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                             elif opcion2 == "34":
                                 cmd = os.system("apt-get install webscarab")
                             elif opcion2 == "35":
-                                print ("Webshag is unavailable")
+                                print ('Webshag is unavailable')
                             elif opcion2 == "36":
                                 cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/webslayer.git")
                             elif opcion2 == "37":
@@ -1125,7 +1125,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                             elif opcion2 == "13":
                                 cmd = os.system("apt-get install hexorbase")
                             elif opcion2 == "14":
-                                cmd = os.system("echo 'please visit : https://www.thc.org/thc-hydra/' ")
+                                cmd = os.system('please visit : https://www.thc.org/thc-hydra/ and install')
                             elif opcion2 == "15":
                                 cmd = os.system("apt-get install john")
                             elif opcion2 == "16":
@@ -1147,7 +1147,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                             elif opcion2 == "24":
                                 cmd = os.system("apt-get install patator")
                             elif opcion2 == "25":
-                                cmd = os.system("echo 'please visit : http://www.leidecker.info/projects/phrasendrescher/index.shtml' ")
+                                cmd = os.system('please visit : http://www.leidecker.info/projects/phrasendrescher/index.shtml and install')
                             elif opcion2 == "26":
                                 cmd = os.system("apt-get install polenum")
                             elif opcion2 == "27":
@@ -1157,7 +1157,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                             elif opcion2 == "29":
                                 cmd = os.system("apt-get install rsmangler")
                             elif opcion2 == "30":
-                                print ("Sqldict is unavailable")
+                                print ('Sqldict is unavailable')
                             elif opcion2 == "31":
                                 cmd = os.system("apt-get install statsprocessor")
                             elif opcion2 == "32":
@@ -1293,7 +1293,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
                 inicio()
         inicio1()
     except KeyboardInterrupt:
-        print ("Shutdown requested...Goodbye...")
+        print ("\033[1;36mShutdown requested...Goodbye...\033[1;m")
     except Exception:
         traceback.print_exc(file=sys.stdout)
     sys.exit(0)
