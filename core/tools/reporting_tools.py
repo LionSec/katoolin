@@ -2,56 +2,44 @@
 # -*- coding: utf-8 -*-
 
 import os,sys
-
-#colors
-green = "\033[1;32m"
-red = "\033[1;31m"
-reset = "\033[0m"
-yellow = "\033[33m"
+from core.tools import load
 
 class category_element(object):
-
-	def __init__(self):
-		self.title = "--=[Reporting Tools:"
 
 	def set_agv(self, argv):
 		self.argv = argv
 
 	def main(self, name):
 		name = name.replace('core/tools/', "")
-		self.view_tools()
+		self.view_tools(name)
 		action = False
 		while action == False:
 			try:
-				option = raw_input("--=[kat(%s%s%s)› " %(yellow,name,reset))
+				option = raw_input(load.input(name))
 			except KeyboardInterrupt:
-				print "Closing, bye! - Kalitools"
+				os.system('clear')
+				break
 			try:
 				if option == "back":
 					break
 				elif option == "clear":
 					os.system('clear')
 				elif option == "help":
-					print """ Help
-	 <option>	Select option
-	 back		Go back
-	 view 		See list of tools
-	 clear		Clean screen
-					"""
+					load.help()
 				elif option == "view":
-					self.view_tools()
+					self.view_tools(name)
 				elif int(option) in range(1,10):
 					self.install(option)
 				elif option == "99":
 					self.install(option)
 				else:
-					print red+"Sorry, that was an invalid command!"+reset
+					load.error()
 			except ValueError:
 				pass
-				
-	def view_tools(self):
+			
+	def view_tools(self,name):
 		os.system('clear')
-		print green+self.title+reset
+		load.title(name)
 		print """
 	1) CaseFile
 	2) CutyCapt
@@ -63,7 +51,7 @@ class category_element(object):
 	8) Nipper-ng
 	9) pipal \n
 	99) ALL\n
-%sInsert the number of the tool to install it%s""" %(green,reset)
+%sInsert the number of the tool to install it%s""" %(gload.Green,load.Reset)
 	
 	def install(self, option):
 		if option == "1":

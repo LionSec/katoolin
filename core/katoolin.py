@@ -4,6 +4,9 @@
 import sys,os
 from core import mechanism,menu
 
+cyan = "\033[1;36m"
+reset = "\033[0m"
+
 def user_put():
 	os.system('clear')
 	mechanism.banner()
@@ -11,7 +14,7 @@ def user_put():
 	mechanism.options()
 	while action == False:
 		try:
-			user_input = raw_input("--=[kat› ")
+			user_input = raw_input("%skat›%s " %(cyan,reset))
 		except KeyboardInterrupt:
 			print "Closing, bye! - Kalitools"
 			sys.exit()

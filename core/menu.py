@@ -9,10 +9,10 @@ menu_list = {
 	"options":"options",
     "update":"update_katoolin",
 	"clear":"clear_screen",
-	"version":"banner"
+	"version":"banner",
 	"1":"view_categories",
 	"2":"classicmenu",
-	"3":"kalimenu"
+	"3":"kalimenu",
 }
 
 categories = {
@@ -29,5 +29,5 @@ categories = {
 		"11":"password_attacks",
 		"12":"reverse_engineering",
 		"13":"hardware_hacking",
-		"14":"extra"
+		"14":"extra",
 }

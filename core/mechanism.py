@@ -41,12 +41,10 @@ def exit_katoolin():
 	sys.exit()
 
 def show_help():
-	print """ Help katoolin\n
- quit		exit katoolin
+	print """ quit		exit katoolin
  clear 		clear screen
  update 	update katoolin
- options	See options
- """
+ options	See options"""
 
 def update_katoolin():
 	try:
@@ -95,7 +93,7 @@ def view_categories():
 	action = False
 	while action == False:
 		try:
-			option = raw_input("--=[kat(%scategories%s)› " %(yellow,reset))
+			option = raw_input("%skat(%scategories%s)›%s " %(cyan,reset,cyan,reset))
 		except:
 			pass
 		if option == "back":
@@ -112,13 +110,11 @@ def view_categories():
 		elif option == "view":
 			view_categories()
 		elif option == "help":
-				print """ Help
- <option>	Select option
+				print """ <option>	Select option
  back		Go back
  quit		Exit Katoolin
  view 		View categories
- clear		Clean screen
- """
+ clear		Clean screen"""
 
 def load_category(name):
 	name = "core/tools/" + name + ".py"
