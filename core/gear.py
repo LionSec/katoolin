@@ -26,9 +26,9 @@ def load(action):
 	globals()[action]()
 
 def show_categories():
-	print "Categories:\n"
+	print "\n%s:: Categories:%s\n" %(green, reset)
 	for name in categories.items():
-		category = name[1][0][0]
+		category = name[1][0]
 		category = category.replace('_', ' ')
 		category = category.title()
 		if name[0]%2 != 0:
@@ -40,17 +40,17 @@ def show_categories():
 def load_category(key):
 	if int(key) in categories.keys():
 		os.system('clear')
-		category = categories[int(key)][0][0]
+		category = categories[int(key)][0]
 		category = category.replace('_', ' ')
 		category = category.title()
-		print ":: " + category + "\n"
+		print green + ":: " + category + reset + "\n"
 		show_tools(categories[int(key)][1])
 		tools = categories[int(key)][1]
-		site = categories[int(key)][0][0]
+		site = categories[int(key)][0]
 		action = False
 		while action == False:
 			try:
-				option = raw_input(": katoolin (%s) > " %(site))
+				option = raw_input(": katoolin (%s%s%s) > " %(yellow, site, reset))
 			except KeyboardInterrupt:
 				delete_repository()
 				print "..."; break
@@ -121,9 +121,10 @@ def add_key():
 
 def banner():
 	version = "v1.3b"
+	tools = num_tools()
 	options = """
  1) View Categories
- 2) Update Kalitools
+ 2) Update Katoolin
  3) Help
 
  4) Exit
@@ -136,7 +137,10 @@ def banner():
  $$  $$<    $$$$$$$ |  %sKali linux tools installer%s |$$ |$$ |$$ |  $$ |%s
  $$ |\$$\  $$  __$$ |  $$ |$$\ $$ |  $$ |$$ |  $$ |$$ |$$ |$$ |  $$ |
  $$ | \$$\ \$$$$$$$ |  \$$$$  |\$$$$$$  |\$$$$$$  |$$ |$$ |$$ |  $$ |
- \__|  \__| \_______|   \____/  \______/  \______/ \__|\__|\__|  \__| %s%s""" %(cyan,reset,cyan,version,reset)
+ \__|  \__| \_______|   \____/  \______/  \______/ \__|\__|\__|  \__| %s%s
+
+ %s+ -- -- +=[ Original project: https://github.com/LionSec/katoolin | LionSec
+ + -- -- +=[ %s Tools%s""" %(cyan,reset,cyan,version,reset,green,tools,reset)
  	print options
 
 def update():
@@ -169,3 +173,10 @@ def clean_screen():
 def exit():
 	print "\nClosing, bye! - katoolin"
 	sys.exit()
+
+def num_tools():
+	num = 0
+	for name in categories.items():
+		tools = name[1][1]
+		num+= len(tools)
+	return num
