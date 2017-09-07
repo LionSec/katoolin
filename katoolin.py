@@ -18,8 +18,9 @@ def user_put():
 			gear.load(gear.menu_list[user_input])
 		elif "=" in user_input:
 			user_input = user_input.split('=')
-			if "load" == user_input[0]:
-				gear.load_category(user_input[1])
+			if user_input[0] in gear.menu_list_set:
+				gear.load(gear.menu_list_set[user_input[0]], user_input[1])
+				#gear.load(gear.menu_list_set[user_input[1]])
 
 if __name__ == '__main__':
 	user_put()

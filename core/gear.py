@@ -12,18 +12,27 @@ reset = "\033[0m"
 menu_list = {
 	"1":"show_categories",
 	"2":"update",
-	"3":"help",
-	"4":"exit",
+	"3":"add_new_list",
+	"4":"help",
+	"5":"exit",
 	"show":"show_categories",
 	"clear":"clean_screen",
 	"update":"update",
 	"help":"help",
 	"exit":"exit",
-	"load":"load_category"
+	
 }
 
-def load(action):
-	globals()[action]()
+menu_list_set = {
+	"load":"load_category",
+	"search":"search_tool"
+}
+
+def load(fuction, param=False):
+	if param == False:
+		globals()[fuction]()
+	else:
+		globals()[fuction](param)
 
 def show_categories():
 	print "\n%s:: Categories:%s\n" %(green, reset)
@@ -78,6 +87,20 @@ def load_category(key):
 	else:
 		print red + "E: The command is invalid!" + reset
 
+def add_new_list():
+	print "Hello"
+
+def search_tool(tool):
+	print ": Find " + yellow + tool + reset
+	print ": Available in:"
+	for lists in categories.items():
+		tools = lists[1][1]
+		category = lists[1][0]
+		category = category.replace('_', ' ')
+		category = category.title()
+		if tool in tools:
+			print " [%s+%s] %s" %(green, reset, category)
+
 def show_tools(tools):
 	for tool in enumerate(tools):
 		if tool[0]%2 == 0:
@@ -125,9 +148,10 @@ def banner():
 	options = """
  1) View Categories
  2) Update Katoolin
- 3) Help
+ 3) Create New Category
+ 4) Help
 
- 4) Exit
+ 5) Exit
 	"""
 	print """
  $$\   $$\             $$\                         $$\ $$\           
