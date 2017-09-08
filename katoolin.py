@@ -20,7 +20,6 @@ def user_put():
 			user_input = user_input.split('=')
 			if user_input[0] in gear.menu_list_set:
 				gear.load(gear.menu_list_set[user_input[0]], user_input[1])
-				#gear.load(gear.menu_list_set[user_input[1]])
 
 if __name__ == '__main__':
 	user_put()

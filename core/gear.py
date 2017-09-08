@@ -9,6 +9,7 @@ yellow = "\033[33m"
 cyan = "\033[1;36m"
 reset = "\033[0m"
 
+# option menu
 menu_list = {
 	"1":"show_categories",
 	"2":"update",
@@ -27,12 +28,18 @@ menu_list_set = {
 }
 
 def load(fuction, param=False):
+	"""
+	If the function exists, it is loaded
+	"""
 	if param == False:
 		globals()[fuction]()
 	else:
 		globals()[fuction](param)
 
 def show_categories():
+	"""
+	Displays the categories available in the 'categories' dictionary of the core/categories.py file
+	"""
 	print "\n%s:: Categories:%s\n" %(green, reset)
 	for name in categories.items():
 		category = name[1][0]
@@ -44,6 +51,9 @@ def show_categories():
 	print " "
 
 def load_category(key):
+	"""
+	When loading a category you can install one or more tools of that category
+	"""
 	if int(key) in categories.keys():
 		os.system('clear')
 		category = categories[int(key)][0]
@@ -84,6 +94,9 @@ def load_category(key):
 		print red + "E: The command is invalid!" + reset
 
 def search_tool(tool):
+	"""
+	Shows in which category the tool you are looking for is available
+	"""
 	print ": Find " + yellow + tool + reset
 	print ": Available in:"
 	for lists in categories.items():
@@ -94,6 +107,9 @@ def search_tool(tool):
 			print " [%s+%s] %s" %(green, reset, category)
 
 def show_tools(tools):
+	"""
+	Show all tools in the loaded category
+	"""
 	for tool in enumerate(tools):
 		if tool[0]%2 == 0:
 			print " "+str(tool[0]+1).rjust(2) + ")", tool[1].ljust(23)[:23],
@@ -102,6 +118,9 @@ def show_tools(tools):
 	print "\n 99) ALL"
 
 def add_repository():
+	"""
+	The Kali Linux repository is added in '/etc/apt/sources.list.d /'
+	"""
 	if os.path.exists("/etc/apt/sources.list.d/katoolin.list"):
 		add_key()
 	else:
@@ -116,12 +135,18 @@ def add_repository():
 			sys.exit()
 
 def delete_repository():
+	"""
+	The Kali Linux repository is removed from '/etc/apt/sources.list.d/'
+	"""
 	repository = "/etc/apt/sources.list.d/katoolin.list"
 	if os.path.exists(repository):
 		os.remove(repository)
 		print green + "\n[+] Repository deleted\n" + reset
 
 def add_key():
+	"""
+	Repository keyserver is added
+	"""
 	tmp_key = "/tmp/key_katoolin.txt"
 	if os.path.exists(tmp_key):
 		pass
@@ -159,6 +184,9 @@ def banner():
  	print options
 
 def update():
+	"""
+	Update 'katoolin' with: git pull
+	"""
  	try:
 		os.system('git pull')
 		print  yellow + "W: Please restart katoolin" + reset
@@ -166,6 +194,9 @@ def update():
 		print red + "E: can't start update please use <git pull>"+reset
 
 def help(x=False):
+	"""
+	Displays tool help
+	"""
 	if x != True:
 		print """: load=<category>   Load category
 : search=<tool>     Find tool
@@ -191,6 +222,9 @@ def exit():
 	sys.exit()
 
 def num_tools():
+	"""
+	Obtains the number of tools available
+	"""
 	num = 0
 	for name in categories.items():
 		tools = name[1][1]
