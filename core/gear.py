@@ -19,7 +19,6 @@ menu_list = {
 	"update":"update",
 	"help":"help",
 	"exit":"exit",
-	
 }
 
 menu_list_set = {
@@ -37,8 +36,7 @@ def show_categories():
 	print "\n%s:: Categories:%s\n" %(green, reset)
 	for name in categories.items():
 		category = name[1][0]
-		category = category.replace('_', ' ')
-		category = category.title()
+		category = format(category)
 		if name[0]%2 != 0:
 			print " "+str(name[0]).rjust(2) + ")", category.ljust(23)[:23],
 		else:
@@ -49,8 +47,7 @@ def load_category(key):
 	if int(key) in categories.keys():
 		os.system('clear')
 		category = categories[int(key)][0]
-		category = category.replace('_', ' ')
-		category = category.title()
+		category = format(category)
 		print green + ":: " + category + reset + "\n"
 		show_tools(categories[int(key)][1])
 		tools = categories[int(key)][1]
@@ -92,8 +89,7 @@ def search_tool(tool):
 	for lists in categories.items():
 		tools = lists[1][1]
 		category = lists[1][0]
-		category = category.replace('_', ' ')
-		category = category.title()
+		category = format(category)
 		if tool in tools:
 			print " [%s+%s] %s" %(green, reset, category)
 
@@ -172,7 +168,7 @@ def update():
 def help(x=False):
 	if x != True:
 		print """: load=<category>   Load category
-: search=<tool>		Find tool
+: search=<tool>     Find tool
 : clear             Clean screen  
 : 1, show           Show categories
 : 2, update         Update katoolin (git pull)
@@ -200,3 +196,8 @@ def num_tools():
 		tools = name[1][1]
 		num+= len(tools)
 	return num
+
+def format(category):
+	category = category.replace('_', ' ')
+	category = category.title()
+	return category
