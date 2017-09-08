@@ -12,9 +12,8 @@ reset = "\033[0m"
 menu_list = {
 	"1":"show_categories",
 	"2":"update",
-	"3":"add_new_list",
-	"4":"help",
-	"5":"exit",
+	"3":"help",
+	"4":"exit",
 	"show":"show_categories",
 	"clear":"clean_screen",
 	"update":"update",
@@ -87,9 +86,6 @@ def load_category(key):
 	else:
 		print red + "E: The command is invalid!" + reset
 
-def add_new_list():
-	print "Hello"
-
 def search_tool(tool):
 	print ": Find " + yellow + tool + reset
 	print ": Available in:"
@@ -148,10 +144,9 @@ def banner():
 	options = """
  1) View Categories
  2) Update Katoolin
- 3) Create New Category
- 4) Help
+ 3) Help
 
- 5) Exit
+ 4) Exit
 	"""
 	print """
  $$\   $$\             $$\                         $$\ $$\           
@@ -177,6 +172,7 @@ def update():
 def help(x=False):
 	if x != True:
 		print """: load=<category>   Load category
+: search=<tool>		Find tool
 : clear             Clean screen  
 : 1, show           Show categories
 : 2, update         Update katoolin (git pull)
