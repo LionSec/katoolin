@@ -1,21 +1,3 @@
-# Katoolin
-Automatically install all Kali Linux tools.
-+ Original project: [katoolin](https://github.com/LionSec/katoolin)
-+ [Demo](https://youtu.be/suEOFVsUXO8)
-
-## Features:
-- Automatically add and remove the Kali Linux repository,
-- Install Kali Linux tools,
-- Create my own list of tools:
- ```bash
- #example:
- #katoolin/core/categories.py
-
- 15:[['My_tools'],
- ['bettercap', 'nmap', 'x']]
-``` 
-
-
 ![katoolin](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
 # katoolin
 Automatically install all Kali linux tools
