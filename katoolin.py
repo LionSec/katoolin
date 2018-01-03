@@ -553,9 +553,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "5":
 								cmd = os.system("apt-get install burpsuite")
 							elif opcion2 == "6":
-								cmd = os.system("apt-get install cutycapt")
-							elif opcion2 == "7":
 								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install")
+							elif opcion2 == "7":
+								cmd = os.system("apt-get install cutycapt")
 							elif opcion2 == "8":
 								cmd = os.system("apt-get install davtest")
 							elif opcion2 == "9":
