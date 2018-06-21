@@ -3,6 +3,10 @@
 import os
 import sys, traceback
 
+if os.geteuid() != 0:
+	print ("\033[1;91mThis program must be run as root. Aborting.\033[1;m")
+	sys.exit(1)
+
 def main():
 	try:
 		print ('''
@@ -46,7 +50,23 @@ def main():
 					''')
 					repo = raw_input("\033[1;32mWhat do you want to do ?> \033[1;m")
 					if repo == "1":
-						cmd1 = os.system("apt-key adv --keyserver pgp.mit.edu --recv-keys ED444FF07D8D0BF6")
+						if not os.path.exists("/usr/bin/dirmngr"):
+							print ("\033[1;91mDirmngr is not installed, installing first\033[1;m")
+							os.system("apt update")
+							os.system("apt install dirmngr -y")
+						print ('''
+1) MIT
+2) USTC
+When one of them doesn't work, you should remove all kali linux repositories first and use another PGP key server.
+						''')
+						serverid = raw_input("\033[1;32mWhich PGP key server do you want to use ?> \033[1;m")						
+						if serverid == "1":
+							cmd1 = os.system("apt-key adv --keyserver pgp.mit.edu --recv-keys ED444FF07D8D0BF6")
+						elif serverid == "2":
+							cmd1 = os.system("apt-key adv --keyserver pgp.ustc.edu.cn --recv-keys ED444FF07D8D0BF6")
+						else:
+							print ("\033[1;31mSorry, that was an invalid command! Using USTC PGP key server.\033[1;m")
+							cmd1 = os.system("apt-key adv --keyserver pgp.ustc.edu.cn --recv-keys ED444FF07D8D0BF6")
 						cmd2 = os.system("echo '# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list")
 					elif repo == "2":
 						cmd3 = os.system("apt-get update -m")
@@ -872,6 +892,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 15) sqlmap
 16) THC-IPV6
 17) Yersinia
+18) Metasploit-framework
 
 0) Install all Exploitation Tools
 				 
@@ -914,6 +935,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 								cmd = os.system("apt-get install thc-ipv6")
 							elif opcion2 == "17":
 								cmd = os.system("apt-get install yersinia")
+							elif opcion2 == "18":
+                                                                cmd = os.system("apt-get install metasploit-framework")
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
