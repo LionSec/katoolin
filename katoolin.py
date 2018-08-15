@@ -134,168 +134,165 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 						elif opcion1 == "gohome":
 							inicio1()
 						elif opcion1 == "0":
-							cmd = os.system("apt-get -f install acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")	
+							cmd = os.system("apt-get -f install ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega webscarab websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")	
 						while opcion1 == "1":
 							print ('''
 \033[1;36m=+[ Information Gathering\033[1;m
 
- 1) acccheck					30) lbd
- 2) ace-voip					31) Maltego Teeth
- 3) Amap					32) masscan
- 4) Automater					33) Metagoofil
- 5) bing-ip2hosts				34) Miranda
- 6) braa					35) Nmap
- 7) CaseFile					36) ntop
- 8) CDPSnarf					37) p0f
- 9) cisco-torch					38) Parsero
-10) Cookie Cadger				39) Recon-ng
-11) copy-router-config				40) SET
-12) DMitry					41) smtp-user-enum
-13) dnmap					42) snmpcheck
-14) dnsenum					43) sslcaudit
-15) dnsmap					44) SSLsplit
-16) DNSRecon					45) sslstrip
-17) dnstracer					46) SSLyze
-18) dnswalk					47) THC-IPV6
-19) DotDotPwn					48) theHarvester
-20) enum4linux					49) TLSSLed
-21) enumIAX					50) twofi
-22) exploitdb					51) URLCrazy
-23) Fierce					52) Wireshark
-24) Firewalk					53) WOL-E
-25) fragroute					54) Xplico
-26) fragrouter					55) iSMTP
-27) Ghost Phisher				56) InTrace
-28) GoLismero					57) hping3
-29) goofile
+ 1) ace-voip			30) Maltego Teeth
+ 2) Amap			31) masscan
+ 3) Automater			32) Metagoofil
+ 4) bing-ip2hosts		33) Miranda
+ 5) braa			34) Nmap
+ 6) CaseFile			35) ntop
+ 7) CDPSnarf			36) p0f
+ 8) cisco-torch			37) Parsero
+ 9) Cookie Cadger		38) Recon-ng
+10) copy-router-config		39) SET
+11) DMitry			40) smtp-user-enum
+12) dnmap			41) snmpcheck
+13) dnsenum			42) sslcaudit
+14) dnsmap			43) SSLsplit
+15) DNSRecon			44) sslstrip
+16) dnstracer			45) SSLyze
+17) dnswalk			46) THC-IPV6
+18) DotDotPwn			47) theHarvester
+19) enum4linux			48) TLSSLed
+20) enumIAX			49) twofi
+21) exploitdb			50) URLCrazy
+22) Fierce			51) Wireshark
+23) Firewalk			52) WOL-E
+24) fragroute			53) Xplico
+25) fragrouter			54) iSMTP
+26) Ghost Phisher		55) InTrace
+27) GoLismero			56) hping3
+28) goofile					
+29) lbd
 
 0) Install all Information Gathering tools
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
 							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+
 							if opcion2 == "1":
-								cmd = os.system("apt-get install acccheck")
-
-							elif opcion2 == "2":
 								cmd = os.system("apt-get install ace-voip")
-
-							elif opcion2 == "3":
+							elif opcion2 == "2":
 								cmd = os.system("apt-get install amap")
-							elif opcion2 == "4":
+							elif opcion2 == "3":
 								cmd = os.system("apt-get install automater")
-							elif opcion2 == "5":
+							elif opcion2 == "4":
 								cmd = os.system("wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")
-							elif opcion2 == "6":
+							elif opcion2 == "5":
 								cmd = os.system("apt-get install braa")
-							elif opcion2 == "7":
+							elif opcion2 == "6":
 								cmd = os.system("apt-get install casefile")
-							elif opcion2 == "8":
+							elif opcion2 == "7":
 								cmd = os.system("apt-get install cdpsnarf")
-							elif opcion2 == "9":
+							elif opcion2 == "8":
 								cmd = os.system("apt-get install cisco-torch")
-							elif opcion2 == "10":
+							elif opcion2 == "9":
 								cmd = os.system("apt-get install cookie-cadger")
-							elif opcion2 == "11":
+							elif opcion2 == "10":
 								cmd = os.system("apt-get install copy-router-config")
-							elif opcion2 == "12":
+							elif opcion2 == "11":
 								cmd = os.system("apt-get install dmitry")
-							elif opcion2 == "13":
+							elif opcion2 == "12":
 								cmd = os.system("apt-get install dnmap")
-							elif opcion2 == "14":
+							elif opcion2 == "13":
 								cmd = os.system("apt-get install dnsenum")
-							elif opcion2 == "15":
+							elif opcion2 == "14":
 								cmd = os.system("apt-get install dnsmap")
-							elif opcion2 == "16":
+							elif opcion2 == "15":
 								cmd = os.system("apt-get install dnsrecon")
-							elif opcion2 == "17":
+							elif opcion2 == "16":
 								cmd = os.system("apt-get install dnstracer")
-							elif opcion2 == "18":
+							elif opcion2 == "17":
 								cmd = os.system("apt-get install dnswalk")
-							elif opcion2 == "19":
+							elif opcion2 == "18":
 								cmd = os.system("apt-get install dotdotpwn")
-							elif opcion2 == "20":
+							elif opcion2 == "19":
 								cmd = os.system("apt-get install enum4linux")
-							elif opcion2 == "21":
+							elif opcion2 == "20":
 								cmd = os.system("apt-get install enumiax")
-							elif opcion2 == "22":
+							elif opcion2 == "21":
 								cmd = os.system("apt-get install exploitdb")
-							elif opcion2 == "23":
+							elif opcion2 == "22":
 								cmd = os.system("apt-get install fierce")
-							elif opcion2 == "24":
+							elif opcion2 == "23":
 								cmd = os.system("apt-get install firewalk")
-							elif opcion2 == "25":
+							elif opcion2 == "24":
 								cmd = os.system("apt-get install fragroute")
-							elif opcion2 == "26":
+							elif opcion2 == "25":
 								cmd = os.system("apt-get install fragrouter")
-							elif opcion2 == "27":
+							elif opcion2 == "26":
 								cmd = os.system("apt-get install ghost-phisher")
-							elif opcion2 == "28":
+							elif opcion2 == "27":
 								cmd = os.system("apt-get install golismero")
-							elif opcion2 == "29":
+							elif opcion2 == "28":
 								cmd = os.system("apt-get install goofile")
-							elif opcion2 == "30":
+							elif opcion2 == "29":
 								cmd = os.system("apt-get install lbd")
-							elif opcion2 == "31":
+							elif opcion2 == "30":
 								cmd = os.system("apt-get install maltego-teeth")
-							elif opcion2 == "32":
+							elif opcion2 == "31":
 								cmd = os.system("apt-get install masscan")
-							elif opcion2 == "33":
+							elif opcion2 == "32":
 								cmd = os.system("apt-get install metagoofil")
-							elif opcion2 == "34":
+							elif opcion2 == "33":
 								cmd = os.system("apt-get install miranda")
-							elif opcion2 == "35":
+							elif opcion2 == "34":
 								cmd = os.system("apt-get install nmap")
-							elif opcion2 == "36":
+							elif opcion2 == "35":
 								print ('ntop is unavailable')
-							elif opcion2 == "37":
+							elif opcion2 == "36":
 								cmd = os.system("apt-get install p0f")
-							elif opcion2 == "38":
+							elif opcion2 == "37":
 								cmd = os.system("apt-get install parsero")
-							elif opcion2 == "39":
+							elif opcion2 == "38":
 								cmd = os.system("apt-get install recon-ng")
-							elif opcion2 == "40":
+							elif opcion2 == "39":
 								cmd = os.system("apt-get install set")
-							elif opcion2 == "41":
+							elif opcion2 == "40":
 								cmd = os.system("apt-get install smtp-user-enum")
-							elif opcion2 == "42":
+							elif opcion2 == "41":
 								cmd = os.system("apt-get install snmpcheck")
-							elif opcion2 == "43":
+							elif opcion2 == "42":
 								cmd = os.system("apt-get install sslcaudit")
-							elif opcion2 == "44":
+							elif opcion2 == "43":
 								cmd = os.system("apt-get install sslsplit")
-							elif opcion2 == "45":
+							elif opcion2 == "44":
 								cmd = os.system("apt-get install sslstrip")
-							elif opcion2 == "46":
+							elif opcion2 == "45":
 								cmd = os.system("apt-get install sslyze")
-							elif opcion2 == "47":
+							elif opcion2 == "46":
 								cmd = os.system("apt-get install thc-ipv6")
-							elif opcion2 == "48":
+							elif opcion2 == "47":
 								cmd = os.system("apt-get install theharvester")
-							elif opcion2 == "49":
+							elif opcion2 == "48":
 								cmd = os.system("apt-get install tlssled")
-							elif opcion2 == "50":
+							elif opcion2 == "49":
 								cmd = os.system("apt-get install twofi")
-							elif opcion2 == "51":
+							elif opcion2 == "50":
 								cmd = os.system("apt-get install urlcrazy")
-							elif opcion2 == "52":
+							elif opcion2 == "51":
 								cmd = os.system("apt-get install wireshark")
-							elif opcion2 == "53":
+							elif opcion2 == "52":
 								cmd = os.system("apt-get install wol-e")
-							elif opcion2 == "54":
+							elif opcion2 == "53":
 								cmd = os.system("apt-get install xplico")
-							elif opcion2 == "55":
+							elif opcion2 == "54":
 								cmd = os.system("apt-get install ismtp")
-							elif opcion2 == "56":
+							elif opcion2 == "55":
 								cmd = os.system("apt-get install intrace")
-							elif opcion2 == "57":
+							elif opcion2 == "56":
 								cmd = os.system("apt-get install hping3")
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
 								inicio1()		
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")				
+								cmd = os.system("apt-get install -y ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")				
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 
@@ -523,15 +520,14 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 10) DIRB				30) ua-tester
 11) DirBuster				31) Uniscan
 12) fimap				32) Vega
-13) FunkLoad				33) w3af
-14) Grabber				34) WebScarab
-15) jboss-autopwn			35) Webshag
-16) joomscan				36) WebSlayer
-17) jSQL				37) WebSploit
-18) Maltego Teeth			38) Wfuzz
-19) PadBuster				39) WPScan
-20) Paros				40) XSSer
-					41) zaproxy
+13) FunkLoad				33) WebScarab
+14) Grabber				34) Webshag
+15) jboss-autopwn			35) WebSlayer
+16) joomscan				36) WebSploit
+17) jSQL				37) Wfuzz
+18) Maltego Teeth			38) WPScan
+19) PadBuster				39) XSSer
+20) Paros				40) zaproxy
 
 0) Install all Web Applications tools
 				 
@@ -607,29 +603,27 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "32":
 								cmd = os.system("apt-get install vega")
 							elif opcion2 == "33":
-								cmd = os.system("apt-get install w3af")
-							elif opcion2 == "34":
 								cmd = os.system("apt-get install webscarab")
-							elif opcion2 == "35":
+							elif opcion2 == "34":
 								print ("Webshag is unavailable")
-							elif opcion2 == "36":
+							elif opcion2 == "35":
 								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/webslayer.git")
-							elif opcion2 == "37":
+							elif opcion2 == "36":
 								cmd = os.system("apt-get install websploit")
-							elif opcion2 == "38":
+							elif opcion2 == "37":
 								cmd = os.system("apt-get install wfuzz")
-							elif opcion2 == "39":
+							elif opcion2 == "38":
 								cmd = os.system("apt-get install wpscan")
-							elif opcion2 == "40":
+							elif opcion2 == "39":
 								cmd = os.system("apt-get install xsser")
-							elif opcion2 == "41":
+							elif opcion2 == "40":
 								cmd = os.system("apt-get install zaproxy")										
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
 								inicio1()	
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy")												
+								cmd = os.system("apt-get install -y apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega webscarab websploit wfuzz wpscan xsser zaproxy")												
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "5":
@@ -743,18 +737,17 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  2) Cymothoa
  3) dbd
  4) dns2tcp
- 5) http-tunnel	
- 6) HTTPTunnel
- 7) Intersect
- 8) Nishang
- 9) polenum
-10) PowerSploit
-11) pwnat
-12) RidEnum
-13) sbd
-14) U3-Pwn
-15) Webshells
-16) Weevely
+ 5) HTTPTunnel
+ 6) Intersect
+ 7) Nishang
+ 8) polenum
+ 9) PowerSploit
+10) pwnat
+11) RidEnum
+12) sbd
+13) U3-Pwn
+14) Webshells
+15) Weevely
 
 0) Install all Maintaining Access tools
 				 
@@ -772,35 +765,33 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "4":
 								cmd = os.system("apt-get install dns2tcp")
 							elif opcion2 == "5":
-								cmd = os.system("apt-get install http-tunnel")
-							elif opcion2 == "6":
 								cmd = os.system("apt-get install httptunnel")
-							elif opcion2 == "7":
+							elif opcion2 == "6":
 								cmd = os.system("apt-get install intersect")
-							elif opcion2 == "8":
+							elif opcion2 == "7":
 								cmd = os.system("apt-get install nishang")
-							elif opcion2 == "9":
+							elif opcion2 == "8":
 								cmd = os.system("apt-get install polenum")
-							elif opcion2 == "10":
+							elif opcion2 == "9":
 								cmd = os.system("apt-get install powersploit")
-							elif opcion2 == "11":
+							elif opcion2 == "10":
 								cmd = os.system("apt-get install pwnat")
-							elif opcion2 == "12":
+							elif opcion2 == "11":
 								cmd = os.system("apt-get install ridenum")
-							elif opcion2 == "13":
+							elif opcion2 == "12":
 								cmd = os.system("apt-get install sbd")
-							elif opcion2 == "14":
+							elif opcion2 == "13":
 								cmd = os.system("apt-get install u3-pwn")
-							elif opcion2 == "15":
+							elif opcion2 == "14":
 								cmd = os.system("apt-get install webshells")
-							elif opcion2 == "16":
+							elif opcion2 == "15":
 								cmd = os.system("apt-get install weevely")
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
 								inicio1()   
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely")
+								cmd = os.system("apt-get install -y cryptcat cymothoa dbd dns2tcp httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "7":
@@ -1068,24 +1059,24 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							print ('''
 \033[1;36m=+[ Password Attacks\033[1;m
 
- 1) acccheck				19) Maskprocessor
- 2) Burp Suite				20) multiforcer
- 3) CeWL				21) Ncrack
- 4) chntpw				22) oclgausscrack
- 5) cisco-auditing-tool			23) PACK
- 6) CmosPwd				24) patator
- 7) creddump				25) phrasendrescher
- 8) crunch				26) polenum
- 9) DBPwAudit				27) RainbowCrack
-10) findmyhash				28) rcracki-mt
-11) gpp-decrypt				29) RSMangler
-12) hash-identifier			30) SQLdict
-13) HexorBase				31) Statsprocessor
-14) THC-Hydra				32) THC-pptp-bruter
-15) John the Ripper			33) TrueCrack
-16) Johnny				34) WebScarab 
-17) keimpx				35) wordlists 
-18) Maltego Teeth			36) zaproxy 
+ 1) Burp Suite				19) multiforcer
+ 2) CeWL				20) Ncrack
+ 3) chntpw				21) oclgausscrack
+ 4) cisco-auditing-tool			22) PACK
+ 5) CmosPwd				23) patator
+ 6) creddump				24) phrasendrescher
+ 7) crunch				25) polenum
+ 8) DBPwAudit				26) RainbowCrack
+ 9) findmyhash				27) rcracki-mt
+10) gpp-decrypt				28) RSMangler
+11) hash-identifier			29) SQLdict
+12) HexorBase				30) Statsprocessor
+13) THC-Hydra				31) THC-pptp-bruter
+14) John the Ripper			32) TrueCrack
+15) Johnny				33) WebScarab
+16) keimpx				34) wordlists 
+17) Maltego Teeth			35) zaproxy 
+18) Maskprocessor			
 
 0) Install all Password Attacks tools
 				 
@@ -1093,85 +1084,81 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
 							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
-								cmd = os.system("apt-get install acccheck")
-
-							elif opcion2 == "2":
 								cmd = os.system("apt-get install burpsuite")
-
-							elif opcion2 == "3":
+							elif opcion2 == "2":
 								cmd = os.system("apt-get install cewl")
-							elif opcion2 == "4":
+							elif opcion2 == "3":
 								cmd = os.system("apt-get install chntpw")
-							elif opcion2 == "5":
+							elif opcion2 == "4":
 								cmd = os.system("apt-get install cisco-auditing-tool")
-							elif opcion2 == "6":
+							elif opcion2 == "5":
 								cmd = os.system("apt-get install cmospwd")
-							elif opcion2 == "7":
+							elif opcion2 == "6":
 								cmd = os.system("apt-get install creddump")
-							elif opcion2 == "8":
+							elif opcion2 == "7":
 								cmd = os.system("apt-get install crunch")
-							elif opcion2 == "9":
+							elif opcion2 == "8":
 								cmd = os.system("apt-get install git && git clone git://git.kali.org/packages/dbpwaudit.git")
-							elif opcion2 == "10":
+							elif opcion2 == "9":
 								cmd = os.system("apt-get install findmyhash")
-							elif opcion2 == "11":
+							elif opcion2 == "10":
 								cmd = os.system("apt-get install gpp-decrypt")
-							elif opcion2 == "12":
+							elif opcion2 == "11":
 								cmd = os.system("apt-get install hash-identifier")
-							elif opcion2 == "13":
+							elif opcion2 == "12":
 								cmd = os.system("apt-get install hexorbase")
-							elif opcion2 == "14":
+							elif opcion2 == "13":
 								cmd = os.system("echo 'please visit : https://www.thc.org/thc-hydra/' ")
-							elif opcion2 == "15":
+							elif opcion2 == "14":
 								cmd = os.system("apt-get install john")
-							elif opcion2 == "16":
+							elif opcion2 == "15":
 								cmd = os.system("apt-get install johnny")
-							elif opcion2 == "17":
+							elif opcion2 == "16":
 								cmd = os.system("apt-get install keimpx")
-							elif opcion2 == "18":
+							elif opcion2 == "17":
 								cmd = os.system("apt-get install maltego-teeth")
-							elif opcion2 == "19":
+							elif opcion2 == "18":
 								cmd = os.system("apt-get install maskprocessor")
-							elif opcion2 == "20":
+							elif opcion2 == "19":
 								cmd = os.system("apt-get install multiforcer")
-							elif opcion2 == "21":
+							elif opcion2 == "20":
 								cmd = os.system("apt-get install ncrack")
-							elif opcion2 == "22":
+							elif opcion2 == "21":
 								cmd = os.system("apt-get install oclgausscrack")
-							elif opcion2 == "23":
+							elif opcion2 == "22":
 								cmd = os.system("apt-get install pack")
-							elif opcion2 == "24":
+							elif opcion2 == "23":
 								cmd = os.system("apt-get install patator")
-							elif opcion2 == "25":
+							elif opcion2 == "24":
 								cmd = os.system("echo 'please visit : http://www.leidecker.info/projects/phrasendrescher/index.shtml' ")
-							elif opcion2 == "26":
+							elif opcion2 == "25":
 								cmd = os.system("apt-get install polenum")
-							elif opcion2 == "27":
+							elif opcion2 == "26":
 								cmd = os.system("apt-get install rainbowcrack")
-							elif opcion2 == "28":
+							elif opcion2 == "27":
 								cmd = os.system("apt-get install rcracki-mt")
-							elif opcion2 == "29":
+							elif opcion2 == "28":
 								cmd = os.system("apt-get install rsmangler")
-							elif opcion2 == "30":
+							elif opcion2 == "29":
 								print ("Sqldict is unavailable")
-							elif opcion2 == "31":
+							elif opcion2 == "30":
 								cmd = os.system("apt-get install statsprocessor")
-							elif opcion2 == "32":
+							elif opcion2 == "31":
 								cmd = os.system("apt-get install thc-pptp-bruter")
-							elif opcion2 == "33":
+							elif opcion2 == "32":
 								cmd = os.system("apt-get install truecrack")
-							elif opcion2 == "34":
+							elif opcion2 == "33":
 								cmd = os.system("apt-get install webscarab")
-							elif opcion2 == "35":
+							elif opcion2 == "34":
 								cmd = os.system("apt-get install wordlists")
-							elif opcion2 == "36":
+							elif opcion2 == "35":
 								cmd = os.system("apt-get install zaproxy")
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
 								inicio1()   
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy")
+								cmd = os.system("apt-get install -y burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "12" :
