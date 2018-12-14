@@ -44,4 +44,4 @@ Please visit https://github.com/LionSec/katoolin/issues
 - Youtube : https://youtube.com/inf98es
 - Facebook : https://facebook.com/in98
 - Twitter: @LionSec1
-- Email : ledonman@gmail.com
+- Email : informatica98es@gmail.com
