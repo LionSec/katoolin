@@ -46,8 +46,9 @@ def main():
 					''')
 					repo = raw_input("\033[1;32mWhat do you want to do ?> \033[1;m")
 					if repo == "1":
-						cmd1 = os.system("apt-key adv --keyserver pgp.mit.edu --recv-keys ED444FF07D8D0BF6")
-						cmd2 = os.system("echo '# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list")
+						cmd1 = os.system("wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb")
++                                               cmd2 = os.system("sudo apt install ./kali-archive-keyring_2018.1_all.deb")
++						cmd3 = os.system("sudo echo '# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list")
 					elif repo == "2":
 						cmd3 = os.system("apt-get update -m")
 					elif repo == "3":
