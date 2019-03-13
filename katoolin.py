@@ -43,6 +43,9 @@ def main():
 3) Remove all kali linux repositories
 4) View the contents of sources.list file
 
+Back: goback
+Home: gohome
+
 					''')
 					repo = raw_input("\033[1;32mWhat do you want to do ?> \033[1;m")
 					if repo == "1":
@@ -124,6 +127,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 7) Reporting Tools 				14) Extra
 									
 0) All
+Back: back
+Home: gohome
 
 			 ''')
 						print ("\033[1;32mSelect a category or press (0) to install all Kali linux tools .\n\033[1;m")
@@ -170,6 +175,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 29) goofile
 
 0) Install all Information Gathering tools
+Back: back
+Home: gohome
+
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -325,6 +333,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 					35) Yersinia
 
 0) Install all Vulnerability Analysis tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -431,6 +441,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 16) gr-scan				32) Wifite 
 
 0) Install all Wireless Attacks tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -534,6 +546,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 					41) zaproxy
 
 0) Install all Web Applications tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -654,6 +668,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 16) rtpinsertsound			32) zaproxy 
 
 0) Install all Sniffing & Spoofing tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -757,6 +773,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 16) Weevely
 
 0) Install all Maintaining Access tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -818,6 +836,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 9) pipal
 
 0) Install all Reporting Tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -874,6 +894,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 17) Yersinia
 
 0) Install all Exploitation Tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -942,6 +964,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 					23) Xplico
 
 0) Install all Forensics Tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1022,6 +1046,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 14) THC-SSL-DOS 		
 
 0) Install all Stress Testing tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1088,6 +1114,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 18) Maltego Teeth			36) zaproxy 
 
 0) Install all Password Attacks tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1191,6 +1219,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 11) YARA
 
 0) Install all Reverse Engineering tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1239,6 +1269,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  6) smali
 
 0) Install all Hardware Hacking tools
+Back: back
+Home: gohome
 				 
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1272,6 +1304,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 
 1) Wifresti
 2) Squid3
+
+Back: back
+Home: gohome
 				''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
 							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
