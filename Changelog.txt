@@ -5,9 +5,3 @@ The problem of uppercases characters in the installation script has been solved 
 ---------------------------------------------19 / 04 / 2016----------------------------------------------------
 
 Removed Inguma from the menu to bypass issue with installation (By Jayson Grace : https://github.com/l50)
-
----------------------------------------------12 / 17 / 2018----------------------------------------------------
-katoolin.py
-* Added all Kali Tools and set alphabetically for ease of reading.
-* Removed ones that were no longer available
-Updated katoolin.py to be executable by default.
