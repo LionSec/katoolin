@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.7
 # -*- coding: utf-8 -*-
 
 """
@@ -32,7 +32,7 @@ __credits__ = ["LionSec"]
 __license__ = "GPL"
 __version__ = "1.0"
 __maintainer__ = "s-h-3-l-l"
-__status__ = "Production"
+__status__ = "Developement"
 
 import os
 from collections import namedtuple
@@ -397,8 +397,14 @@ class Color:
     white = "\033[1;37m"
     reset = "\033[0m"
 
-# Just a type used in Selection:
+# Just some types used in Selection:
 Choice = namedtuple("Choice", ["text", "value"])
+
+class InstallList(list):
+    pass
+    
+class UninstallList(list):
+    pass
 
 class Selection:
     """
@@ -414,6 +420,7 @@ class Selection:
         self._headline = head
         self._col_thresh = 10
         self._colpad = 2
+        self._delchar = "~"
 
     def add_choice(self, text, value):
         """
@@ -444,6 +451,7 @@ class Selection:
                 self._options[index].text
             )
 
+            # If there are a lot items display them columnwise:
             if len(self._options) >= self._col_thresh:
                 # Bring all entries in left column to fixed size:
                 y += (" " * (max_l - len(y) + self._colpad))
@@ -454,7 +462,9 @@ class Selection:
                         self._options[max_i + index].text
                     )
                 else:
-                    if max(self._options) % 2 == 0:
+                    # If number options is odd display the last item
+                    # only on the left column
+                    if len(self._options) % 2 == 1:
                         yield y
                     break
 
@@ -504,6 +514,9 @@ class Selection:
         """
         The selection procedure where all options are listed
         and the user selects 1 or more.
+        This is only used for package selection. Thus the return
+        value is a special list that indicates whether the selected
+        packages shall be installed or uninstalled.
         """
         for option in self:
             print(option)
@@ -511,13 +524,19 @@ class Selection:
         while True:
             try:
                 n = input("> ")
+                ret = InstallList()
+
+                if n[0] == self._delchar:
+                    ret = UninstallList()
+                    n = n[1:]
 
                 if len(n) == 0:
                     raise ValueError()
 
-                return [
-                    self._options[i].value for i in self._parse_selection(n)
-                ]
+                for i in self._parse_selection(n):
+                    ret.append(self._options[i].value)
+
+                return ret
             except (ValueError, KeyError):
                 print("Invalid input")
 
@@ -546,8 +565,7 @@ class VisibleError(Exception):
     """
     An exception that will be displayed
     but will not change the program
-    flow. This is catched by the innermost
-    submenus.
+    flow.
     """
     def __init__(self, ex):
         super().__init__()
@@ -569,11 +587,24 @@ class Apt:
             raise VisibleError(Exception("Apt update failed"))
 
     @classmethod
-    def install(cls, pkgs):
+    def install(cls, it):
+        pkgs = " ".join(it)
+
         if len(pkgs) > 0:
-            cmd = "apt-get -m -y -q install {}".format(" ".join(pkgs))
+            cmd = "apt-get -m -y -q install {}".format(pkgs)
+
             if os.system(cmd) != cls.success_code:
                 raise VisibleError(Exception("Apt install failed"))
+
+    @classmethod
+    def remove(cls, it):
+        pkgs = " ".join(it)
+
+        if len(pkgs) > 0:
+            cmd = "apt-get -m -y -q remove {}".format(pkgs)
+
+            if os.system(cmd) != cls.success_code:
+                raise VisibleError(Exception("Apt remove failed"))
 
 class Sources:
     """
@@ -591,22 +622,12 @@ class Sources:
             except OSError as e:
                 raise VisibleError(e)
 
-            subprocess.run([
-                "apt-key", "adv",
-                "--keyserver", "pool.sks-keyservers.net",
-                "--recv-keys", "ED444FF07D8D0BF6"
-            ])
-
     @classmethod
     def uninstall(cls):
         try:
             os.remove(cls.file)
         except OSError as e:
             raise VisibleError(e)
-
-        # Since all parts of the program need a valid kali repository
-        # exit the program now
-        raise Exception("Successfully uninstalled. Exiting now...")
 
 def print_logo():
     """
@@ -622,6 +643,24 @@ def print_logo():
 """.format(f=Color.red, b=Color.black, s=Color.red), end=Color.reset)
     print("""{} ~~~~~{{ Author: s-h-3-l-l | Homepage: https://github.com/s-h-3-l-l }}~~~~~
 {}""".format(Color.white, Color.reset))
+    print()
+    
+def help():
+    print("""
+The program flow of this program is realized by presenting
+a list of options that you can choose from.
+
+When selecting packages you can select
+more than one by passing a comma-separated list like
+'0,1,2,3' or specifying a range like '12-24' or combining
+those two '0,1,3-5,12'.
+
+If you want to remove packages simply prepend '~' before a
+string like above.
+
+If you list some packages you'll see that some packages are in
+{}this color{}. This means that they are already installed.
+""".format(Color.black, Color.reset), end="")
 
 def install_all_packages():
     def get_all():
@@ -629,12 +668,19 @@ def install_all_packages():
             for pkg in PACKAGES[cat]:
                 yield pkg
 
-    Apt.install([*get_all()])
-
-    for cat in PACKAGES:
-        PACKAGES[cat] = []
+    Apt.install(get_all())
 
     raise StepBack("Installed all packages")
+
+def delete_all_packages():
+    def get_all():
+        for cat in PACKAGES:
+            for pkg in PACKAGES[cat]:
+                yield pkg
+
+    Apt.remove(get_all())
+
+    raise StepBack("Removed all packages")
 
 def view_packages(cat):
     """
@@ -644,61 +690,38 @@ def view_packages(cat):
     while True:
         sel = Selection("Select a Package")
 
-        for i, pkg in enumerate(PACKAGES[cat]):
-            sel.add_choice(pkg, i)
+        with apt.Cache() as cache:
+            for pkg in PACKAGES[cat]:
+                sel.add_choice("{}{}{}".format(
+                    (Color.black if cache[pkg].is_installed else ""),
+                    pkg,
+                    Color.reset
+                ), pkg)
 
         if len(PACKAGES[cat]) > 1:
-            sel.add_choice("ALL", "All")
-        sel.add_choice("BACK", None)
+            sel.add_choice("ALL", 0)
+        sel.add_choice("BACK", 1)
 
         choices = sel.get_choices()
+        method = Apt.install if isinstance(choices, InstallList) else Apt.remove
 
         try:
             if len(choices) == 1:
-                choice = choices[0]
-
-                if choice is None:
+                if choices[0] == 1:
                     raise StepBack()
 
-                elif choice == "All":
-                    Apt.install(PACKAGES[cat])
-                    PACKAGES[cat] = []
-
-                else:
-                    Apt.install((PACKAGES[cat][choice],))
-                    del PACKAGES[cat][choice]
-
-            else:
-                # when deleting items in the
-                # middle of lists the items get shifted:
-                moved = 0
-
-                if "All" in choices or None in choices:
-                    print("Invalid selection")
+                elif choices[0] == 0:
+                    method(PACKAGES[cat])
                     continue
 
-                Apt.install([
-                    PACKAGES[cat][i] for i in choices
-                ])
+            elif 1 in choices or 0 in choices:
+                print("Invalid selection")
+                continue
 
-                choices.sort()
-
-                for i in choices:
-                    del PACKAGES[cat][i - moved]
-                    moved += 1
+            method(choices)
 
         except VisibleError as v:
             print(v)
-
-def help():
-    print("""The program flow of this program is realized by presenting
-a list of options that the user can choose from.
-
-When selecting packages you can select
-more than one by passing a comma-separated list like
-'0,1,2,3' or specifying a range like '12-24' or combine
-those two '0,1,3-5,12'.
-""", end="")
 
 def view_categories():
     """
@@ -712,8 +735,6 @@ def view_categories():
     for cat in PACKAGES:
         sel.add_choice(cat, cat)
 
-    if len(PACKAGES) > 1:
-        sel.add_choice("INSTALL ALL", "All")
     sel.add_choice("BACK", None)
 
     while True:
@@ -723,10 +744,7 @@ def view_categories():
             raise StepBack()
 
         try:
-            if choice == "All":
-                install_all_packages()
-            else:
-                view_packages(choice)
+            view_packages(choice)
         except VisibleError as v:
             print(v)
         except StepBack as s:
@@ -735,9 +753,10 @@ def view_categories():
 
 def main():
     sel = Selection("Main Menu")
-    sel.add_choice("Remove Kali Repositories", Sources.uninstall)
     sel.add_choice("View Categories", view_categories)
-    sel.add_choice("Install Kali Menu", lambda: Apt.install(("kali-menu",)))
+    sel.add_choice("Install All", install_all_packages)
+    sel.add_choice("Uninstall All", delete_all_packages)
+    sel.add_choice("Install Kali Menu", lambda: Apt.install(["kali-menu"]))
     sel.add_choice("Help", help)
     sel.add_choice("Exit", None)
 
@@ -785,8 +804,6 @@ def remove_unknown_packages():
 if __name__ == "__main__":
     try:
         print_logo()
-        # Since every part of the program needs a valid
-        # kali repository always make sure there is one:
         Sources.install()
         Apt.update()
         remove_unknown_packages()
@@ -796,7 +813,15 @@ if __name__ == "__main__":
         print()
     except Exception as e:
         print("{}{!s}{}".format(Color.red, e, Color.reset))
+        raise e
         exit(1)
+    finally:
+        try:
+            Sources.uninstall()
+            os.system("apt-get -m -y -q update 2>&1 >/dev/null &")
+        except VisibleError as v:
+            print(v)
+            exit(1)
 
     print("Goodbye")
     exit(0)
