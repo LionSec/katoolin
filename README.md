@@ -26,6 +26,12 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 - Python 3.7
 - Root privileges
 
+### Installation
+```
+chmod +x ./install.sh;
+sudo ./install.sh;
+```
+
 ### Usage
 ```
 The program flow of this program is realized by presenting
