@@ -1,47 +1,27 @@
-![katoolin](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
-# katoolin
-Automatically install all Kali linux tools
+# katoolin3
+Katoolin3 brings all programs available in Kali Linux to Debian and Ubuntu.
 
-# Features
-- Add Kali linux repositories
-- Remove kali linux repositories
-- Install Kali linux tools
+### Description
+This program is a port of [katoolin](https://github.com/LionSec/katoolin) from [LionSec](https://github.com/LionSec) to python3. It has several improvements over katoolin such as
+- __Improved handling of missing packages__   
+The old katoolin breaks if a package isnt available in the repositories anymore. katoolin3 simply removes those packages from its package list.
 
-# Requirements
-- Python 2.7
-- An operating system (tested on Ubuntu)
+- __Easier maintenance of Kalis packages__   
+The old katoolin makes it difficult to add new packages to the package list due to the way katoolin was programmed. This has been fixed by katoolin3.
 
-# Installation
-- sudo su
-- git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
-- chmod +x /usr/bin/katoolin
-- sudo katoolin 
+- __Better utilization of the APT ecosystem__   
+The old katoolin did potentially dangerous operations such as writing/modifying/*deleting* important configuration files. This has also been fixed.
 
-# Video
-https://www.youtube.com/watch?v=8VxCWVoZEEE
+- __Cleaner code__   
+Due to poor code quality katoolin was unmaintainable and had to be rewritten from scratch. katoolin3 aims to be more readable and easier to maintain.
 
-# Usage
-- Typing the number of a tool will install it
-- Typing 0 will install all Kali Linux tools
-- back : Go back
-- gohome : Go to the main menu
-- By installing armitage , you will install metasploit
+### Requirements
+- aptitude as a package manager
+- python3
+- root privileges
 
-# Warning
-Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
+### Usage
+Just start the program and follow the instructions ;)
 
-# I have some questions!
-
-Please visit https://github.com/LionSec/katoolin/issues
-
-# Donations
-- Paypal : https://www.paypal.me/lionsec
-- skrill : informatica98es@gmail.com
-
-
-# Contact
-- Website : https://neodrix.com
-- Youtube : https://youtube.com/inf98es
-- Facebook : https://facebook.com/in98
-- Twitter: @LionSec1
-- Email : informatica98es@gmail.com
+### Something doesnt work?
+Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin).
