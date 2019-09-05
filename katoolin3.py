@@ -4,7 +4,7 @@
 """
 katoolin3 is a port of katoolin for python3.
 
-Following packages arent available because they are on github or not in the repo:
+Following packages arent available because they are only on github or not in the repo:
     - ntop
     - ip2hosts
     - commix
@@ -32,11 +32,10 @@ __credits__ = ["LionSec"]
 __license__ = "GPL"
 __version__ = "1.0"
 __maintainer__ = "s-h-3-l-l"
-__status__ = "Developement"
+__status__ = "Production"
 
 import os
 from collections import namedtuple
-import subprocess
 from math import ceil
 
 try:
@@ -644,7 +643,7 @@ def print_logo():
     print("""{} ~~~~~{{ Author: s-h-3-l-l | Homepage: https://github.com/s-h-3-l-l }}~~~~~
 {}""".format(Color.white, Color.reset))
     print()
-    
+
 def help():
     print("""
 The program flow of this program is realized by presenting
@@ -813,12 +812,11 @@ if __name__ == "__main__":
         print()
     except Exception as e:
         print("{}{!s}{}".format(Color.red, e, Color.reset))
-        raise e
         exit(1)
     finally:
         try:
             Sources.uninstall()
-            os.system("apt-get -m -y -q update 2>&1 >/dev/null &")
+            os.system("apt-get -m -y -qq update &")
         except VisibleError as v:
             print(v)
             exit(1)
