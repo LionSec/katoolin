@@ -1,6 +1,6 @@
 more colorful output
-add installation as deb
 support for installing programs using git
-move import of kalis keys into installation script # apt-key adv --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6
 append help to every selection
 update mechanism for kali packages
+
+test on different distros
