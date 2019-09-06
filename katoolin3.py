@@ -756,6 +756,7 @@ def main():
     sel.add_choice("Install All", install_all_packages)
     sel.add_choice("Uninstall All", delete_all_packages)
     sel.add_choice("Install Kali Menu", lambda: Apt.install(["kali-menu"]))
+    sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
     sel.add_choice("Help", help)
     sel.add_choice("Exit", None)
 
@@ -800,9 +801,56 @@ def remove_unknown_packages():
 
     print("{} packages not in current repositories".format(not_found))
 
+def handle_old_katoolin(force=False):
+    """
+    Detect the old katoolin installation and ask the user
+    to delete it or force the uninstallation.
+    """
+    try:
+        with open("/etc/apt/sources.list", "r+") as file:
+            file.seek(0)
+            lines = []
+            seen = False
+
+            for line in file:
+                if (not "//http.kali.org/kali" in line and not "Added by Katoolin" in line):
+                    lines.append(line)
+                else:
+                    seen = True
+
+            if not seen:
+                if force:
+                    print("It doesn't look like the old katoolin is installed")
+                return
+
+            print("The old katoolin is still installed on your system.")
+            print("To avoid any inconveniences it is recommended to")
+            print("delete the configuration of the old katoolin.")
+
+            if not force:
+                sel = Selection("Delete old katoolin configuration?")
+                sel.add_choice("Yes", True)
+                sel.add_choice("No", False)
+
+                if not sel.get_choice():
+                    print("This might be dangerous. You have been warned...")
+                    return
+
+            file.seek(0)
+            file.write("".join(lines))
+            file.truncate()
+
+    except Exception as e:
+        raise VisibleError(e)
+        
+    else:
+        print("Successfully uninstalled the old katoolin")
+        print()
+
 if __name__ == "__main__":
     try:
         print_logo()
+        handle_old_katoolin()
         Sources.install()
         Apt.update()
         remove_unknown_packages()
