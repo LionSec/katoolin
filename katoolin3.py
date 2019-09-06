@@ -178,6 +178,7 @@ PACKAGES = {
         "dirbuster", 
         "fimap", 
         "funkload", 
+        "gobuster",
         "grabber", 
         "jboss-autopwn", 
         "joomscan", 

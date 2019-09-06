@@ -14,11 +14,7 @@ Invoke with: PYTHONPATH=.. ./toollist.py
 from html.parser import HTMLParser
 import requests
 
-try:
-    import katoolin3
-except ImportError:
-    print("katoolin3.py needs to be in the same directory")
-    exit(1)
+import katoolin3
 
 class Color:
     red = "\033[1;31m"
