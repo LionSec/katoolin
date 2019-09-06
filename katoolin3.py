@@ -381,9 +381,9 @@ PACKAGES = {
     ]
 }
 
-class Color:
+class Terminal:
     """
-    A list of colors for stylish terminal output according to
+    A list of settings for stylish terminal output according to
     http://www.termsys.demon.co.uk/vtansi.htm
     """
     black = "\033[1;30m"
@@ -395,15 +395,24 @@ class Color:
     cyan = "\033[1;36m"
     white = "\033[1;37m"
     reset = "\033[0m"
+    underscore = "\033[4m"
 
 # Just some types used in Selection:
 Choice = namedtuple("Choice", ["text", "value"])
 
 class InstallList(list):
-    pass
-    
+    """
+    If a list is wrapped in this class it means that
+    the items in the list are packages and they shall
+    be installed.
+    """
+
 class UninstallList(list):
-    pass
+    """
+    If a list is wrapped in this class it means that
+    the items in the list are packages and they shall
+    be uninstalled.
+    """
 
 class Selection:
     """
@@ -420,6 +429,7 @@ class Selection:
         self._col_thresh = 10
         self._colpad = 2
         self._delchar = "~"
+        self._prompt = "kat> "
 
     def add_choice(self, text, value):
         """
@@ -442,7 +452,7 @@ class Selection:
 
         if self._headline is not None:
             yield ""
-            yield self._headline
+            yield "{}{}{}".format(Terminal.underscore, self._headline, Terminal.reset)
 
         for index in self._options:
             y = "{}) {}".format(
@@ -469,6 +479,8 @@ class Selection:
 
             else:
                 yield y
+                
+        yield ""
 
     def _parse_selection(self, sel):
         """
@@ -504,7 +516,7 @@ class Selection:
 
         while True:
             try:
-                n = int(input("> "))
+                n = int(input(self._prompt))
                 return self._options[n].value
             except (ValueError, KeyError):
                 print("Invalid input")
@@ -522,7 +534,7 @@ class Selection:
 
         while True:
             try:
-                n = input("> ")
+                n = input(self._prompt)
                 ret = InstallList()
 
                 if n[0] == self._delchar:
@@ -558,7 +570,7 @@ class StepBack(BaseException):
         """
         This is only used in the innermost submenus
         """
-        return "{}{}{}".format(Color.green, self._msg, Color.reset)
+        return "{}{}{}".format(Terminal.green, self._msg, Terminal.reset)
 
 class VisibleError(Exception):
     """
@@ -572,7 +584,7 @@ class VisibleError(Exception):
         self.args = ex.args
 
     def __str__(self):
-        return "{}{}{}".format(Color.red, self._msg, Color.reset)
+        return "{}{}{}".format(Terminal.red, self._msg, Terminal.reset)
 
 class Apt:
     """
@@ -639,9 +651,9 @@ def print_logo():
  {f}██{b}╔═{f}██{b}╗ {f}██{b}╔══{f}██{b}║   {f}██{b}║   {f}██{b}║   {f}██{b}║{f}██{b}║   {f}██{b}║{f}██{b}║     {f}██{b}║{f}██{b}║╚{f}██{b}╗{f}██{b}║ ╚═══{s}██{b}╗
  {f}██{b}║  {f}██{b}╗{f}██{b}║  {f}██{b}║   {f}██{b}║   ╚{f}██████{b}╔╝╚{f}██████{b}╔╝{f}███████{b}╗{f}██{b}║{f}██{b}║ ╚{f}████{b}║{s}██████{b}╔╝
  {b}╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝╚═════╝
-""".format(f=Color.red, b=Color.black, s=Color.red), end=Color.reset)
+""".format(f=Terminal.red, b=Terminal.black, s=Terminal.red), end=Terminal.reset)
     print("""{} ~~~~~{{ Author: s-h-3-l-l | Homepage: https://github.com/s-h-3-l-l }}~~~~~
-{}""".format(Color.white, Color.reset))
+{}""".format(Terminal.white, Terminal.reset))
     print()
 
 def help():
@@ -659,7 +671,7 @@ string like above.
 
 If you list some packages you'll see that some packages are in
 {}this color{}. This means that they are already installed.
-""".format(Color.black, Color.reset), end="")
+""".format(Terminal.black, Terminal.reset), end="")
 
 def install_all_packages():
     def get_all():
@@ -692,9 +704,9 @@ def view_packages(cat):
         with apt.Cache() as cache:
             for pkg in PACKAGES[cat]:
                 sel.add_choice("{}{}{}".format(
-                    (Color.black if cache[pkg].is_installed else ""),
+                    (Terminal.black if cache[pkg].is_installed else ""),
                     pkg,
-                    Color.reset
+                    Terminal.reset
                 ), pkg)
 
         if len(PACKAGES[cat]) > 1:
@@ -813,7 +825,7 @@ def handle_old_katoolin(force=False):
             seen = False
 
             for line in file:
-                if (not "//http.kali.org/kali" in line and not "Added by Katoolin" in line):
+                if not "//http.kali.org/kali" in line and not "Added by Katoolin" in line:
                     lines.append(line)
                 else:
                     seen = True
@@ -823,11 +835,10 @@ def handle_old_katoolin(force=False):
                     print("It doesn't look like the old katoolin is installed")
                 return
 
-            print("The old katoolin is still installed on your system.")
-            print("To avoid any inconveniences it is recommended to")
-            print("delete the configuration of the old katoolin.")
-
             if not force:
+                print("The old katoolin is still installed on your system.")
+                print("To avoid any inconveniences it is recommended to")
+                print("delete the configuration of the old katoolin.")
                 sel = Selection("Delete old katoolin configuration?")
                 sel.add_choice("Yes", True)
                 sel.add_choice("No", False)
@@ -842,7 +853,7 @@ def handle_old_katoolin(force=False):
 
     except Exception as e:
         raise VisibleError(e)
-        
+
     else:
         print("Successfully uninstalled the old katoolin")
         print()
@@ -859,7 +870,7 @@ if __name__ == "__main__":
     except (KeyboardInterrupt, StepBack):
         print()
     except Exception as e:
-        print("{}{!s}{}".format(Color.red, e, Color.reset))
+        print("{}{!s}{}".format(Terminal.red, e, Terminal.reset))
         exit(1)
     finally:
         try:

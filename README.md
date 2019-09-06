@@ -25,6 +25,7 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 - Aptitude as a package manager
 - Python 3.7
 - Root privileges
+- VT-100 compliant terminal
 
 ### Installation
 ```
