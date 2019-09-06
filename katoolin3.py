@@ -3,28 +3,6 @@
 
 """
 katoolin3 is a port of katoolin for python3.
-
-Following packages arent available because they are only on github or not in the repo:
-    - ntop
-    - ip2hosts
-    - commix
-    - dbpwaudit
-    - gsd
-    - inguma
-    - gr-scan
-    - bluepot
-    - webshag
-    - webslayer
-    - evilgraid
-    - capstone
-    - distone3
-    - regripper
-    - inundator
-    - dbpwaudit
-    - thc-hydra
-    - phrasendrescher
-    - sqldict
-    - wifresti
 """
 
 __author__ = "s-h-3-l-l"
@@ -47,9 +25,10 @@ except ImportError:
 # The list of kali programs available in the repo:
 PACKAGES = {
     "Information Gathering" : [
-        "acccheck",
         "ace-voip",
         "amap",
+        "apt2",
+        "arp-scan",
         "automater",
         "braa",
         "casefile",
@@ -68,6 +47,7 @@ PACKAGES = {
         "enum4linux",
         "enumiax",
         "exploitdb",
+        "eyewitness",
         "fierce",
         "firewalk",
         "fragroute",
@@ -75,26 +55,35 @@ PACKAGES = {
         "ghost-phisher",
         "golismero",
         "goofile",
+        "ident-user-enum",
+        "inspy",
         "lbd",
         "maltego-teeth",
         "masscan",
         "metagoofil",
         "miranda",
+        "nbtscan-unixwiz",
+        "nikto",
         "nmap",
+        "osrframework",
         "p0f",
         "parsero",
         "recon-ng",
         "set",
+        "smbmap",
         "smtp-user-enum",
         "snmpcheck",
+        "sparta",
         "sslcaudit",
         "sslsplit",
         "sslstrip",
         "sslyze",
+        "sublist3r",
         "thc-ipv6",
         "theharvester",
         "tlssled",
         "twofi",
+        "unicornscan",
         "urlcrazy",
         "wireshark",
         "wol-e",
@@ -119,9 +108,7 @@ PACKAGES = {
         "lynis",
         "nmap",
         "ohrwurm",
-        "openvas-cli",
-        "openvas-manager",
-        "openvas-scanner",
+        "openvas",
         "oscanner",
         "powerfuzzer",
         "sfuzz",
@@ -137,6 +124,7 @@ PACKAGES = {
     ],
     "Wireless Attacks" : [
         "aircrack-ng",
+        "airgraph-ng",
         "asleap", 
         "bluelog", 
         "blueranger", 
@@ -146,9 +134,10 @@ PACKAGES = {
         "crackle", 
         "eapmd5pass", 
         "fern-wifi-cracker", 
+        "freeradius-wpe",
         "ghost-phisher",
-        "giskismet", 
         "gqrx", 
+        "hostapd-wpe",
         "kalibrate-rtl", 
         "killerbee", 
         "kismet", 
@@ -158,12 +147,15 @@ PACKAGES = {
         "mfterm", 
         "multimon-ng", 
         "pixiewps", 
+        "pyrit",
         "reaver", 
         "redfang", 
+        "rtlsdr-scanner",
         "spooftooph", 
         "wifi-honey", 
         "wifitap", 
-        "wifite"
+        "wifite",
+        "wifiphisher"
     ],
     "Web Applications" : [
         "apache-users", 
@@ -180,10 +172,12 @@ PACKAGES = {
         "funkload", 
         "gobuster",
         "grabber", 
+        "hurl",
         "jboss-autopwn", 
         "joomscan", 
         "jsql", 
         "maltego-teeth", 
+        "nikto",
         "padbuster", 
         "paros", 
         "parsero", 
@@ -197,16 +191,16 @@ PACKAGES = {
         "sqlsus", 
         "ua-tester", 
         "uniscan", 
-        "vega", 
-        "w3af", 
         "webscarab", 
         "websploit", 
         "wfuzz", 
+        "whatweb",
         "wpscan", 
         "xsser", 
         "zaproxy"
     ],
     "Sniffing & Spoofing" : [
+        "bettercap",
         "burpsuite", 
         "dnschef", 
         "fiked", 
@@ -215,6 +209,7 @@ PACKAGES = {
         "iaxflood", 
         "inviteflood", 
         "ismtp", 
+        "isr-evilgrade",
         "mitmproxy", 
         "ohrwurm", 
         "protos-sip", 
@@ -244,7 +239,6 @@ PACKAGES = {
         "cymothoa", 
         "dbd", 
         "dns2tcp", 
-        "http-tunnel", 
         "httptunnel", 
         "intersect", 
         "nishang", 
@@ -253,17 +247,19 @@ PACKAGES = {
         "pwnat", 
         "ridenum", 
         "sbd", 
+        "shellter",
         "u3-pwn", 
         "webshells", 
-        "weevely"
+        "weevely",
+        "winexe"
     ],
     "Reporting Tools" : [
         "casefile", 
         "cutycapt", 
+        "cherrytree",
         "dos2unix",  # what is that doing here ??
         "dradis", 
         "keepnote", 
-        "magictree", 
         "metagoofil", 
         "nipper-ng", 
         "pipal"
@@ -276,9 +272,14 @@ PACKAGES = {
         "cisco-ocs", 
         "cisco-torch", 
         "crackle", 
+        "commix",
+        "exploitdb",
         "jboss-autopwn", 
         "linux-exploit-suggester", 
         "maltego-teeth", 
+        "metasploit-framework",
+        "msfpc",
+        "routersploit",
         "set", 
         "shellnoob", 
         "sqlmap", 
@@ -298,12 +299,12 @@ PACKAGES = {
         "foremost", 
         "galleta", 
         "guymager", 
-        "iphone-backup-analyzer", 
         "p0f", 
         "pdf-parser", 
         "pdfid", 
         "pdgmail", 
         "peepdf", 
+        "regripper",
         "volatility", 
         "xplico"
     ],
@@ -323,18 +324,21 @@ PACKAGES = {
         "thc-ssl-dos"
     ],
     "Password Attacks" : [
-        "acccheck", 
         "burpsuite", 
+        "brutespray",
         "cewl", 
         "chntpw", 
         "cisco-auditing-tool", 
         "cmospwd", 
         "creddump", 
         "crunch", 
+        "crowbar",
         "findmyhash", 
         "gpp-decrypt", 
+        "hashcat",
         "hash-identifier", 
         "hexorbase", 
+        "hydra",
         "john", 
         "johnny", 
         "keimpx", 
@@ -343,13 +347,16 @@ PACKAGES = {
         "multiforcer", 
         "ncrack", 
         "oclgausscrack", 
+        "ophcrack",
         "pack", 
         "patator", 
         "polenum", 
         "rainbowcrack", 
         "rcracki-mt", 
         "rsmangler", 
+        "seclists",
         "statsprocessor", 
+        "sqldict",
         "thc-pptp-bruter", 
         "truecrack", 
         "webscarab", 
@@ -359,15 +366,15 @@ PACKAGES = {
     "Reverse Engineering" : [
         "apktool", 
         "dex2jar", 
-        "python-diStorm3", 
+        "python-distorm3", 
         "edb-debugger", 
         "jad", 
         "javasnoop", 
-        "JD", 
-        "OllyDbg", 
+        "jd-gui", 
+        "ollydbg", 
         "smali", 
-        "Valgrind", 
-        "YARA"
+        "valgrind", 
+        "yara"
     ],
     "Hardware Hacking" : [
         "android-sdk", 
@@ -376,9 +383,6 @@ PACKAGES = {
         "dex2jar", 
         "sakis3g", 
         "smali"
-    ],
-    "Extra" : [
-        "squid3"
     ]
 }
 

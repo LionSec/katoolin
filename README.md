@@ -3,6 +3,9 @@ Katoolin3 brings all programs available in Kali Linux to Debian and Ubuntu.
 
 ### Description
 This program is a port of [katoolin](https://github.com/LionSec/katoolin) from [LionSec](https://github.com/LionSec) to python3. Katoolin3 offers several improvements over katoolin:
+- __Up to date packages__    
+The old katoolin uses an outdated package list. Katoolin3 always keeps its package list up to date.
+
 - __Improved handling of missing packages__   
 The old katoolin breaks if a package isn't available in the repositories anymore. Katoolin3 detects those and simply removes them from its package list.
 
@@ -16,7 +19,7 @@ You can now remove all packages installed by katoolin3 (individually or all at o
 The old katoolin does potentially dangerous operations such as modifying and *deleting* important system configuration files. This has been changed.
 
 - __Easier maintenance of Kalis packages__   
-The old katoolin makes it difficult to add new packages to the package list due to the way katoolin was programmed. Changing the package list is now a lot easier.
+The old katoolin makes it difficult to add new packages to the package list due to the way katoolin was programmed. Maintaining the package list is now a lot easier.
 
 - __Cleaner code__   
 Due to poor code quality katoolin was unmaintainable and had to be rewritten from scratch. katoolin3 aims to be more readable and easier to maintain.
