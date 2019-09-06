@@ -50,9 +50,6 @@ those two '0,1,3-5,12'.
 If you want to remove packages simply prepend '~' before a
 string like above.
 
-If you list some packages you'll see that some packages are  displayed in a darker color. 
-This means that they are already installed.
-
 Example:
 Select some options with '1,2,8-10'.
 Then you realize those programs are shit and you do

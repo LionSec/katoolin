@@ -479,7 +479,7 @@ class Selection:
 
             else:
                 yield y
-                
+
         yield ""
 
     def _parse_selection(self, sel):
@@ -668,29 +668,22 @@ those two '0,1,3-5,12'.
 
 If you want to remove packages simply prepend '~' before a
 string like above.
-
-If you list some packages you'll see that some packages are in
-{}this color{}. This means that they are already installed.
 """.format(Terminal.black, Terminal.reset), end="")
 
+def get_all():
+    """
+    Return all tools subsequently
+    """
+    for cat in PACKAGES:
+        for pkg in PACKAGES[cat]:
+            yield pkg
+
 def install_all_packages():
-    def get_all():
-        for cat in PACKAGES:
-            for pkg in PACKAGES[cat]:
-                yield pkg
-
     Apt.install(get_all())
-
     raise StepBack("Installed all packages")
 
 def delete_all_packages():
-    def get_all():
-        for cat in PACKAGES:
-            for pkg in PACKAGES[cat]:
-                yield pkg
-
     Apt.remove(get_all())
-
     raise StepBack("Removed all packages")
 
 def view_packages(cat):
@@ -701,17 +694,13 @@ def view_packages(cat):
     while True:
         sel = Selection("Select a Package")
 
-        with apt.Cache() as cache:
-            for pkg in PACKAGES[cat]:
-                sel.add_choice("{}{}{}".format(
-                    (Terminal.black if cache[pkg].is_installed else ""),
-                    pkg,
-                    Terminal.reset
-                ), pkg)
+        for pkg in PACKAGES[cat]:
+            sel.add_choice(pkg, pkg)
 
         if len(PACKAGES[cat]) > 1:
             sel.add_choice("ALL", 0)
         sel.add_choice("BACK", 1)
+        sel.add_choice("HELP", 2)
 
         choices = sel.get_choices()
         method = Apt.install if isinstance(choices, InstallList) else Apt.remove
@@ -725,7 +714,11 @@ def view_packages(cat):
                     method(PACKAGES[cat])
                     continue
 
-            elif 1 in choices or 0 in choices:
+                elif choices[0] == 2:
+                    help()
+                    continue
+
+            elif 1 in choices or 0 in choices or 2 in choices:
                 print("Invalid selection")
                 continue
 
@@ -762,11 +755,21 @@ def view_categories():
             if s.has_message():
                 print(s)
 
+def list_installed_packages():
+    try:
+        with apt.Cache() as cache:
+            for pkg in get_all():
+                if cache[pkg].is_installed:
+                    print(pkg)
+    except Exception as e:
+        raise VisibleError(e)
+
 def main():
     sel = Selection("Main Menu")
     sel.add_choice("View Categories", view_categories)
     sel.add_choice("Install All", install_all_packages)
     sel.add_choice("Uninstall All", delete_all_packages)
+    sel.add_choice("List installed packages", list_installed_packages)
     sel.add_choice("Install Kali Menu", lambda: Apt.install(["kali-menu"]))
     sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
     sel.add_choice("Help", help)

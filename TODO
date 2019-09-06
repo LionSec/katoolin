@@ -1,7 +1,12 @@
-more colorful output
 support for installing programs using git
-append help to every selection
 update mechanism for kali packages
 
 test on different distros
 check kali tools
+
+add cl args for:
+    - list installed programs
+    - uninstall old katoolin
+    - install all
+    - uninstall all
+    - help
