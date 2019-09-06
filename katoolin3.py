@@ -679,12 +679,22 @@ def get_all():
             yield pkg
 
 def install_all_packages():
-    Apt.install(get_all())
-    raise StepBack("Installed all packages")
+    sel = Selection("Install everything?")
+    sel.add_choice("Yes", True)
+    sel.add_choice("No", False)
+
+    if sel.get_choice():
+        Apt.install(get_all())
+        raise StepBack("Installed all packages")
 
 def delete_all_packages():
-    Apt.remove(get_all())
-    raise StepBack("Removed all packages")
+    sel = Selection("Delete everything?")
+    sel.add_choice("Yes", True)
+    sel.add_choice("No", False)
+
+    if sel.get_choice():
+        Apt.remove(get_all())
+        raise StepBack("Removed all packages")
 
 def view_packages(cat):
     """
@@ -879,8 +889,7 @@ if __name__ == "__main__":
         try:
             Sources.uninstall()
             os.system("apt-get -m -y -qq update &")
-        except VisibleError as v:
-            print(v)
+        except VisibleError:
             exit(1)
 
     print("Goodbye")
