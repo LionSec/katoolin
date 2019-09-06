@@ -8,9 +8,7 @@ toollist.py: Download the list of tools which are currently
 
 This only has a use for the maintainers of katoolin3.
 
-Warning: This program has a high fault tolerance,
-         it behaves more like the pirate-codex and 
-         everything has to be checked manually.
+Invoke with: PYTHONPATH=.. ./toollist.py
 """
 
 from html.parser import HTMLParser
