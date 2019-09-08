@@ -19,7 +19,7 @@ from math import ceil
 try:
     import apt
 except ImportError:
-    print("Please install the 'python-apt' package")
+    print("Please install the 'python3-apt' package")
     exit(1)
 
 # The list of kali programs available in the repo:
