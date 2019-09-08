@@ -16,6 +16,7 @@ import os
 from collections import namedtuple
 from math import ceil
 import shlex
+import textwrap
 
 try:
     import apt
@@ -431,7 +432,7 @@ class Selection:
         # forbid relative indexing:
         self._options = {}
         self._headline = head
-        self._col_thresh = 10
+        self._col_thresh = 11
         self._colpad = 2
         self._delchar = "~"
         self._prompt = "kat> "
@@ -687,6 +688,88 @@ class APTManager:
         if not self._cache.commit():
             raise VisibleError(Exception("Apt upgrade failed"))
 
+    def _pkg_status(self, pkg):
+        """
+        Return information about the status of a package.
+        pkg = Package object
+        """
+        if pkg.is_installed:
+            yield "Installed"
+        else:
+            yield "Not installed"
+
+        if pkg.is_upgradable:
+            yield "Not up to date"
+
+    def _pkg_categories(self, pkg):
+        """
+        Return the categories where a package is in (1 or more).
+        pkg = package name as string
+        """
+        for cat in PACKAGES:
+            if pkg in PACKAGES[cat]:
+                yield cat
+                continue
+
+    def _pkg_versions(self, pkg):
+        """
+        Return all versions.
+        pkg = Package object
+        """
+        for version in pkg.versions:
+            yield str(version).split("=")[-1]
+
+    def _pkg_depends(self, pkg):
+        """
+        Return all dependencies.
+        pkg = Package object
+        """
+        for dep in pkg.candidate.dependencies:
+            yield dep.rawstr
+
+    def _pkg_origins(self, pkg):
+        """
+        Return the origins of the package.
+        pkg = Package object
+        """
+        ret = set()
+
+        for org in pkg.candidate.origins:
+            if len(org.origin) > 0:
+                ret = ret.union([org.origin])
+
+        return ret
+
+    def show(self, pkg):
+        """
+        Display some information about a package.
+        """
+        print("Package: ", pkg)
+
+        if pkg in get_all():
+            print("Category:", ", ".join(self._pkg_categories(pkg)))
+
+        pkg = self._cache[pkg]
+
+        print("Status:  ", ", ".join(self._pkg_status(pkg)))
+        print("Version: ", ", ".join(self._pkg_versions(pkg)))
+        print("Depends: ", ", ".join(self._pkg_depends(pkg)))
+        print("Homepage:", pkg.candidate.homepage)
+        print("Repo:    ", ", ".join(self._pkg_origins(pkg)))
+        print(textwrap.fill(pkg.candidate.description, width=50))
+        print()
+
+    def search(self, key):
+        """
+        Search for keywords in the apt cache.
+
+        I haven't found a solution with the APT-API.
+        """
+        key = shlex.quote(key)
+
+        if len(key) > 0:
+            os.system(f"apt search -qq {key};")
+
 class Sources:
     """
     A wrapper for handling the sources.list.d(5) file
@@ -843,12 +926,32 @@ def list_installed_packages():
     global apt_mgr
     apt_mgr.flush()
 
-    for pkg in sorted(get_all()):
+    for pkg in sorted(set(get_all())):
         try:
             if apt_mgr[pkg].is_installed:
                 print(pkg)
         except KeyError:
             pass
+
+def search():
+    """
+    Searches the APT cache. If the search string is
+    a package name display information about the package
+    like 'apt show' otherwise treat it like a keyword for
+    'apt search'.
+    """
+    global apt_mgr
+
+    print()
+    print("Enter a package name to get information about a package")
+    print("or enter a keyword to search for packages...")
+    print()
+    key = input("Search: ")
+
+    if apt_mgr.has_package(key):
+        apt_mgr.show(key)
+    else:
+        apt_mgr.search(key)
 
 def main():
     global apt_mgr
@@ -856,6 +959,7 @@ def main():
     sel.add_choice("View Categories", view_categories)
     sel.add_choice("Install All", install_all_packages)
     sel.add_choice("Uninstall All", delete_all_packages)
+    sel.add_choice("Search repository", search)
     sel.add_choice("List installed packages", list_installed_packages)
     sel.add_choice("Update all Kali packages", lambda: apt_mgr.upgrade(get_all()))
     sel.add_choice("Install Kali Menu", lambda: apt_mgr.install(["kali-menu"]))
