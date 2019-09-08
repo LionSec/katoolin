@@ -32,6 +32,8 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 
 ### Installation
 ```
+git clone https://github.com/s-h-3-l-l/katoolin3;
+cd katoolin3;
 chmod +x ./install.sh;
 sudo ./install.sh;
 ```
