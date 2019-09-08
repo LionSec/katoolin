@@ -644,7 +644,7 @@ class APTManager:
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
 
-        print("Initiating installation...")
+        print("Fetching packages...")
 
         if not self._cache.commit():
             raise VisibleError(Exception("Apt install failed"))
