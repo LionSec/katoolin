@@ -606,6 +606,12 @@ class APTManager:
     def __exit__(self, *nil):
         self._cache.close()
 
+    def __getitem__(self, item):
+        """
+        This is used to retrieve a package by name.
+        """
+        return self._cache[item]
+
     def flush(self):
         """
         Reload new package information into the cache.
@@ -629,37 +635,57 @@ class APTManager:
         """
         Install packages from iterator 'pkgs'
         """
+        print("Reading package lists...")
+
         for pkg in pkgs:
             try:
                 self._cache[pkg].mark_install()
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
 
+        print("Initiating installation...")
+
         if not self._cache.commit():
             raise VisibleError(Exception("Apt install failed"))
+
+        self.flush()
 
     def remove(self, pkgs):
         """
         Uninstall packages in iterator 'pkgs'
         """
+        print("Reading package lists...")
+
         for pkg in pkgs:
             try:
                 self._cache[pkg].mark_delete()
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
 
+        print("Initiating removal...")
+
         if not self._cache.commit():
             raise VisibleError(Exception("Apt remove failed"))
+
+        self.flush()
 
     def has_package(self, pkg):
         return self._cache.has_key(pkg)
 
-    def __getitem__(self, item):
-        """
-        This is used to retrieve a package by name.
-        """
-        return self._cache[item]
+    def upgrade(self, pkgs):
+        print("Reading package lists...")
 
+        for pkg in pkgs:
+            try:
+                if self._cache[pkg].is_installed and self._cache[pkg].is_upgradable:
+                    self._cache[pkg].mark_upgrade()
+            except KeyError:
+                print("Warning: Could not find package '{}'".format(pkg))
+
+        print("Initiating upgrade...")
+
+        if not self._cache.commit():
+            raise VisibleError(Exception("Apt upgrade failed"))
 
 class Sources:
     """
@@ -831,6 +857,7 @@ def main():
     sel.add_choice("Install All", install_all_packages)
     sel.add_choice("Uninstall All", delete_all_packages)
     sel.add_choice("List installed packages", list_installed_packages)
+    sel.add_choice("Update all Kali packages", lambda: apt_mgr.upgrade(get_all()))
     sel.add_choice("Install Kali Menu", lambda: apt_mgr.install(["kali-menu"]))
     sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
     sel.add_choice("Help", help)
@@ -911,10 +938,11 @@ if __name__ == "__main__":
     finally:
         try:
             Sources.uninstall()
-            # Launch an update in the background:
-            os.system("apt-get -m -y -qq update &")
         except VisibleError:
             exit(1)
+
+        # Launch an update in the background:
+        os.system("apt-get -m -y -qq update &")
 
     print("Goodbye")
     exit(0)
