@@ -61,3 +61,9 @@ Simple as that.
 ```
 ### Something doesn't work?
 Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
+
+
+### Tested on:
+- Debian 10 (Buster)
+- Ubuntu 18.04 LTS
+- Ubuntu 19.04
