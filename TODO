@@ -1,12 +1,5 @@
 support for installing programs using git
 update mechanism for kali packages
+search operation
 
 test on different distros
-check kali tools
-
-add cl args for:
-    - list installed programs
-    - uninstall old katoolin
-    - install all
-    - uninstall all
-    - help

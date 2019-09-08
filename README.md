@@ -26,7 +26,7 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 
 ### Requirements
 - Aptitude as a package manager
-- Python 3.7
+- Python 3
 - Root privileges
 - VT-100 compliant terminal
 
@@ -63,7 +63,6 @@ Simple as that.
 ```
 ### Something doesn't work?
 Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
-
 
 ### Tested on:
 - Debian 10 (Buster)

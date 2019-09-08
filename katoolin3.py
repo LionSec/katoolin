@@ -15,6 +15,7 @@ __status__ = "Production"
 import os
 from collections import namedtuple
 from math import ceil
+import shlex
 
 try:
     import apt
@@ -590,36 +591,75 @@ class VisibleError(Exception):
     def __str__(self):
         return "{}{}{}".format(Terminal.red, self._msg, Terminal.reset)
 
-class Apt:
+class APTManager:
     """
-    A wrapper for operations with aptitude
+    A wrapper class for operations with aptitude
     """
-    success_code = 0
+    def __init__(self):
+        self._cache = None
+        self._success_code = 0
 
-    @classmethod
-    def update(cls):
-        if os.system("apt-get -m -y -q update") != cls.success_code:
+    def __enter__(self):
+        self.update()
+        return self
+
+    def __exit__(self, *nil):
+        self._cache.close()
+
+    def flush(self):
+        """
+        Reload new package information into the cache.
+
+        Unfortunately I couldnt find a better way to
+        do this. The python3-apt-API seems uncomplete
+        on this matter.
+        """
+        if self._cache is not None:
+            self._cache.close()
+        del self._cache
+        self._cache = apt.Cache()
+
+    def update(self):
+        if os.system("apt-get -m -y -q update") != self._success_code:
             raise VisibleError(Exception("Apt update failed"))
 
-    @classmethod
-    def install(cls, it):
-        pkgs = " ".join(it)
+        self.flush()
 
-        if len(pkgs) > 0:
-            cmd = "apt-get -m -y -q install {}".format(pkgs)
+    def install(self, pkgs):
+        """
+        Install packages from iterator 'pkgs'
+        """
+        for pkg in pkgs:
+            try:
+                self._cache[pkg].mark_install()
+            except KeyError:
+                print("Warning: Could not find package '{}'".format(pkg))
 
-            if os.system(cmd) != cls.success_code:
-                raise VisibleError(Exception("Apt install failed"))
+        if not self._cache.commit():
+            raise VisibleError(Exception("Apt install failed"))
 
-    @classmethod
-    def remove(cls, it):
-        pkgs = " ".join(it)
+    def remove(self, pkgs):
+        """
+        Uninstall packages in iterator 'pkgs'
+        """
+        for pkg in pkgs:
+            try:
+                self._cache[pkg].mark_delete()
+            except KeyError:
+                print("Warning: Could not find package '{}'".format(pkg))
 
-        if len(pkgs) > 0:
-            cmd = "apt-get -m -y -q remove {}".format(pkgs)
+        if not self._cache.commit():
+            raise VisibleError(Exception("Apt remove failed"))
 
-            if os.system(cmd) != cls.success_code:
-                raise VisibleError(Exception("Apt remove failed"))
+    def has_package(self, pkg):
+        return self._cache.has_key(pkg)
+
+    def __getitem__(self, item):
+        """
+        This is used to retrieve a package by name.
+        """
+        return self._cache[item]
+
 
 class Sources:
     """
@@ -683,21 +723,23 @@ def get_all():
             yield pkg
 
 def install_all_packages():
+    global apt_mgr
     sel = Selection("Install everything?")
     sel.add_choice("Yes", True)
     sel.add_choice("No", False)
 
     if sel.get_choice():
-        Apt.install(get_all())
+        apt_mgr.install(get_all())
         raise StepBack("Installed all packages")
 
 def delete_all_packages():
+    global apt_mgr
     sel = Selection("Delete everything?")
     sel.add_choice("Yes", True)
     sel.add_choice("No", False)
 
     if sel.get_choice():
-        Apt.remove(get_all())
+        apt_mgr.remove(get_all())
         raise StepBack("Removed all packages")
 
 def view_packages(cat):
@@ -705,6 +747,8 @@ def view_packages(cat):
     Display the submenu for installing packages
     from a specific category.
     """
+    global apt_mgr
+
     while True:
         sel = Selection("Select a Package")
 
@@ -717,7 +761,7 @@ def view_packages(cat):
         sel.add_choice("HELP", 2)
 
         choices = sel.get_choices()
-        method = Apt.install if isinstance(choices, InstallList) else Apt.remove
+        method = apt_mgr.install if isinstance(choices, InstallList) else apt_mgr.remove
 
         try:
             if len(choices) == 1:
@@ -770,21 +814,24 @@ def view_categories():
                 print(s)
 
 def list_installed_packages():
-    try:
-        with apt.Cache() as cache:
-            for pkg in get_all():
-                if cache[pkg].is_installed:
-                    print(pkg)
-    except Exception as e:
-        raise VisibleError(e)
+    global apt_mgr
+    apt_mgr.flush()
+
+    for pkg in sorted(get_all()):
+        try:
+            if apt_mgr[pkg].is_installed:
+                print(pkg)
+        except KeyError:
+            pass
 
 def main():
+    global apt_mgr
     sel = Selection("Main Menu")
     sel.add_choice("View Categories", view_categories)
     sel.add_choice("Install All", install_all_packages)
     sel.add_choice("Uninstall All", delete_all_packages)
     sel.add_choice("List installed packages", list_installed_packages)
-    sel.add_choice("Install Kali Menu", lambda: Apt.install(["kali-menu"]))
+    sel.add_choice("Install Kali Menu", lambda: apt_mgr.install(["kali-menu"]))
     sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
     sel.add_choice("Help", help)
     sel.add_choice("Exit", None)
@@ -802,33 +849,6 @@ def main():
                 print(s)
         except VisibleError as v:
             print(v)
-
-def remove_unknown_packages():
-    """
-    Some packages in PACKAGES may be not
-    available in different debian versions
-    so this function deletes all packages
-    from PACKAGES which are not in the APT
-    cache.
-    """
-    # Only informational:
-    not_found = 0
-
-    with apt.Cache() as cache:
-        for cat in PACKAGES:
-            to_delete = []
-
-            for i, pkg in enumerate(PACKAGES[cat]):
-                try:
-                    cache[pkg]
-                except KeyError:
-                    to_delete.append(i - len(to_delete))
-                    not_found += 1
-
-            for i in to_delete:
-                del PACKAGES[cat][i]
-
-    print("{} packages not in current repositories".format(not_found))
 
 def handle_old_katoolin(force=False):
     """
@@ -880,10 +900,9 @@ if __name__ == "__main__":
         print_logo()
         handle_old_katoolin()
         Sources.install()
-        Apt.update()
-        remove_unknown_packages()
-        print()
-        main()
+        with APTManager() as apt_mgr: # this will be used globally
+            print()
+            main()
     except (KeyboardInterrupt, StepBack):
         print()
     except Exception as e:
@@ -892,6 +911,7 @@ if __name__ == "__main__":
     finally:
         try:
             Sources.uninstall()
+            # Launch an update in the background:
             os.system("apt-get -m -y -qq update &")
         except VisibleError:
             exit(1)
