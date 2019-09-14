@@ -24,7 +24,12 @@ except ImportError:
     print("Please install the 'python3-apt' package")
     exit(1)
 
-# The list of kali programs available in the repo:
+# The list of kali programs available in the repo with the format:
+# {
+#   category_name : [list of packages in category]
+# }
+# The category names have to be identical to those on
+# https://tools.kali.org/tools-listing !
 PACKAGES = {
     "Information Gathering" : [
         "ace-voip",

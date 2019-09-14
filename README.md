@@ -7,7 +7,7 @@ This program is a port of [katoolin](https://github.com/LionSec/katoolin) from [
 The old katoolin uses an outdated package list. Katoolin3 always keeps its package list up to date.
 
 - __Improved handling of missing packages__   
-The old katoolin breaks if a package isn't available in the repositories anymore. Katoolin3 detects those and simply removes them from its package list.
+The old katoolin breaks if a package isn't available in the repositories anymore or has some dependency errors. Katoolin3 detects those and simply ignores them.
 
 - __Removal of packages__    
 You can now remove all packages installed by katoolin3 (individually or all at once).
@@ -61,6 +61,14 @@ Then you realize those programs are shit and you do
 '~1,2,8-10' to uninstall them.
 Simple as that.
 ```
+
+### Updating
+To update your tool list execute  
+```
+sudo ./update.sh;
+```  
+Updating the tools themselves can be done inside katoolin3.
+
 ### Something doesn't work?
 Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
 
