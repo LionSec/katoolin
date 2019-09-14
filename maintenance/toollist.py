@@ -89,11 +89,13 @@ class DictDiff:
         """
         This gets printed if something new was inserted
         """
-        print("{}{}+{} {}".format(
+        global apt_mgr
+        print("{}{}+{} {} {}".format(
             "\t" * indent,
             Color.green,
             Color.reset,
-            item
+            item,
+            "(available)" if apt_mgr.has_package(item) else ""
         ))
 
     def _del_item(self, item, indent=0):
@@ -164,4 +166,11 @@ if __name__ == "__main__":
         "User-Agent": "Luffa-plex Dill Pickle-inator"
     })
     r.raise_for_status()
-    DictDiff(katoolin3.PACKAGES, Parser().feed(r.text)).diff()
+    katoolin3.Sources.install()
+    try:
+        apt_mgr = katoolin3.APTManager()
+        apt_mgr.update()
+        DictDiff(katoolin3.PACKAGES, Parser().feed(r.text)).diff()
+    finally:
+        katoolin3.Sources.uninstall()
+        apt_mgr.update()

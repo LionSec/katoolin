@@ -14,7 +14,8 @@ if __name__ == "__main__":
     katoolin3.Sources.install()
 
     try:
-        katoolin3.Apt.update()
+        apt_mgr = katoolin3.APTManager()
+        apt_mgr.update()
 
         while True:
             search = input("Search: ")
@@ -23,4 +24,4 @@ if __name__ == "__main__":
                 os.system(f"apt show {search}")
     finally:
         katoolin3.Sources.uninstall()
-        katoolin3.Apt.update()
+        apt_mgr.update()

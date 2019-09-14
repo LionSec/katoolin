@@ -8,23 +8,19 @@ missing.py: Check if all packages in katoolin3s
 Invoke with: sudo PYTHONPATH=.. ./missing.py
 """
 
-import apt
-
 import katoolin3
 
 if __name__ == "__main__":
     katoolin3.Sources.install()
 
     try:
-        katoolin3.Apt.update()
+        apt_mgr = katoolin3.APTManager()
+        apt_mgr.update()
 
-        with apt.Cache() as cache:
-            for pkg in katoolin3.get_all():
-                try:
-                    cache[pkg]
-                except KeyError:
-                    print(pkg)
+        for pkg in katoolin3.get_all():
+            if not apt_mgr.has_package(pkg):
+                print(pkg)
 
     finally:
         katoolin3.Sources.uninstall()
-        katoolin3.Apt.update()
+        apt_mgr.update()
