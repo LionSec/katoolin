@@ -65,6 +65,7 @@ Simple as that.
 ### Updating
 To update your tool list execute  
 ```
+chmod +x ./update.sh;
 sudo ./update.sh;
 ```  
 Updating the tools themselves can be done inside katoolin3.
