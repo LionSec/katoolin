@@ -70,10 +70,17 @@ sudo ./update.sh;
 ```  
 Updating the tools themselves can be done inside katoolin3.
 
-### Something doesn't work?
-Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
-
-### Tested on:
+### Tested on
 - Debian 10 (Buster)
 - Ubuntu 18.04 LTS
 - Ubuntu 19.04
+
+### Something doesn't work?
+Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
+
+### Uninstalling
+To uninstall katoolin3 execute
+```
+chmod +x ./uninstall.sh;
+sudo ./uninstall.sh;
+```

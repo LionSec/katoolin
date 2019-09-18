@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 DIR="/usr/local/bin";
 NAME="katoolin3";
