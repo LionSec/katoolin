@@ -8,20 +8,16 @@ Invoke with: sudo PYTHONPATH=.. ./search.py
 """
 
 import os
+import shlex
 import katoolin3
 
 if __name__ == "__main__":
-    katoolin3.Sources.install()
-
-    try:
-        apt_mgr = katoolin3.APTManager()
-        apt_mgr.update()
-
+    with katoolin3.APTManager(silent=True) as apt_mgr:
         while True:
-            search = input("Search: ")
+            search = shlex.quote(input("Search: "))
 
-            if len(search) > 0:
-                os.system(f"apt show {search}")
-    finally:
-        katoolin3.Sources.uninstall()
-        apt_mgr.update()
+            if search:
+                if apt_mgr.has_package(search):
+                    os.system(f"apt show {search}")
+                else:
+                    os.system(f"apt search {search}")

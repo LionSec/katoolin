@@ -1,18 +1,9 @@
-Sources: replace install, uninstall with __enter__ and __exit__
-help(): remove .format() / view_packages(): display installed packages in black
-think about other storage mechanism for tool list
-get_all() -> all_packages()
-install bytecode instead of text file
-use install program in install.sh
-in install.sh check if all programs and versions are correct
-view_categories(): Fix docstring
-remove 'global' in functions
-move .format() to f""
-APTManager.*: Print count of packages affected by change
-apt_mgr -> APT
-Add Selection.ALL, Selection.BACK, Selection.HELP as special selectors
-Add progress handler by cache commit
-Concurrency???
-remove __status__
-Exception -> APTException
-handle_old_katoolin(): catch valid open() exceptions instead of Exception
+Add cl options for:
+    Update all
+    Install all
+    Uninstall all
+
+Download packages which are not in the repositories 
+but on the tool list from Kalis official Gitlab account.
+
+Dont show uninstalled packages in black but installable packages in green.

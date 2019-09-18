@@ -11,16 +11,7 @@ Invoke with: sudo PYTHONPATH=.. ./missing.py
 import katoolin3
 
 if __name__ == "__main__":
-    katoolin3.Sources.install()
-
-    try:
-        apt_mgr = katoolin3.APTManager()
-        apt_mgr.update()
-
-        for pkg in katoolin3.get_all():
+    with katoolin3.APTManager(silent=True) as apt_mgr:
+        for pkg in katoolin3.all_packages():
             if not apt_mgr.has_package(pkg):
                 print(pkg)
-
-    finally:
-        katoolin3.Sources.uninstall()
-        apt_mgr.update()

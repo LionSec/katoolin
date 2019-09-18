@@ -89,7 +89,6 @@ class DictDiff:
         """
         This gets printed if something new was inserted
         """
-        global apt_mgr
         print("{}{}+{} {} {}".format(
             "\t" * indent,
             Color.green,
@@ -166,11 +165,5 @@ if __name__ == "__main__":
         "User-Agent": "Luffa-plex Dill Pickle-inator"
     })
     r.raise_for_status()
-    katoolin3.Sources.install()
-    try:
-        apt_mgr = katoolin3.APTManager()
-        apt_mgr.update()
+    with katoolin3.APTManager(silent=True) as apt_mgr:
         DictDiff(katoolin3.PACKAGES, Parser().feed(r.text)).diff()
-    finally:
-        katoolin3.Sources.uninstall()
-        apt_mgr.update()

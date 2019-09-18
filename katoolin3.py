@@ -8,9 +8,6 @@ katoolin3 is a port of katoolin for python3.
 __author__ = "s-h-3-l-l"
 __credits__ = ["LionSec"]
 __license__ = "GPL"
-__version__ = "1.0"
-__maintainer__ = "s-h-3-l-l"
-__status__ = "Production"
 
 import os
 from collections import namedtuple
@@ -31,6 +28,63 @@ except ImportError:
 # The category names have to be identical to those on
 # https://tools.kali.org/tools-listing !
 PACKAGES = {
+    "Exploitation Tools" : [
+        "armitage",
+        "backdoor-factory",
+        "beef-xss",
+        "cisco-auditing-tool",
+        "cisco-global-exploiter",
+        "cisco-ocs",
+        "cisco-torch",
+        "commix",
+        "crackle",
+        "exploitdb",
+        "jboss-autopwn",
+        "linux-exploit-suggester",
+        "maltego-teeth",
+        "metasploit-framework",
+        "msfpc",
+        "routersploit",
+        "set",
+        "shellnoob",
+        "sqlmap",
+        "thc-ipv6",
+        "yersinia"
+    ],
+    "Forensics Tools" : [
+        "binwalk",
+        "bulk-extractor",
+        "capstone-tool",
+        "chntpw",
+        "cuckoo",
+        "dc3dd",
+        "ddrescue",
+        "dumpzilla",
+        "extundelete",
+        "foremost",
+        "galleta",
+        "guymager",
+        "p0f",
+        "pdf-parser",
+        "pdfid",
+        "pdgmail",
+        "peepdf",
+        "python-capstone",
+        "python-distorm3",
+        "python3-capstone",
+        "python3-distorm3",
+        "regripper",
+        "volatility",
+        "xplico"
+    ],
+    "Hardware Hacking" : [
+        "android-sdk",
+        "apktool",
+        "arduino",
+        "dex2jar",
+        "sakis3g",
+        "smali"
+    ],
     "Information Gathering" : [
         "ace-voip",
         "amap",
@@ -53,7 +107,6 @@ PACKAGES = {
         "dotdotpwn",
         "enum4linux",
         "enumiax",
-        "exploitdb",
         "eyewitness",
         "fierce",
         "firewalk",
@@ -62,8 +115,11 @@ PACKAGES = {
         "ghost-phisher",
         "golismero",
         "goofile",
+        "hping3",
         "ident-user-enum",
         "inspy",
+        "intrace",
+        "ismtp",
         "lbd",
         "maltego-teeth",
         "masscan",
@@ -72,14 +128,17 @@ PACKAGES = {
         "nbtscan-unixwiz",
         "nikto",
         "nmap",
+        "ntopng",
         "osrframework",
         "p0f",
         "parsero",
+        "python-faraday",
         "recon-ng",
         "set",
         "smbmap",
         "smtp-user-enum",
         "snmpcheck",
+        "sntop",
         "sparta",
         "sslcaudit",
         "sslsplit",
@@ -94,10 +153,142 @@ PACKAGES = {
         "urlcrazy",
         "wireshark",
         "wol-e",
-        "xplico",
+        "xplico"
+    ],
+    "Maintaining Access" : [
+        "cryptcat",
+        "cymothoa",
+        "dbd",
+        "dns2tcp",
+        "httptunnel",
+        "intersect",
+        "nishang",
+        "polenum",
+        "powersploit",
+        "pwnat",
+        "ridenum",
+        "sbd",
+        "shellter",
+        "u3-pwn",
+        "webshells",
+        "weevely",
+        "winexe"
+    ],
+    "Password Attacks" : [
+        "brutespray",
+        "burpsuite",
+        "cewl",
+        "chntpw",
+        "cisco-auditing-tool",
+        "cmospwd",
+        "creddump",
+        "crowbar",
+        "crunch",
+        "findmyhash",
+        "gpp-decrypt",
+        "hash-identifier",
+        "hashcat",
+        "hexorbase",
+        "hydra",
+        "john",
+        "johnny",
+        "keimpx",
+        "maltego-teeth",
+        "maskprocessor",
+        "multiforcer",
+        "ncrack",
+        "oclgausscrack",
+        "ophcrack",
+        "pack",
+        "patator",
+        "polenum",
+        "rainbowcrack",
+        "rcracki-mt",
+        "rsmangler",
+        "seclists",
+        "sqldict",
+        "statsprocessor",
+        "thc-pptp-bruter",
+        "truecrack",
+        "webscarab",
+        "wordlists",
+        "zaproxy"
+    ],
+    "Reporting Tools" : [
+        "casefile",
+        "cherrytree",
+        "cutycapt",
+        "dos2unix",
+        "dradis",
+        "keepnote",
+        "metagoofil",
+        "nipper-ng",
+        "pipal",
+        "python-rdpy"
+    ],
+    "Reverse Engineering" : [
+        "apktool",
+        "dex2jar",
+        "edb-debugger",
+        "jad",
+        "javasnoop",
+        "jd-gui",
+        "ollydbg",
+        "python-distorm3",
+        "python3-distorm3",
+        "smali",
+        "valgrind",
+        "yara"
+    ],
+    "Sniffing & Spoofing" : [
+        "bettercap",
+        "burpsuite",
+        "dnschef",
+        "fiked",
+        "hamster-sidejack",
+        "hexinject",
+        "iaxflood",
+        "inviteflood",
         "ismtp",
-        "intrace",
-        "hping3"
+        "isr-evilgrade",
+        "mitmproxy",
+        "ohrwurm",
+        "protos-sip",
+        "rebind",
+        "responder",
+        "rtpbreak",
+        "rtpinsertsound",
+        "rtpmixsound",
+        "sctpscan",
+        "siparmyknife",
+        "sipp",
+        "sipvicious",
+        "sniffjoke",
+        "sslsplit",
+        "sslstrip",
+        "thc-ipv6",
+        "voiphopper",
+        "webscarab",
+        "wifi-honey",
+        "wireshark",
+        "xspy",
+        "yersinia",
+        "zaproxy"
+    ],
+    "Stress Testing" : [
+        "dhcpig",
+        "funkload",
+        "iaxflood",
+        "inviteflood",
+        "ipv6-toolkit",
+        "mdk3",
+        "reaver",
+        "rtpflood",
+        "slowhttptest",
+        "t50",
+        "termineter",
+        "thc-ipv6",
+        "thc-ssl-dos"
     ],
     "Vulnerability Analysis" : [
         "bbqsql",
@@ -109,7 +300,6 @@ PACKAGES = {
         "copy-router-config",
         "doona",
         "dotdotpwn",
-        "greenbone-security-assistant",
         "hexorbase",
         "jsql",
         "lynis",
@@ -129,266 +319,82 @@ PACKAGES = {
         "unix-privesc-check",
         "yersinia"
     ],
+    "Web Applications" : [
+        "apache-users",
+        "arachni",
+        "bbqsql",
+        "blindelephant",
+        "burpsuite",
+        "cutycapt",
+        "davtest",
+        "deblaze",
+        "dirb",
+        "dirbuster",
+        "fimap",
+        "funkload",
+        "gobuster",
+        "grabber",
+        "hurl",
+        "jboss-autopwn",
+        "joomscan",
+        "jsql",
+        "maltego-teeth",
+        "nikto",
+        "padbuster",
+        "paros",
+        "parsero",
+        "plecost",
+        "powerfuzzer",
+        "proxystrike",
+        "recon-ng",
+        "skipfish",
+        "sqlmap",
+        "sqlninja",
+        "sqlsus",
+        "ua-tester",
+        "uniscan",
+        "webscarab",
+        "websploit",
+        "wfuzz",
+        "whatweb",
+        "wpscan",
+        "xsser",
+        "zaproxy"
+    ],
     "Wireless Attacks" : [
         "aircrack-ng",
         "airgraph-ng",
-        "asleap", 
-        "bluelog", 
-        "blueranger", 
-        "bluesnarfer", 
-        "bully", 
-        "cowpatty", 
-        "crackle", 
-        "eapmd5pass", 
-        "fern-wifi-cracker", 
+        "asleap",
+        "bluelog",
+        "blueranger",
+        "bluesnarfer",
+        "bully",
+        "cowpatty",
+        "crackle",
+        "eapmd5pass",
+        "fern-wifi-cracker",
         "freeradius-wpe",
         "ghost-phisher",
-        "gqrx", 
+        "gqrx-sdr",
         "hostapd-wpe",
-        "kalibrate-rtl", 
-        "killerbee", 
-        "kismet", 
-        "mdk3", 
-        "mfcuk", 
-        "mfoc", 
-        "mfterm", 
-        "multimon-ng", 
-        "pixiewps", 
+        "kalibrate-rtl",
+        "killerbee",
+        "kismet",
+        "mdk3",
+        "mfcuk",
+        "mfoc",
+        "mfterm",
+        "multimon-ng",
+        "pixiewps",
         "pyrit",
-        "reaver", 
-        "redfang", 
+        "reaver",
+        "redfang",
         "rtlsdr-scanner",
-        "spooftooph", 
-        "wifi-honey", 
-        "wifitap", 
-        "wifite",
-        "wifiphisher"
-    ],
-    "Web Applications" : [
-        "apache-users", 
-        "arachni", 
-        "bbqsql", 
-        "blindelephant", 
-        "burpsuite", 
-        "cutycapt", 
-        "davtest", 
-        "deblaze", 
-        "dirb", 
-        "dirbuster", 
-        "fimap", 
-        "funkload", 
-        "gobuster",
-        "grabber", 
-        "hurl",
-        "jboss-autopwn", 
-        "joomscan", 
-        "jsql", 
-        "maltego-teeth", 
-        "nikto",
-        "padbuster", 
-        "paros", 
-        "parsero", 
-        "plecost", 
-        "powerfuzzer", 
-        "proxystrike", 
-        "recon-ng", 
-        "skipfish", 
-        "sqlmap", 
-        "sqlninja", 
-        "sqlsus", 
-        "ua-tester", 
-        "uniscan", 
-        "webscarab", 
-        "websploit", 
-        "wfuzz", 
-        "whatweb",
-        "wpscan", 
-        "xsser", 
-        "zaproxy"
-    ],
-    "Sniffing & Spoofing" : [
-        "bettercap",
-        "burpsuite", 
-        "dnschef", 
-        "fiked", 
-        "hamster-sidejack", 
-        "hexinject", 
-        "iaxflood", 
-        "inviteflood", 
-        "ismtp", 
-        "isr-evilgrade",
-        "mitmproxy", 
-        "ohrwurm", 
-        "protos-sip", 
-        "rebind", 
-        "responder", 
-        "rtpbreak", 
-        "rtpinsertsound", 
-        "rtpmixsound", 
-        "sctpscan", 
-        "siparmyknife", 
-        "sipp", 
-        "sipvicious", 
-        "sniffjoke", 
-        "sslsplit", 
-        "sslstrip", 
-        "thc-ipv6", 
-        "voiphopper", 
-        "webscarab", 
-        "wifi-honey", 
-        "wireshark", 
-        "xspy", 
-        "yersinia", 
-        "zaproxy"
-    ],
-    "Maintaining Access" : [
-        "cryptcat", 
-        "cymothoa", 
-        "dbd", 
-        "dns2tcp", 
-        "httptunnel", 
-        "intersect", 
-        "nishang", 
-        "polenum", 
-        "powersploit", 
-        "pwnat", 
-        "ridenum", 
-        "sbd", 
-        "shellter",
-        "u3-pwn", 
-        "webshells", 
-        "weevely"
-    ],
-    "Reporting Tools" : [
-        "casefile", 
-        "cutycapt", 
-        "cherrytree",
-        "dos2unix",  # what is that doing here ??
-        "dradis", 
-        "keepnote", 
-        "metagoofil", 
-        "nipper-ng", 
-        "pipal"
-    ],
-    "Exploitation Tools" : [
-        "armitage", 
-        "backdoor-factory", 
-        "cisco-auditing-tool", 
-        "cisco-global-exploiter", 
-        "cisco-ocs", 
-        "cisco-torch", 
-        "crackle", 
-        "commix",
-        "exploitdb",
-        "jboss-autopwn", 
-        "linux-exploit-suggester", 
-        "maltego-teeth", 
-        "metasploit-framework",
-        "msfpc",
-        "routersploit",
-        "set", 
-        "shellnoob", 
-        "sqlmap", 
-        "thc-ipv6", 
-        "yersinia", 
-        "beef-xss"
-    ],
-    "Forensics Tools" : [
-        "binwalk", 
-        "bulk-extractor", 
-        "chntpw", 
-        "cuckoo", 
-        "dc3dd", 
-        "ddrescue", 
-        "dumpzilla", 
-        "extundelete", 
-        "foremost", 
-        "galleta", 
-        "guymager", 
-        "p0f", 
-        "pdf-parser", 
-        "pdfid", 
-        "pdgmail", 
-        "peepdf", 
-        "regripper",
-        "volatility", 
-        "xplico"
-    ],
-    "Stress Testing" : [
-        "dhcpig", 
-        "funkload", 
-        "iaxflood", 
-        "inviteflood", 
-        "ipv6-toolkit", 
-        "mdk3", 
-        "reaver", 
-        "rtpflood", 
-        "slowhttptest", 
-        "t50", 
-        "termineter", 
-        "thc-ipv6", 
-        "thc-ssl-dos"
-    ],
-    "Password Attacks" : [
-        "burpsuite", 
-        "brutespray",
-        "cewl", 
-        "chntpw", 
-        "cisco-auditing-tool", 
-        "cmospwd", 
-        "creddump", 
-        "crunch", 
-        "crowbar",
-        "findmyhash", 
-        "gpp-decrypt", 
-        "hashcat",
-        "hash-identifier", 
-        "hexorbase", 
-        "hydra",
-        "john", 
-        "johnny", 
-        "keimpx", 
-        "maltego-teeth", 
-        "maskprocessor", 
-        "multiforcer", 
-        "ncrack", 
-        "oclgausscrack", 
-        "ophcrack",
-        "pack", 
-        "patator", 
-        "polenum", 
-        "rainbowcrack", 
-        "rcracki-mt", 
-        "rsmangler", 
-        "seclists",
-        "statsprocessor", 
-        "sqldict",
-        "thc-pptp-bruter", 
-        "truecrack", 
-        "webscarab", 
-        "wordlists", 
-        "zaproxy"
-    ],
-    "Reverse Engineering" : [
-        "apktool", 
-        "dex2jar", 
-        "python-distorm3", 
-        "edb-debugger", 
-        "jad", 
-        "javasnoop", 
-        "jd-gui", 
-        "ollydbg", 
-        "smali", 
-        "valgrind", 
-        "yara"
-    ],
-    "Hardware Hacking" : [
-        "android-sdk", 
-        "apktool", 
-        "arduino", 
-        "dex2jar", 
-        "sakis3g", 
-        "smali"
+        "spooftooph",
+        "wifi-honey",
+        "wifiphisher",
+        "wifitap",
+        "wifite"
     ]
 }
 
@@ -431,6 +437,14 @@ class Selection:
     a list of options to the user and let the user select
     one (or more!) of them.
     """
+    # Some values with special meaning.
+    # These are complex because they have
+    # to be different from anything that
+    # would make sense in a selection (numbers, strings, etc.)
+    ALL = complex(-1, -1)
+    BACK = complex(-2, -2)
+    HELP = complex(-3, -3)
+
     def __init__(self, head=None):
         # The list of choices.
         # This is a dict because we wanna
@@ -463,13 +477,10 @@ class Selection:
 
         if self._headline is not None:
             yield ""
-            yield "{}{}{}".format(Terminal.underscore, self._headline, Terminal.reset)
+            yield f"{Terminal.underscore}{self._headline}{Terminal.reset}"
 
         for index in self._options:
-            y = "{}) {}".format(
-                index,
-                self._options[index].text
-            )
+            y = f"{index}) {self._options[index].text}"
 
             # If there are a lot items display them columnwise:
             if len(self._options) >= self._col_thresh:
@@ -552,7 +563,7 @@ class Selection:
                     ret = UninstallList()
                     n = n[1:]
 
-                if len(n) == 0:
+                if not n:
                     raise ValueError()
 
                 for i in self._parse_selection(n):
@@ -571,8 +582,8 @@ class StepBack(BaseException):
     It is the opposite of VisibleError.
     """
     def __init__(self, msg=""):
-        self._msg = msg
         super().__init__()
+        self._msg = msg
 
     def has_message(self):
         return self._msg != ""
@@ -581,36 +592,56 @@ class StepBack(BaseException):
         """
         This is only used in the innermost submenus
         """
-        return "{}{}{}".format(Terminal.green, self._msg, Terminal.reset)
+        return f"{Terminal.green}{self._msg}{Terminal.reset}"
 
 class VisibleError(Exception):
     """
-    An exception that will be displayed
-    but will not change the program
-    flow.
+    An exception whose message will be displayed
+    but will not stop the program.
     """
-    def __init__(self, ex):
-        super().__init__()
-        self._msg = str(ex)
-        self.args = ex.args
-
     def __str__(self):
-        return "{}{}{}".format(Terminal.red, self._msg, Terminal.reset)
+        return f"{Terminal.red}{str(self.__cause__)}{Terminal.reset}"
+
+class APTException(Exception):
+    """
+    An exception that indicates an error with APTManager.
+    """
 
 class APTManager:
     """
     A wrapper class for operations with aptitude
     """
-    def __init__(self):
+    sources_file = "/etc/apt/sources.list.d/katoolin3.list"
+
+    def __init__(self, silent=False):
         self._cache = None
         self._success_code = 0
+        self._silent = silent
 
     def __enter__(self):
+        """
+        Installs the sources file and updates the APT cache.
+        """
+        try:
+            with open(self.sources_file, "w") as file:
+                file.write("# This file was automatically created by katoolin3. DO NOT MODIFY\n")
+                file.write("deb http://http.kali.org/kali kali-rolling main contrib non-free\n")
+        except OSError as e:
+            raise VisibleError() from e
+
         self.update()
         return self
 
     def __exit__(self, *nil):
+        try:
+            os.remove(self.sources_file)
+        except OSError as e:
+            raise VisibleError() from e
+
         self._cache.close()
+
+        # Launch update in background
+        os.system("apt-get -m -y -qq update &")
 
     def __getitem__(self, item):
         """
@@ -628,12 +659,13 @@ class APTManager:
         """
         if self._cache is not None:
             self._cache.close()
-        del self._cache
         self._cache = apt.Cache()
 
     def update(self):
-        if os.system("apt-get -m -y -q update") != self._success_code:
-            raise VisibleError(Exception("Apt update failed"))
+        if os.system(
+                "apt-get -m -y {} update".format("-qq" if self._silent else "-q")
+        ) != self._success_code:
+            raise VisibleError() from APTException("Apt update failed")
 
         self.flush()
 
@@ -642,17 +674,23 @@ class APTManager:
         Install packages from iterator 'pkgs'
         """
         print("Reading package lists...")
+        num = 0
 
         for pkg in pkgs:
             try:
-                self._cache[pkg].mark_install()
+                if not self._cache[pkg].is_installed:
+                    self._cache[pkg].mark_install()
+                    num += 1
             except KeyError:
-                print("Warning: Could not find package '{}'".format(pkg))
+                print(f"Warning: Could not find package '{pkg}'")
 
-        print("Fetching packages...")
+        if num == 0:
+            raise StepBack("Already installed")
+
+        print(f"Installing {num} package{'s' if num > 1 else ''}...")
 
         if not self._cache.commit():
-            raise VisibleError(Exception("Apt install failed"))
+            raise VisibleError() from APTException("Apt install failed")
 
         self.flush()
 
@@ -661,17 +699,23 @@ class APTManager:
         Uninstall packages in iterator 'pkgs'
         """
         print("Reading package lists...")
+        num = 0
 
         for pkg in pkgs:
             try:
-                self._cache[pkg].mark_delete()
+                if self._cache[pkg].is_installed:
+                    self._cache[pkg].mark_delete()
+                    num += 1
             except KeyError:
-                print("Warning: Could not find package '{}'".format(pkg))
+                print(f"Warning: Could not find package '{pkg}'")
 
-        print("Initiating removal...")
+        if num == 0:
+            raise StepBack("Nothing to remove")
+
+        print(f"Removing {num} package{'s' if num > 1 else ''}...")
 
         if not self._cache.commit():
-            raise VisibleError(Exception("Apt remove failed"))
+            raise VisibleError() from APTException("Apt remove failed")
 
         self.flush()
 
@@ -680,18 +724,26 @@ class APTManager:
 
     def upgrade(self, pkgs):
         print("Reading package lists...")
+        num = 0
 
         for pkg in pkgs:
             try:
                 if self._cache[pkg].is_installed and self._cache[pkg].is_upgradable:
                     self._cache[pkg].mark_upgrade()
+                    num += 1
             except KeyError:
-                print("Warning: Could not find package '{}'".format(pkg))
+                print(f"Warning: Could not find package '{pkg}'")
 
-        print("Initiating upgrade...")
+        if num == 0:
+            print("Everything up to date")
+            return
+
+        print(f"Upgrading {num} package{'s' if num > 1 else ''}...")
 
         if not self._cache.commit():
-            raise VisibleError(Exception("Apt upgrade failed"))
+            raise VisibleError() from APTException("Apt upgrade failed")
+
+        self.flush()
 
     def _pkg_status(self, pkg):
         """
@@ -751,7 +803,7 @@ class APTManager:
         """
         print("Package: ", pkg)
 
-        if pkg in get_all():
+        if pkg in all_packages():
             print("Category:", ", ".join(self._pkg_categories(pkg)))
 
         pkg = self._cache[pkg]
@@ -772,31 +824,8 @@ class APTManager:
         """
         key = shlex.quote(key)
 
-        if len(key) > 0:
+        if key:
             os.system(f"apt search -qq {key};")
-
-class Sources:
-    """
-    A wrapper for handling the sources.list.d(5) file
-    """
-    file = "/etc/apt/sources.list.d/katoolin3.list"
-
-    @classmethod
-    def install(cls):
-        if not os.path.exists(cls.file):
-            try:
-                with open(cls.file, "w") as f:
-                    f.write("# This file was automatically created by katoolin3. DO NOT MODIFY\n")
-                    f.write("deb http://http.kali.org/kali kali-rolling main contrib non-free\n")
-            except OSError as e:
-                raise VisibleError(e)
-
-    @classmethod
-    def uninstall(cls):
-        try:
-            os.remove(cls.file)
-        except OSError as e:
-            raise VisibleError(e)
 
 def print_logo():
     """
@@ -814,8 +843,8 @@ def print_logo():
 {}""".format(Terminal.white, Terminal.reset))
     print()
 
-def help():
-    print("""
+def print_help():
+    print(f"""
 The program flow of this program is realized by presenting
 a list of options that you can choose from.
 
@@ -826,9 +855,12 @@ those two '0,1,3-5,12'.
 
 If you want to remove packages simply prepend '~' before a
 string like above.
-""".format(Terminal.black, Terminal.reset), end="")
 
-def get_all():
+Packages which you have already installed are shown
+in {Terminal.black}this color{Terminal.reset}.
+""")
+
+def all_packages():
     """
     Return all tools subsequently
     """
@@ -837,23 +869,21 @@ def get_all():
             yield pkg
 
 def install_all_packages():
-    global apt_mgr
     sel = Selection("Install everything?")
     sel.add_choice("Yes", True)
     sel.add_choice("No", False)
 
     if sel.get_choice():
-        apt_mgr.install(get_all())
+        APT.install(all_packages())
         raise StepBack("Installed all packages")
 
 def delete_all_packages():
-    global apt_mgr
     sel = Selection("Delete everything?")
     sel.add_choice("Yes", True)
     sel.add_choice("No", False)
 
     if sel.get_choice():
-        apt_mgr.remove(get_all())
+        APT.remove(all_packages())
         raise StepBack("Removed all packages")
 
 def view_packages(cat):
@@ -861,36 +891,38 @@ def view_packages(cat):
     Display the submenu for installing packages
     from a specific category.
     """
-    global apt_mgr
-
     while True:
         sel = Selection("Select a Package")
 
         for pkg in PACKAGES[cat]:
-            sel.add_choice(pkg, pkg)
+            if APT[pkg].is_installed:
+                sel.add_choice(f"{Terminal.black}{pkg}{Terminal.reset}", pkg)
+            else:
+                sel.add_choice(pkg, pkg)
 
         if len(PACKAGES[cat]) > 1:
-            sel.add_choice("ALL", 0)
-        sel.add_choice("BACK", 1)
-        sel.add_choice("HELP", 2)
+            sel.add_choice("ALL", Selection.ALL)
+        sel.add_choice("HELP", Selection.HELP)
+        sel.add_choice("BACK", Selection.BACK)
 
         choices = sel.get_choices()
-        method = apt_mgr.install if isinstance(choices, InstallList) else apt_mgr.remove
+        method = APT.install if isinstance(choices, InstallList) else APT.remove
 
         try:
             if len(choices) == 1:
-                if choices[0] == 1:
-                    raise StepBack()
+                if choices[0] == Selection.BACK:
+                    break
 
-                elif choices[0] == 0:
-                    method(PACKAGES[cat])
+                elif choices[0] == Selection.HELP:
+                    print_help()
                     continue
 
-                elif choices[0] == 2:
-                    help()
-                    continue
+                elif choices[0] == Selection.ALL:
+                    choices = PACKAGES[cat]
 
-            elif 1 in choices or 0 in choices or 2 in choices:
+            elif (Selection.HELP in choices
+                  or Selection.BACK in choices
+                  or Selection.ALL in choices):
                 print("Invalid selection")
                 continue
 
@@ -899,24 +931,25 @@ def view_packages(cat):
         except VisibleError as v:
             print(v)
 
+        except StepBack as s:
+            if s.has_message():
+                print(s)
+
 def view_categories():
     """
     Displays the list of categories.
-    If the user selects "All" all packages
-    are directly installed without going
-    into the submenus for the categories.
     """
     sel = Selection("Select a Category")
 
     for cat in PACKAGES:
         sel.add_choice(cat, cat)
 
-    sel.add_choice("BACK", None)
+    sel.add_choice("BACK", Selection.BACK)
 
     while True:
         choice = sel.get_choice()
 
-        if choice is None:
+        if choice == Selection.BACK:
             raise StepBack()
 
         try:
@@ -928,12 +961,11 @@ def view_categories():
                 print(s)
 
 def list_installed_packages():
-    global apt_mgr
-    apt_mgr.flush()
+    APT.flush()
 
-    for pkg in sorted(set(get_all())):
+    for pkg in sorted(set(all_packages())):
         try:
-            if apt_mgr[pkg].is_installed:
+            if APT[pkg].is_installed:
                 print(pkg)
         except KeyError:
             pass
@@ -945,37 +977,34 @@ def search():
     like 'apt show' otherwise treat it like a keyword for
     'apt search'.
     """
-    global apt_mgr
-
     print()
     print("Enter a package name to get information about a package")
     print("or enter a keyword to search for packages...")
     print()
     key = input("Search: ")
 
-    if apt_mgr.has_package(key):
-        apt_mgr.show(key)
+    if APT.has_package(key):
+        APT.show(key)
     else:
-        apt_mgr.search(key)
+        APT.search(key)
 
 def main():
-    global apt_mgr
     sel = Selection("Main Menu")
     sel.add_choice("View Categories", view_categories)
     sel.add_choice("Install All", install_all_packages)
     sel.add_choice("Uninstall All", delete_all_packages)
     sel.add_choice("Search repository", search)
     sel.add_choice("List installed packages", list_installed_packages)
-    sel.add_choice("Update all Kali packages", lambda: apt_mgr.upgrade(get_all()))
-    sel.add_choice("Install Kali Menu", lambda: apt_mgr.install(["kali-menu"]))
+    sel.add_choice("Update all Kali packages", lambda: APT.upgrade(all_packages()))
+    sel.add_choice("Install Kali Menu", lambda: APT.install(["kali-menu"]))
     sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
-    sel.add_choice("Help", help)
-    sel.add_choice("Exit", None)
+    sel.add_choice("Help", print_help)
+    sel.add_choice("Exit", Selection.BACK)
 
     while True:
         choice = sel.get_choice()
 
-        if choice is None:
+        if choice == Selection.BACK:
             raise StepBack()
 
         try:
@@ -1024,8 +1053,8 @@ def handle_old_katoolin(force=False):
             file.write("".join(lines))
             file.truncate()
 
-    except Exception as e:
-        raise VisibleError(e)
+    except OSError as e:
+        raise VisibleError() from e
 
     else:
         print("Successfully uninstalled the old katoolin")
@@ -1035,23 +1064,14 @@ if __name__ == "__main__":
     try:
         print_logo()
         handle_old_katoolin()
-        Sources.install()
-        with APTManager() as apt_mgr: # this will be used globally
+        with APTManager() as APT: # this will be used globally
             print()
             main()
     except (KeyboardInterrupt, StepBack):
         print()
-    except Exception as e:
-        print("{}{!s}{}".format(Terminal.red, e, Terminal.reset))
+    except VisibleError as v:
+        print(v)
         exit(1)
-    finally:
-        try:
-            Sources.uninstall()
-        except VisibleError:
-            exit(1)
-
-        # Launch an update in the background:
-        os.system("apt-get -m -y -qq update &")
 
     print("Goodbye")
     exit(0)
