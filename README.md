@@ -1,39 +1,47 @@
-# katoolin3
-Katoolin for python3.
+![katoolin](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
+# katoolin
+Automatically install all Kali linux tools
 
-### Requirements
-- Aptitude as a package manager
-- Python 3
-- Root privileges
-- VT-100 compliant terminal
+# Features
+- Add Kali linux repositories
+- Remove kali linux repositories
+- Install Kali linux tools
 
-### Usage
-```
-The program flow of this program is realized by presenting
-a list of options that you can choose from.
-These lists look like that:
-0) Do A
-1) Do B
-2) Do C
+# Requirements
+- Python 2.7
+- An operating system (tested on Ubuntu)
 
-When selecting packages you can select
-more than one by passing a comma-separated list like
-'0,1,2,3' or specifying a range like '12-24' or combining
-those two '0,1,3-5,12'.
+# Installation
+- sudo su
+- git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
+- chmod +x /usr/bin/katoolin
+- sudo katoolin 
 
-If you want to remove packages simply prepend '~' before a
-string like above.
+# Video
+https://www.youtube.com/watch?v=8VxCWVoZEEE
 
-Packages which are already installed are shown in black.
+# Usage
+- Typing the number of a tool will install it
+- Typing 0 will install all Kali Linux tools
+- back : Go back
+- gohome : Go to the main menu
+- By installing armitage , you will install metasploit
 
-Example:
-Select some options with '1,2,8-10'.
-Then you realize those programs are shit and you do
-'~1,2,8-10' to uninstall them.
-Simple as that.
-```
+# Warning
+Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
 
-### Tested on
-- Debian 10 (Buster)
-- Ubuntu 18.04 LTS
-- Ubuntu 19.04
+# I have some questions!
+
+Please visit https://github.com/LionSec/katoolin/issues
+
+# Donations
+- Paypal : https://www.paypal.me/lionsec
+- skrill : informatica98es@gmail.com
+
+
+# Contact
+- Website : https://neodrix.com
+- Youtube : https://youtube.com/inf98es
+- Facebook : https://facebook.com/in98
+- Twitter: @LionSec1
+- Email : informatica98es@gmail.com
