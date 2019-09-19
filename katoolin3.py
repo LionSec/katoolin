@@ -434,7 +434,7 @@ class UninstallList(list):
 class Selection:
     """
     This class encapsulates the procedure that presents
-    a list of options to the user and let the user select
+    a list of options to the user and lets the user select
     one (or more!) of them.
     """
     # Some values with special meaning.
@@ -487,14 +487,16 @@ class Selection:
                 # Bring all entries in left column to fixed size:
                 y += (" " * (max_l - len(y) + self._colpad))
 
+                # Now the right column (same line)...
                 if max_i + index in self._options:
                     yield y + "{}) {}".format(
                         max_i + index,
                         self._options[max_i + index].text
                     )
                 else:
-                    # If number options is odd display the last item
-                    # only on the left column
+                    # If the number of options is odd display the last item
+                    # only on the left column.
+                    # This is an ugly workaround for my shitty code.
                     if len(self._options) % 2 == 1:
                         yield y
                     break
@@ -792,7 +794,7 @@ class APTManager:
         ret = set()
 
         for org in pkg.candidate.origins:
-            if len(org.origin) > 0:
+            if org.origin:
                 ret = ret.union([org.origin])
 
         return ret
