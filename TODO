@@ -1,9 +1,0 @@
-Add cl options for:
-    Update all
-    Install all
-    Uninstall all
-
-Download packages which are not in the repositories 
-but on the tool list from Kalis official Gitlab account.
-
-Dont show uninstalled packages in black but installable packages in green.
