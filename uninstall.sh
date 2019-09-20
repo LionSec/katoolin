@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-DIR="/usr/local/bin";
-NAME="katoolin3";
+source "conf.sh";
 
-rm -fv "$DIR/$NAME" || exit 1;
+rm -f "$DIR/$PROGRAM" || die "Uninstallation failed.";
 
 echo "Successfully uninstalled.";
+exit 0;
