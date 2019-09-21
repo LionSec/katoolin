@@ -598,8 +598,13 @@ class StepBack(BaseException):
 
 class VisibleError(Exception):
     """
-    An exception whose message will be displayed
+    A wrapper for an exception whose message will be displayed
     but will not stop the program.
+
+    Invoke this only with
+        raise VisibleError() from <Exception>
+    to ensure that the __cause__ attribute gets
+    set properly.
     """
     def __str__(self):
         return f"{Terminal.red}{str(self.__cause__)}{Terminal.reset}"

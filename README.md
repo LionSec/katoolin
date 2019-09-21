@@ -26,9 +26,11 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 
 ### Requirements
 - Aptitude as a package manager
-- Python 3
+- Python >= 3
 - Root privileges
+- sh, bash
 - VT-100 compliant terminal
+- python3-apt
 
 ### Installation
 ```
