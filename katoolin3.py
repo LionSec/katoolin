@@ -690,7 +690,7 @@ class APTManager:
                     num += 1
             except KeyError:
                 print(f"Warning: Could not find package '{pkg}'")
-            except apt.apt_pkg.Error as e:
+            except (SystemError, apt.apt_pkg.Error) as e:
                 print(f"Warning: Ignoring '{pkg}' ({e})")
 
         if num == 0:
@@ -698,8 +698,12 @@ class APTManager:
 
         print(f"Installing {num} package{'s' if num > 1 else ''}...")
 
-        if not self._cache.commit():
-            raise VisibleError() from APTException("Apt install failed")
+        try:
+            if not self._cache.commit():
+                raise VisibleError() from APTException("Apt install failed")
+        except (SystemError, apt.apt_pkg.Error) as s:
+            # The SystemError comes from apt
+            raise VisibleError() from APTException(f"Install failed: {s}")
 
         self.flush()
 
@@ -717,7 +721,7 @@ class APTManager:
                     num += 1
             except KeyError:
                 print(f"Warning: Could not find package '{pkg}'")
-            except apt.apt_pkg.Error as e:
+            except (SystemError, apt.apt_pkg.Error) as e:
                 print(f"Warning: Ignoring '{pkg}' ({e})")
 
         if num == 0:
@@ -725,8 +729,12 @@ class APTManager:
 
         print(f"Removing {num} package{'s' if num > 1 else ''}...")
 
-        if not self._cache.commit():
-            raise VisibleError() from APTException("Apt remove failed")
+        try:
+            if not self._cache.commit():
+                raise VisibleError() from APTException("Apt remove failed")
+        except (SystemError, apt.apt_pkg.Error) as s:
+            # The SystemError comes from apt
+            raise VisibleError() from APTException(f"Removal failed: {s}")
 
         self.flush()
 
@@ -744,7 +752,7 @@ class APTManager:
                     num += 1
             except KeyError:
                 print(f"Warning: Could not find package '{pkg}'")
-            except apt.apt_pkg.Error as e:
+            except (SystemError, apt.apt_pkg.Error) as e:
                 print(f"Warning: Ignoring '{pkg}' ({e})")
 
         if num == 0:
@@ -753,8 +761,12 @@ class APTManager:
 
         print(f"Upgrading {num} package{'s' if num > 1 else ''}...")
 
-        if not self._cache.commit():
-            raise VisibleError() from APTException("Apt upgrade failed")
+        try:
+            if not self._cache.commit():
+                raise VisibleError() from APTException("Apt upgrade failed")
+        except (SystemError, apt.apt_pkg.Error) as s:
+            # The SystemError comes from apt
+            raise VisibleError() from APTException(f"Upgrade failed: {s}")
 
         self.flush()
 
