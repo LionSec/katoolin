@@ -690,6 +690,8 @@ class APTManager:
                     num += 1
             except KeyError:
                 print(f"Warning: Could not find package '{pkg}'")
+            except apt.apt_pkg.Error as e:
+                print(f"Warning: Ignoring '{pkg}' ({e})")
 
         if num == 0:
             raise StepBack("Already installed")
@@ -715,6 +717,8 @@ class APTManager:
                     num += 1
             except KeyError:
                 print(f"Warning: Could not find package '{pkg}'")
+            except apt.apt_pkg.Error as e:
+                print(f"Warning: Ignoring '{pkg}' ({e})")
 
         if num == 0:
             raise StepBack("Nothing to remove")
@@ -740,6 +744,8 @@ class APTManager:
                     num += 1
             except KeyError:
                 print(f"Warning: Could not find package '{pkg}'")
+            except apt.apt_pkg.Error as e:
+                print(f"Warning: Ignoring '{pkg}' ({e})")
 
         if num == 0:
             print("Everything up to date")

@@ -88,3 +88,4 @@ To uninstall katoolin3 execute
 chmod +x ./uninstall.sh;
 sudo ./uninstall.sh;
 ```
+Uninstalling the Kali tools can be done inside katoolin3.
