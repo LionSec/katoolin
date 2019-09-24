@@ -920,10 +920,13 @@ def view_packages(cat):
         sel = Selection("Select a Package")
 
         for pkg in PACKAGES[cat]:
-            if APT[pkg].is_installed:
-                sel.add_choice(f"{Terminal.black}{pkg}{Terminal.reset}", pkg)
-            else:
-                sel.add_choice(pkg, pkg)
+            try:
+                if APT[pkg].is_installed:
+                    sel.add_choice(f"{Terminal.black}{pkg}{Terminal.reset}", pkg)
+                else:
+                    sel.add_choice(pkg, pkg)
+            except KeyError:
+                pass
 
         if len(PACKAGES[cat]) > 1:
             sel.add_choice("ALL", Selection.ALL)
