@@ -1023,7 +1023,6 @@ def main():
     sel.add_choice("Uninstall All", delete_all_packages)
     sel.add_choice("Search repository", search)
     sel.add_choice("List installed packages", list_installed_packages)
-    #sel.add_choice("Update all Kali packages", lambda: APT.upgrade(all_packages()))
     sel.add_choice("Install Kali Menu", lambda: APT.install(["kali-menu"]))
     sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
     sel.add_choice("Help", print_help)

@@ -29,7 +29,6 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 - Python >= 3
 - Root privileges
 - sh, bash
-- VT-100 compliant terminal
 - python3-apt
 
 ### Installation
@@ -72,7 +71,6 @@ To update your tool list execute
 chmod +x ./update.sh;
 sudo ./update.sh;
 ```  
-Updating the tools themselves can be done inside katoolin3.
 
 ### Tested on
 - Debian 10 (Buster)
