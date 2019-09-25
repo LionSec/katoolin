@@ -556,7 +556,7 @@ class Selection:
                 n = int(input(self._prompt))
                 return self._options[n].value
             except (ValueError, KeyError):
-                print("Invalid input, try again")
+                print("Invalid input, please try again")
 
     def get_choices(self):
         """
@@ -586,7 +586,7 @@ class Selection:
 
                 return ret
             except (ValueError, KeyError):
-                print("Invalid input, try again")
+                print("Invalid input, please try again")
 
 class StepBack(BaseException):
     """
