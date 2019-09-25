@@ -7,6 +7,4 @@ Add cl options for:
 Download packages which are not in the repositories 
 but on the tool list from Kalis official Gitlab account.
 
-Dont show uninstalled packages in black but installable packages in green.
-
-TESTING
+Maybe add manpage

@@ -415,7 +415,7 @@ class Terminal:
     underscore = "\033[4m"
 
 # Just some types used in Selection:
-Choice = namedtuple("Choice", ["text", "value"])
+Choice = namedtuple("Choice", ["text", "value", "color"])
 
 class InstallList(list):
     """
@@ -448,7 +448,8 @@ class Selection:
     def __init__(self, head=None):
         # The list of choices.
         # This is a dict because we wanna
-        # forbid relative indexing:
+        # forbid relative indexing when
+        # negative values are allowed:
         self._options = {}
         self._headline = head
         self._col_thresh = 11
@@ -456,55 +457,67 @@ class Selection:
         self._delchar = "~"
         self._prompt = "kat> "
 
-    def add_choice(self, text, value):
+    def _option_string(self, index):
+        """
+        Given an index for the option storage return
+        how the option will be presented
+        """
+        return f"{index}) {self._options[index].text}"
+
+    def add_choice(self, text, value, color=""):
         """
         Add an option to display
         """
-        self._options[len(self._options)] = Choice(text, value)
+        self._options[len(self._options)] = Choice(text, value, color)
 
     def __iter__(self):
-        # THIS IS UGLY DONT LOOK AT IT
+        """
+        Subsequently return the options formatted in columns
+        """
+        # The number of options in the left column:
+        num_left = len(self._options)
 
-        # The maximum index of an option in the left column:
-        max_i = ceil(max(self._options.keys()) / 2)
+        if num_left >= self._col_thresh:
+            num_left = ceil(num_left / 2)
 
-        # The maximum length that an option in the left column can have:
-        max_l = (
-            len(str(max_i))
-            + 2
-            + len(max(self._options.values(), key=lambda x: len(x.text)).text)
+        # The maximum length an option on the left has:
+        max_left = max(
+            map(
+                lambda item: len(self._option_string(item[0])),
+                filter(
+                    lambda item: item[0] < num_left,
+                    self._options.items()
+                )
+            )
         )
 
+        # First the headline
         if self._headline is not None:
             yield ""
             yield f"{Terminal.underscore}{self._headline}{Terminal.reset}"
 
-        for index in self._options:
-            y = f"{index}) {self._options[index].text}"
+        # Then the columns:
+        for i in range(num_left):
+            # Left column:
+            left = self._option_string(i)
+            filler = " " * (max_left - len(left) + self._colpad)
+            left = self._options[i].color + left + Terminal.reset
 
-            # If there are a lot items display them columnwise:
-            if len(self._options) >= self._col_thresh:
-                # Bring all entries in left column to fixed size:
-                y += (" " * (max_l - len(y) + self._colpad))
+            # Right column:
+            right_index = num_left + i
 
-                # Now the right column (same line)...
-                if max_i + index in self._options:
-                    yield y + "{}) {}".format(
-                        max_i + index,
-                        self._options[max_i + index].text
-                    )
-                else:
-                    # If the number of options is odd display the last item
-                    # only on the left column.
-                    # This is an ugly workaround for my shitty code.
-                    if len(self._options) % 2 == 1:
-                        yield y
-                    break
-
+            if right_index in self._options:
+                right = self._option_string(right_index)
+                right = self._options[right_index].color + right + Terminal.reset
             else:
-                yield y
+                right = ""
+
+            yield left + filler + right
 
         yield ""
+
+    def __len__(self):
+        return len(self._options)
 
     def _parse_selection(self, sel):
         """
@@ -543,7 +556,7 @@ class Selection:
                 n = int(input(self._prompt))
                 return self._options[n].value
             except (ValueError, KeyError):
-                print("Invalid input")
+                print("Invalid input, try again")
 
     def get_choices(self):
         """
@@ -573,7 +586,7 @@ class Selection:
 
                 return ret
             except (ValueError, KeyError):
-                print("Invalid input")
+                print("Invalid input, try again")
 
 class StepBack(BaseException):
     """
@@ -644,11 +657,10 @@ class APTManager:
             os.remove(self.sources_file)
         except OSError as e:
             raise VisibleError() from e
-
-        self._cache.close()
-
-        # Launch update in background
-        os.system("apt-get -m -y -qq update &")
+        finally:
+            self._cache.close()
+            # Launch update in background
+            os.system("apt-get -m -y -qq update &")
 
     def __getitem__(self, item):
         """
@@ -740,35 +752,6 @@ class APTManager:
 
     def has_package(self, pkg):
         return self._cache.has_key(pkg)
-
-    def upgrade(self, pkgs):
-        print("Reading package lists...")
-        num = 0
-
-        for pkg in pkgs:
-            try:
-                if self._cache[pkg].is_installed and self._cache[pkg].is_upgradable:
-                    self._cache[pkg].mark_upgrade()
-                    num += 1
-            except KeyError:
-                print(f"Warning: Could not find package '{pkg}'")
-            except (SystemError, apt.apt_pkg.Error) as e:
-                print(f"Warning: Ignoring '{pkg}' ({e})")
-
-        if num == 0:
-            print("Everything up to date")
-            return
-
-        print(f"Upgrading {num} package{'s' if num > 1 else ''}...")
-
-        try:
-            if not self._cache.commit():
-                raise VisibleError() from APTException("Apt upgrade failed")
-        except (SystemError, apt.apt_pkg.Error) as s:
-            # The SystemError comes from apt
-            raise VisibleError() from APTException(f"Upgrade failed: {s}")
-
-        self.flush()
 
     def _pkg_status(self, pkg):
         """
@@ -911,6 +894,26 @@ def delete_all_packages():
         APT.remove(all_packages())
         raise StepBack("Removed all packages")
 
+def nice_name(pkg):
+    """
+    Beautify a package name a bit.
+    """
+    parts = pkg.split("-")
+
+    # If the package name has no dashes keep it this way
+    if len(parts) == 1:
+        return parts[0].lower()
+
+    # Remove python indicator in package names
+    if parts[0].startswith("python"):
+        del parts[0]
+
+    # If the package ends with "-ng" keep it this way
+    if parts[-1] == "ng":
+        return "-".join(parts)
+
+    return " ".join(parts).title()
+
 def view_packages(cat):
     """
     Display the submenu for installing packages
@@ -919,16 +922,18 @@ def view_packages(cat):
     while True:
         sel = Selection("Select a Package")
 
-        for pkg in PACKAGES[cat]:
+        for pkg in sorted(PACKAGES[cat]):
+            nice_pkg = nice_name(pkg)
+
             try:
                 if APT[pkg].is_installed:
-                    sel.add_choice(f"{Terminal.black}{pkg}{Terminal.reset}", pkg)
+                    sel.add_choice(nice_pkg, pkg, Terminal.black)
                 else:
-                    sel.add_choice(pkg, pkg)
+                    sel.add_choice(nice_pkg, pkg)
             except KeyError:
                 pass
 
-        if len(PACKAGES[cat]) > 1:
+        if len(sel) > 1:
             sel.add_choice("ALL", Selection.ALL)
         sel.add_choice("HELP", Selection.HELP)
         sel.add_choice("BACK", Selection.BACK)
@@ -969,7 +974,7 @@ def view_categories():
     """
     sel = Selection("Select a Category")
 
-    for cat in PACKAGES:
+    for cat in sorted(PACKAGES):
         sel.add_choice(cat, cat)
 
     sel.add_choice("BACK", Selection.BACK)
@@ -994,7 +999,7 @@ def list_installed_packages():
     for pkg in sorted(set(all_packages())):
         try:
             if APT[pkg].is_installed:
-                print(pkg)
+                print(nice_name(pkg))
         except KeyError:
             pass
 
