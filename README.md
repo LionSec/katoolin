@@ -48,19 +48,22 @@ These lists look like that:
 1) ...  
 2) ...
 ```
-##### Installing tools
+#### Installing tools
 To install a package enter the corresponding number.
 To install multiple packages at once specify a range like ```3-5```, a list like ```1,2,3``` or combine them like ```1,2,5-7,9```.
 You can also install all packages at once.
 
-##### Uninstalling tools
+#### Uninstalling tools
 This works just like installing except that you have to prepend a ```~``` before your selection. You can also uninstall all packages at once.
 
-##### Searching
+#### Searching
 Katoolin3 supports searching the package cache.  
- E.g. if you want to install some tools related to SQL injections you can go into the search menu and search for ```sql injection```. If you want to have specific information about a package just enter the package name in the same search menu.   
+ E.g. if you want to install some tools related to SQL injections you can go into the search menu and search for ```sql injection```.    
+ If you want to have specific information about a package just enter the package name in the same search menu.   
    
-For more functions see the help dialogue inside the program.
+   
+   
+*For more functionalities see the help dialogue inside the program.*
 
 ### Updating
 To update your tool list execute  
