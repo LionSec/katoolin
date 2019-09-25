@@ -67,7 +67,6 @@ PACKAGES = {
         "p0f",
         "pdf-parser",
         "pdfid",
-        "pdgmail",
         "peepdf",
         "python-capstone",
         "python-distorm3",
@@ -90,7 +89,6 @@ PACKAGES = {
         "amap",
         "apt2",
         "arp-scan",
-        "automater",
         "braa",
         "casefile",
         "cdpsnarf",
@@ -124,7 +122,6 @@ PACKAGES = {
         "maltego-teeth",
         "masscan",
         "metagoofil",
-        "miranda",
         "nbtscan-unixwiz",
         "nikto",
         "nmap",
@@ -140,7 +137,6 @@ PACKAGES = {
         "snmpcheck",
         "sntop",
         "sparta",
-        "sslcaudit",
         "sslsplit",
         "sslstrip",
         "sslyze",
@@ -152,7 +148,6 @@ PACKAGES = {
         "unicornscan",
         "urlcrazy",
         "wireshark",
-        "wol-e",
         "xplico"
     ],
     "Maintaining Access" : [
@@ -169,7 +164,6 @@ PACKAGES = {
         "ridenum",
         "sbd",
         "shellter",
-        "u3-pwn",
         "webshells",
         "weevely",
         "winexe"
@@ -192,7 +186,6 @@ PACKAGES = {
         "hydra",
         "john",
         "johnny",
-        "keimpx",
         "maltego-teeth",
         "maskprocessor",
         "multiforcer",
@@ -220,7 +213,6 @@ PACKAGES = {
         "cutycapt",
         "dos2unix",
         "dradis",
-        "keepnote",
         "metagoofil",
         "nipper-ng",
         "pipal",
@@ -323,7 +315,6 @@ PACKAGES = {
         "apache-users",
         "arachni",
         "bbqsql",
-        "blindelephant",
         "burpsuite",
         "cutycapt",
         "davtest",
@@ -351,7 +342,6 @@ PACKAGES = {
         "sqlmap",
         "sqlninja",
         "sqlsus",
-        "ua-tester",
         "uniscan",
         "webscarab",
         "websploit",
@@ -393,7 +383,6 @@ PACKAGES = {
         "spooftooph",
         "wifi-honey",
         "wifiphisher",
-        "wifitap",
         "wifite"
     ]
 }

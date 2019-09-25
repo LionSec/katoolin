@@ -15,3 +15,5 @@ if __name__ == "__main__":
         for pkg in katoolin3.all_packages():
             if not apt_mgr.has_package(pkg):
                 print(pkg)
+                apt_mgr.search(pkg)
+                print()
