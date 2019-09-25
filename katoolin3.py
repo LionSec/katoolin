@@ -455,6 +455,8 @@ class Selection:
         self._col_thresh = 11
         self._colpad = 2
         self._delchar = "~"
+        self._infochar = "?"
+        self._repeat = "!!"
         self._prompt = "kat> "
 
     def _option_string(self, index):
@@ -553,7 +555,14 @@ class Selection:
 
         while True:
             try:
-                n = int(input(self._prompt))
+                n = input(self._prompt)
+
+                if n == self._repeat:
+                    for option in self:
+                        print(option)
+                    continue
+
+                n = int(n)
                 return self._options[n].value
             except (ValueError, KeyError):
                 print("Invalid input, please try again")
@@ -572,7 +581,17 @@ class Selection:
         while True:
             try:
                 n = input(self._prompt)
+
+                if n == self._repeat:
+                    for option in self:
+                        print(option)
+                    continue
+
                 ret = InstallList()
+
+                if n[-1] == self._infochar:
+                    APT.show(self._options[int(n[:-1])].value)
+                    continue
 
                 if n[0] == self._delchar:
                     ret = UninstallList()
@@ -864,9 +883,18 @@ those two '0,1,3-5,12'.
 If you want to remove packages simply prepend '~' before a
 string like above.
 
+If you want information about a specific package
+presented to you enter the number of the package
+followed by a '?'.
+
+If the list of options gets out of sight type '!!'
+to print it again.
+
 Packages which you have already installed are shown
 in {Terminal.black}this color{Terminal.reset}.
 """)
+
+    input("Press ENTER to continue...")
 
 def all_packages():
     """
@@ -977,6 +1005,7 @@ def view_categories():
     for cat in sorted(PACKAGES):
         sel.add_choice(cat, cat)
 
+    sel.add_choice("HELP", Selection.HELP)
     sel.add_choice("BACK", Selection.BACK)
 
     while True:
@@ -984,6 +1013,9 @@ def view_categories():
 
         if choice == Selection.BACK:
             raise StepBack()
+        elif choice == Selection.HELP:
+            print_help()
+            continue
 
         try:
             view_packages(choice)

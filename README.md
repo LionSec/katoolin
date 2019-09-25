@@ -32,7 +32,7 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 - python3-apt
 
 ### Installation
-```
+```bash
 git clone https://github.com/s-h-3-l-l/katoolin3;
 cd katoolin3;
 chmod +x ./install.sh;
@@ -58,11 +58,13 @@ This works just like installing except that you have to prepend a ```~``` before
 
 ##### Searching
 Katoolin3 supports searching the package cache.  
- E.g. if you want to install some tools related to SQL injections you can go into the search menu and search for ```sql injection```. If you want to have specific information about a package just enter the package name in the same search menu.
+ E.g. if you want to install some tools related to SQL injections you can go into the search menu and search for ```sql injection```. If you want to have specific information about a package just enter the package name in the same search menu.   
+   
+For more functions see the help dialogue inside the program.
 
 ### Updating
 To update your tool list execute  
-```
+```bash
 chmod +x ./update.sh;
 sudo ./update.sh;
 ```  
@@ -77,7 +79,7 @@ Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
 
 ### Uninstalling
 To uninstall katoolin3 execute
-```
+```bash
 chmod +x ./uninstall.sh;
 sudo ./uninstall.sh;
 ```
