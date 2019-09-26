@@ -453,7 +453,7 @@ class Selection:
         Given an index for the option storage return
         how the option will be presented
         """
-        return f"{index}) {self._options[index].text}"
+        return "{}) {}".format(index, self._options[index].text)
 
     def add_choice(self, text, value, color=""):
         """
@@ -485,7 +485,7 @@ class Selection:
         # First the headline
         if self._headline is not None:
             yield ""
-            yield f"{Terminal.underscore}{self._headline}{Terminal.reset}"
+            yield Terminal.underscore + self._headline + Terminal.reset
 
         # Then the columns:
         for i in range(num_left):
@@ -615,7 +615,7 @@ class StepBack(BaseException):
         """
         This is only used in the innermost submenus
         """
-        return f"{Terminal.green}{self._msg}{Terminal.reset}"
+        return Terminal.green + self._msg + Terminal.reset
 
 class VisibleError(Exception):
     """
@@ -628,7 +628,7 @@ class VisibleError(Exception):
     set properly.
     """
     def __str__(self):
-        return f"{Terminal.red}{str(self.__cause__)}{Terminal.reset}"
+        return Terminal.red + str(self.__cause__) + Terminal.reset
 
 class APTException(Exception):
     """
@@ -709,21 +709,21 @@ class APTManager:
                     self._cache[pkg].mark_install()
                     num += 1
             except KeyError:
-                print(f"Warning: Could not find package '{pkg}'")
+                print("Warning: Could not find package '{}'".format(pkg))
             except (SystemError, apt.apt_pkg.Error) as e:
-                print(f"Warning: Ignoring '{pkg}' ({e})")
+                print("Warning: Ignoring '{}' ({})".format(pkg, e))
 
         if num == 0:
             raise StepBack("Already installed")
 
-        print(f"Installing {num} package{'s' if num > 1 else ''}...")
+        print("Installing {} package{}...".format(num, 's' if num > 1 else ''))
 
         try:
             if not self._cache.commit():
                 raise VisibleError() from APTException("Apt install failed")
         except (SystemError, apt.apt_pkg.Error) as s:
             # The SystemError comes from apt
-            raise VisibleError() from APTException(f"Install failed: {s}")
+            raise VisibleError() from APTException("Install failed: " + str(s))
 
         self.flush()
 
@@ -740,21 +740,21 @@ class APTManager:
                     self._cache[pkg].mark_delete()
                     num += 1
             except KeyError:
-                print(f"Warning: Could not find package '{pkg}'")
+                print("Warning: Could not find package '{}'".format(pkg))
             except (SystemError, apt.apt_pkg.Error) as e:
-                print(f"Warning: Ignoring '{pkg}' ({e})")
+                print("Warning: Ignoring '{}' ({})".format(pkg, e))
 
         if num == 0:
             raise StepBack("Nothing to remove")
 
-        print(f"Removing {num} package{'s' if num > 1 else ''}...")
+        print("Removing {} package{}...".format(num, 's' if num > 1 else ''))
 
         try:
             if not self._cache.commit():
                 raise VisibleError() from APTException("Apt remove failed")
         except (SystemError, apt.apt_pkg.Error) as s:
             # The SystemError comes from apt
-            raise VisibleError() from APTException(f"Removal failed: {s}")
+            raise VisibleError() from APTException("Removal failed: " + str(s))
 
         self.flush()
 
@@ -841,7 +841,7 @@ class APTManager:
         key = shlex.quote(key)
 
         if key:
-            os.system(f"apt search -qq {key};")
+            os.system("apt search -qq {};".format(key))
 
 def print_logo():
     """
@@ -860,7 +860,7 @@ def print_logo():
     print()
 
 def print_help():
-    print(f"""
+    print("""
 The program flow of this program is realized by presenting
 a list of options that you can choose from.
 
@@ -880,8 +880,8 @@ If the list of options gets out of sight type '!!'
 to print it again.
 
 Packages which you have already installed are shown
-in {Terminal.black}this color{Terminal.reset}.
-""")
+in {}this color{}.
+""".format(Terminal.black, Terminal.reset))
 
     input("Press ENTER to continue...")
 
