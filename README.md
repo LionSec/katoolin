@@ -39,6 +39,12 @@ chmod +x ./install.sh;
 sudo ./install.sh;
 ```
 
+__Important:__ If you get the error ```Please install the python3-apt package```
+please make sure katoolin3 runs with exactly the same python3 version as the
+```python3-apt``` package. On modern distributions ```python3-apt``` is only for python3.7 and
+on older distributions ```python3-apt``` is only for python3.5. Katoolin3 has to be run accordingly
+with python3.7 or python3.5.
+
 ### Usage
 The program flow of katoolin3 is realized by presenting
 a list of options that you can choose from.
