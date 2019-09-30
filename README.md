@@ -7,13 +7,13 @@ This program is a port of [katoolin](https://github.com/LionSec/katoolin) from [
 The old katoolin uses an outdated package list. Katoolin3 always keeps its package list up to date.
 
 - __Improved handling of missing packages__   
-The old katoolin breaks if a package isn't available in the repositories anymore or has some dependency errors. Katoolin3 detects those and simply ignores them.
+The old katoolin breaks if a package isn't available in the repositories anymore. Katoolin3 detects those and simply ignores them.
 
 - __Removal of packages__    
 You can now remove all packages installed by katoolin3 (individually or all at once).
 
 - __Upgrading wont break your system anymore__   
-...because the Kali repositories only get enabled for installing/uninstalling.
+...because the Kali repositories only get enabled during the runtime of katoolin3.
 
 - __Better utilization of the APT ecosystem__   
 The old katoolin does potentially dangerous operations such as modifying and *deleting* important system configuration files. This has been changed.
