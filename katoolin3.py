@@ -710,6 +710,7 @@ class APTManager:
         
         print("Reading package lists...")
         num = 0
+        fucked_up = []
 
         for pkg in pkgs:
             try:
@@ -718,8 +719,11 @@ class APTManager:
                     num += 1
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
-            except SystemError as e:
-                print("Warning: Ignoring '{}' ({})".format(pkg, e))
+            except SystemError:
+                fucked_up.append(pkg)
+
+        if fucked_up and os.system("dpkg --configure -a && apt-get install -f"):
+            raise VisibleError() from APTException("There are unresolvable conflicts with some packages: {}".format(", ".join(fucked_up)))
 
         if num == 0:
             raise StepBack("Already installed")
@@ -729,7 +733,7 @@ class APTManager:
         try:
             self._cache.commit(fetch_progress=apt.progress.text.AcquireProgress())
         except SystemError as s:
-            raise VisibleError() from APTException("Install failed: " + str(s))
+            raise VisibleError() from APTException("Installation of some packages failed")
 
         self.flush()
 
@@ -751,7 +755,7 @@ class APTManager:
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
             except SystemError as e:
-                print("Warning: Ignoring '{}' ({})".format(pkg, e))
+                raise VisibleError() from e
 
         if num == 0:
             raise StepBack("Nothing to remove")
@@ -759,8 +763,7 @@ class APTManager:
         print("Removing {} package{}...".format(num, 's' if num > 1 else ''))
 
         try:
-            if not self._cache.commit():
-                raise VisibleError() from APTException("Apt remove failed")
+            self._cache.commit()
         except SystemError as s:
             raise VisibleError() from APTException("Removal failed: " + str(s))
 
@@ -1047,6 +1050,16 @@ def list_installed_packages():
                 print(nice_name(pkg))
         except KeyError:
             pass
+            
+def list_not_installed_packages():
+    APT.flush()
+
+    for pkg in sorted(set(all_packages())):
+        try:
+            if not APT[pkg].is_installed:
+                print(nice_name(pkg))
+        except KeyError:
+            pass
 
 def search():
     """
@@ -1073,6 +1086,7 @@ def main():
     sel.add_choice("Uninstall All", delete_all_packages)
     sel.add_choice("Search repository", search)
     sel.add_choice("List installed packages", list_installed_packages)
+    sel.add_choice("List not installed packages", list_not_installed_packages)
     sel.add_choice("Install Kali Menu", lambda: APT.install(["kali-menu"]))
     sel.add_choice("Uninstall old katoolin", lambda: handle_old_katoolin(force=True))
     sel.add_choice("Help", print_help)
