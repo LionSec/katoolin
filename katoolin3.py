@@ -297,7 +297,6 @@ PACKAGES = {
         "lynis",
         "nmap",
         "ohrwurm",
-        "openvas",
         "oscanner",
         "powerfuzzer",
         "sfuzz",
@@ -700,6 +699,9 @@ class APTManager:
         """
         Install packages from iterator 'pkgs'
         """
+        if self._cache.dpkg_journal_dirty:
+            raise VisibleError() from Exception("Your dpkg is in an unsafe state. Run 'sudo dpkg --configure -a' to fix this.")
+        
         print("Reading package lists...")
         num = 0
 
@@ -710,7 +712,7 @@ class APTManager:
                     num += 1
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
-            except (SystemError, apt.apt_pkg.Error) as e:
+            except SystemError as e:
                 print("Warning: Ignoring '{}' ({})".format(pkg, e))
 
         if num == 0:
@@ -719,10 +721,8 @@ class APTManager:
         print("Installing {} package{}...".format(num, 's' if num > 1 else ''))
 
         try:
-            if not self._cache.commit():
-                raise VisibleError() from APTException("Apt install failed")
-        except (SystemError, apt.apt_pkg.Error) as s:
-            # The SystemError comes from apt
+            self._cache.commit(fetch_progress=apt.progress.text.AcquireProgress())
+        except SystemError as s:
             raise VisibleError() from APTException("Install failed: " + str(s))
 
         self.flush()
@@ -731,6 +731,9 @@ class APTManager:
         """
         Uninstall packages in iterator 'pkgs'
         """
+        if self._cache.dpkg_journal_dirty:
+            raise VisibleError() from Exception("Your dpkg is in an unsafe state. Run 'sudo dpkg --configure -a' to fix this.")
+        
         print("Reading package lists...")
         num = 0
 
@@ -741,7 +744,7 @@ class APTManager:
                     num += 1
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
-            except (SystemError, apt.apt_pkg.Error) as e:
+            except SystemError as e:
                 print("Warning: Ignoring '{}' ({})".format(pkg, e))
 
         if num == 0:
@@ -752,8 +755,7 @@ class APTManager:
         try:
             if not self._cache.commit():
                 raise VisibleError() from APTException("Apt remove failed")
-        except (SystemError, apt.apt_pkg.Error) as s:
-            # The SystemError comes from apt
+        except SystemError as s:
             raise VisibleError() from APTException("Removal failed: " + str(s))
 
         self.flush()
