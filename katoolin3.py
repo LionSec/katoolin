@@ -12,6 +12,7 @@ __license__ = "GPL"
 import os
 from collections import namedtuple
 from math import ceil
+import platform
 import shlex
 import textwrap
 
@@ -649,10 +650,15 @@ class APTManager:
         """
         Installs the sources file and updates the APT cache.
         """
+        arch = detect_arch()
+        
+        if arch:
+            arch = "[arch={}]".format(arch)
+            
         try:
             with open(self.sources_file, "w") as file:
                 file.write("# This file was automatically created by katoolin3. DO NOT MODIFY\n")
-                file.write("deb http://http.kali.org/kali kali-rolling main contrib non-free\n")
+                file.write("deb {} http://http.kali.org/kali kali-rolling main contrib non-free\n".format(arch))
         except OSError as e:
             raise VisibleError() from e
 
@@ -844,6 +850,22 @@ class APTManager:
 
         if key:
             os.system("apt search -qq {};".format(key))
+
+def detect_arch(default=""):
+    """
+    Detect if we are on an 64-bit or 32-bit system
+    """
+    mapping = {
+        "amd64" : "amd64",
+        "x86_64" : "amd64",
+        "i386" : "i386",
+        "x86" : "i386"
+    }
+    
+    try:
+        return mapping[platform.machine().lower()]
+    except KeyError:
+        return default
 
 def print_logo():
     """
