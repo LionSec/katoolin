@@ -710,20 +710,20 @@ class APTManager:
         
         print("Reading package lists...")
         num = 0
-        fucked_up = []
 
         for pkg in pkgs:
             try:
                 if not self._cache[pkg].is_installed:
                     self._cache[pkg].mark_install()
-                    num += 1
+                    
+                    if self._cache[pkg].marked_install:
+                        num += 1
             except KeyError:
                 print("Warning: Could not find package '{}'".format(pkg))
-            except SystemError:
-                fucked_up.append(pkg)
-
-        if fucked_up and os.system("dpkg --configure -a && apt-get install -f"):
-            raise VisibleError() from APTException("There are unresolvable conflicts with some packages: {}".format(", ".join(fucked_up)))
+            except SystemError as s:
+                print("Error with package {}: {}".format(pkg, s))
+                print("Trying to ignore this...")
+                self._cache[pkg].mark_delete()
 
         if num == 0:
             raise StepBack("Already installed")
@@ -733,7 +733,7 @@ class APTManager:
         try:
             self._cache.commit(fetch_progress=apt.progress.text.AcquireProgress())
         except SystemError as s:
-            raise VisibleError() from APTException("Installation of some packages failed")
+            raise VisibleError() from APTException("Installation of some packages failed ({})".format(s))
 
         self.flush()
 

@@ -3,6 +3,7 @@ Add cl options for:
     Install all
     Uninstall all
     No color
+    list all packages
 
 Download packages which are not in the repositories 
 but on the tool list from Kalis official Gitlab account.

@@ -19,7 +19,7 @@ fi
 /usr/bin/env python3 -V >/dev/null || die "Please install 'python3'";
 
 # Install all dependencies:
-apt-key adv -qq --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys ED444FF07D8D0BF6 || die "This may be a server issue. Please try again later";
+apt-key adv -qq --keyserver pool.sks-keyservers.net --recv-keys ED444FF07D8D0BF6 || apt-key adv -qq --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys ED444FF07D8D0BF6 || die "This may be a server issue. Please try again later";
 apt-get -qq -y -m install python3-apt || die;
 
 install -T -g root -o root -m 555 ./katoolin3.py "$DIR/$PROGRAM" || die;
