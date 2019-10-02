@@ -726,7 +726,7 @@ class APTManager:
                 self._cache[pkg].mark_delete()
 
         if num == 0:
-            raise StepBack("Already installed")
+            raise StepBack("Nothing to install")
 
         print("Installing {} package{}...".format(num, 's' if num > 1 else ''))
 
