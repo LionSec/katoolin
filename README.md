@@ -31,6 +31,13 @@ Due to poor code quality katoolin was unmaintainable and had to be rewritten fro
 - sh, bash
 - python3-apt
 
+### Warning
+Installing programs from repositories for different operating systems
+is generally considered dangerous!   
+Some packages might (and probably will) break
+your system. Be careful when installing the tools and don't blame katoolin3 for
+any inconveniences.
+
 ### Installation
 ```bash
 git clone https://github.com/s-h-3-l-l/katoolin3;
