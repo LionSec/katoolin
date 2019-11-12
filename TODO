@@ -1,17 +1,1 @@
-Add cl options for:
-    Update all
-    Install all
-    Uninstall all
-    No color
-    list all packages
-
-Download packages which are not in the repositories 
-but on the tool list from Kalis official Gitlab account.
-
 Maybe add manpage
-
-After SystemError delete package from list
-
-clean after SystemError
-
-Fix dependency errors somehow
