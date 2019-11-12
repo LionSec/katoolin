@@ -15,10 +15,9 @@ __But:__ Since not all tools on the website are available in the repositories an
 
 [missing.py](missing.py) analyzes katoolin3's package list and checks that all packages from its list are available in the repositories.
 
-### A normal workflow:
+### A standard workflow:
 - Start [toollist.py](toollist.py) to see what packages have to be removed or added. 
-- First remove all packages that have to be removed.   
-- Then start [search.py](search.py) and search for the package names which shall be added.  
-- The package names that [search.py](search.py) might spit out are added to the package list.  
-- Finally execute [sort.py](sort.py) and copy the result into the source file.  
+- Edit the package list and include only packages that are displayed by apt-search (indented twice)
+- Start [missing.py](missing.py) to check if all packages exist in the repository
+- Execute [sort.py](sort.py) and copy the result into the file
 - Have a coffee.
