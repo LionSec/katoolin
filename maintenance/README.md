@@ -15,6 +15,10 @@ __But:__ Since not all tools on the website are available in the repositories an
 
 [missing.py](missing.py) analyzes katoolin3's package list and checks that all packages from its list are available in the repositories.
 
+### Cleaning up the output
+[sort.py](sort.py) takes the package list from katoolin3 and outputs it in a lexicographically sorted manner.
+The package list in [katoolin3.py](../katoolin3.py) shall always be sorted.
+
 ### A standard workflow:
 - Start [toollist.py](toollist.py) to see what packages have to be removed or added. 
 - Edit the package list and include only packages that are displayed by apt-search (indented twice)
