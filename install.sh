@@ -24,5 +24,6 @@ apt-get -qq -y -m install python3-apt || die;
 
 install -T -g root -o root -m 555 ./katoolin3.py "$DIR/$PROGRAM" || die;
 
-echo "Successfully installed. Run it with 'sudo $PROGRAM_PREFIX$PROGRAM'.";
+echo "Successfully installed."
+echo "Run it with 'sudo $PROGRAM_PREFIX$PROGRAM'.";
 exit 0;
