@@ -21,7 +21,7 @@ The package list in [katoolin3.py](../katoolin3.py) shall always be sorted.
 
 ### A standard workflow:
 - Start [toollist.py](toollist.py) to see what packages have to be removed or added. 
-- Edit the package list and include only packages that are displayed by apt-search (indented twice)
+- Edit the package list in katoolin3
 - Start [missing.py](missing.py) to check if all packages exist in the repository
 - Execute [sort.py](sort.py) and copy the result into the file
-- Have a coffee.
+- Drink a coffee.
