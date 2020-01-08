@@ -1151,6 +1151,14 @@ def handle_old_katoolin(force=False):
     else:
         print("Successfully uninstalled the old katoolin")
         print()
+        
+def print_disclaimer():
+    print("""
+{}DISCLAIMER:
+Don't update your packages, upgrade your system or
+modify your package cache in any other way while 
+katoolin3 is still running!
+{}""".format(Terminal.red, Terminal.reset))
 
 if __name__ == "__main__":
     try:
@@ -1158,6 +1166,7 @@ if __name__ == "__main__":
         handle_old_katoolin()
         with APTManager() as APT: # this will be used globally
             print()
+            print_disclaimer()
             main()
     except (KeyboardInterrupt, StepBack):
         print()

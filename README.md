@@ -25,19 +25,22 @@ The old katoolin makes it difficult to add new packages to the package list due 
 - __Cleaner code__   
 Due to poor code quality katoolin was unmaintainable and had to be rewritten from scratch. katoolin3 aims to be more readable and easier to maintain.
 
+### Warning
+Installing programs from repositories for different operating systems
+is generally considered dangerous!   
+Some packages might (and probably will) break
+your system. Be careful when installing the tools and don't blame katoolin3 for
+any inconveniences.   
+The optimal solution is to install specific tools from
+[tools.kali.org](https://tools.kali.org/tools-listing).     
+It is not recommended to install all tools.
+
 ### Requirements
 - Aptitude as a package manager
 - Python >= 3.5
 - Root privileges
 - sh, bash
 - python3-apt
-
-### Warning
-Installing programs from repositories for different operating systems
-is generally considered dangerous!   
-Some packages might (and probably will) break
-your system. Be careful when installing the tools and don't blame katoolin3 for
-any inconveniences.
 
 ### Installation
 ```bash
