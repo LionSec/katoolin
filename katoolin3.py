@@ -366,7 +366,6 @@ PACKAGES = {
         "eapmd5pass",
         "fern-wifi-cracker",
         "freeradius-wpe",
-        "gqrx-sdr",
         "hostapd-wpe",
         "kalibrate-rtl",
         "killerbee",
