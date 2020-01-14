@@ -25,7 +25,7 @@ The old katoolin makes it difficult to add new packages to the package list due 
 - __Cleaner code__   
 Due to poor code quality katoolin was unmaintainable and had to be rewritten from scratch. katoolin3 aims to be more readable and easier to maintain.
 
-### Warning
+### Warning for Ubuntu users
 Installing programs from repositories for different operating systems
 is generally considered dangerous!   
 Some packages might (and probably will) break
@@ -36,7 +36,7 @@ The optimal solution is to install specific tools from
 It is not recommended to install all tools.
 
 ### Requirements
-- Aptitude as a package manager
+- apt as a package manager
 - Python >= 3.5
 - Root privileges
 - sh, bash
@@ -88,11 +88,6 @@ To update your tool list execute
 chmod +x ./update.sh;
 sudo ./update.sh;
 ```  
-
-### Tested on
-- Debian 10 (Buster)
-- Ubuntu 18.04 LTS
-- Ubuntu 19.04
 
 ### Something doesn't work?
 Hit me up on [Github](https://github.com/s-h-3-l-l/katoolin3/issues/new/choose).
