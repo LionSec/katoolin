@@ -69,7 +69,6 @@ PACKAGES = {
         "yersinia"
     ],
     "Forensics Tools" : [
-        "binwalk",
         "bulk-extractor",
         "capstone-tool",
         "chntpw",
@@ -202,8 +201,6 @@ PACKAGES = {
         "multiforcer",
         "ncrack",
         "oclgausscrack",
-        "ophcrack",
-        "pack",
         "patator",
         "polenum",
         "rainbowcrack",
