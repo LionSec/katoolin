@@ -1,7 +1,6 @@
 import os
 from time import sleep
-
-from .apt_install import instalar
+import sys
 
 
 def mostrar_menus(tela, menu, teclas):
@@ -62,20 +61,13 @@ def terminado(tela):
     sleep(1)
 
 
-def gerenciar_pacotes(tela, menu, programas):
-    opcoes = list(map(str, range(len(programas))))
-    opcoes.append('back')
-    programas = dict(zip(opcoes, programas))
-    programas_para_instalar = []
-    while True:
-        tecla = mostrar_menus(tela, menu, opcoes)
-        if tecla == '0':  # mark to install all programs
-            programas_para_instalar = list(programas.values()[1:])
-            break
-        if tecla == 'back':  # get out
-            break
-        else:  # mark to install a program
-            programa = programas[tecla]
-            programas_para_instalar.append(programa)
-    mostrar_texto(tela, 'wait for the command to finish running')
-    instalar(programas_para_instalar)  # install programs
+# def bloquear_print():
+#     sys.stderr = open(os.devnull, 'w')
+#     sys.stdout = open(os.devnull, 'w')
+#
+#
+# def desbloquear_print():
+#     sys.stderr.close()
+#     sys.stdout.close()
+#     sys.stderr = sys.__stderr__
+#     sys.stdout = sys.__stdout__

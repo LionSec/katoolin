@@ -1,3 +1,5 @@
+#!usr/bin/python3
+
 from contextlib import suppress
 from curses import wrapper
 

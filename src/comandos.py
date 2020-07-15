@@ -3,7 +3,7 @@ from os.path import exists
 from subprocess import Popen
 
 
-def adicioanr_repositorio(nome, repositorio):
+def adicionar_repositorio(nome, repositorio):
     local_arquivo = f"/etc/apt/sources.list.d/{nome}.list"
     if not exists(local_arquivo):
         with open(local_arquivo, 'a') as arquivo:
@@ -40,15 +40,14 @@ def adicionar_diesch_repositorio():
     adicionar_repositorio(nome, repositorio)
 
 
-# deprecated?
-# add_apt_key = (
-#     "apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6"
-# )
+add_apt_key = (
+    "apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6"
+)
 
-# deprecated?
-# def executar(string):
-#     # print('press enter after the command runs\n')
-#     Popen(
-#         string.split(), stdout=open(devnull, 'w'),
-#         stderr=open(devnull, 'w')
-#     )
+
+def executar(string):
+    # print('press enter after the command runs\n')
+    Popen(
+        string.split(), stdout=open(devnull, 'w'),
+        stderr=open(devnull, 'w')
+    )

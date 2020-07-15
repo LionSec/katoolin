@@ -109,3 +109,12 @@ programas_2_13_hardware_hacking = [
 programas_2_14_extra = [
     'squid3'
 ]
+
+tudo = (
+    programas_2_1_information_gathering + programas_2_2_vulnerability_analysis
+    + programas_2_3_wireless_attacks + programas_2_4_web_applications
+    + programas_2_5_sniffing_and_spoofing + programas_2_6_maintaining_access
+    + programas_2_7_reporting_tools + programas_2_8_exploitation_tools
+    + programas_2_9_forensics_tools + programas_2_10_stress_testing
+    + programas_2_11_password_attacks + programas_2_12_reverse_engine
+    + programas_2_13_hardware_hacking + programas_2_14_extra)

@@ -1,4 +1,5 @@
 import apt
+from .ferramentas import mostrar_menus, mostrar_texto
 
 
 def atualizar_commitar_cache(funcao):
@@ -18,6 +19,26 @@ def instalar(nomes, cache):
     for pacote in pacotes_filtrados:
         if not pacote.is_installed:
             pacote.mark_install()
+
+
+
+def gerenciar_pacotes(tela, menu, programas):
+    opcoes = list(map(str, range(len(programas))))
+    opcoes.append('back')
+    programas = dict(zip(opcoes, programas))
+    programas_para_instalar = []
+    while True:
+        tecla = mostrar_menus(tela, menu, opcoes)
+        if tecla == '0':  # mark to install all programs
+            programas_para_instalar = list(programas.values()[1:])
+            break
+        if tecla == 'back':  # get out
+            break
+        else:  # mark to install a program
+            programa = programas[tecla]
+            programas_para_instalar.append(programa)
+    mostrar_texto(tela, 'wait for the command to finish running')
+    instalar(programas_para_instalar)  # install programs
 
 
 # don't need?
