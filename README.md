@@ -9,7 +9,7 @@ Automatically install all Kali linux tools
 
 # Requirements
 - Python 3+
-- An operating system as derivated from debian
+- An operating system derivated from debian
 
 # Installation
 - sudo su
