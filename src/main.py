@@ -1,5 +1,6 @@
 import curses, os
 from apt import cache
+from typing import NoReturn
 
 from .menus import main_menu, menu_1, menu_2
 from .ferramentas import (
@@ -14,7 +15,8 @@ from .dicionarios import argumentos_pacotes
 from .programas import tudo
 
 
-def opcoes_menu_1(tela):
+def opcoes_menu_1(tela) -> NoReturn:
+    """Mostra o submenu 1 do menu principal."""
     while True:
         opcoes = ['1','2','3','4', 'back']
         tecla = mostrar_menus(tela, menu_1, opcoes)
@@ -34,7 +36,8 @@ def opcoes_menu_1(tela):
             break
 
 
-def opcoes_menu_2(tela):
+def opcoes_menu_2(tela) -> NoReturn:
+    """Mostra o submenu 2 do menu principal."""
     opcoes = list(map(str, range(15)))
     opcoes.append('back')
     while True:
@@ -45,10 +48,13 @@ def opcoes_menu_2(tela):
             gerenciar_pacotes(tela, *argumentos_pacotes[tecla])
         elif tecla == 'back':
             break
+        tela.erase()
+        tela.refresh()
         terminado(tela)
 
 
-def katoolin_main(tela):
+def katoolin_main(tela) -> NoReturn:
+    """Função principal."""
     try:
         colunas, linhas = os.get_terminal_size()
         curses.initscr()

@@ -1,9 +1,11 @@
 import os
 from time import sleep
 import sys
+from typing import List, NoReturn, Callable
 
 
-def mostrar_menus(tela, menu, teclas):
+def mostrar_menus(tela, menu: Callable, teclas: List[str]) -> str:
+    """Mostra os menus e retorna uma tecla precionada."""
     tecla = ''
     while tecla not in teclas:
         tela.erase()
@@ -13,11 +15,13 @@ def mostrar_menus(tela, menu, teclas):
     return tecla
 
 
-def _root():
+def _root() -> bool:
+    """Verifica se o programa foi iniciado como root e o retorna um boolean."""
     return os.getuid() == 0
 
 
-def mostrar(tempo=2):
+def mostrar(tempo: int = 2) -> Callable:
+    """Mostra uma mensagem durante algum tempo."""
     def pegar_funcao(funcao):
         def pegar_tela(tela):
             texto = funcao(tela)
@@ -29,7 +33,8 @@ def mostrar(tempo=2):
     return pegar_funcao
 
 
-def verificar_root(tela):
+def verificar_root(tela) -> NoReturn:
+    """Verifica se o programa foi iniciado como root e caso contrário, sai."""
     if not _root():
         tela.addstr('this program needs to be run with root privileges.')
         tela.refresh()
@@ -38,12 +43,14 @@ def verificar_root(tela):
 
 
 @mostrar()
-def mostrar_banner(tela):
+def mostrar_banner(tela) -> str:
+    """Mostra um banner com o logo do katoolin."""
     with open('banner.txt') as file:
         return file.read()
 
 
-def formatar_texto(itens):
+def formatar_texto(itens) -> str:
+    """Formata um texto para exibir os programas instaláveis na tela."""
     linhas = os.get_terminal_size()[1]
     itens2 = [
         f"{numero}) {item}" for numero, item in enumerate(itens)
@@ -51,12 +58,14 @@ def formatar_texto(itens):
     return ' - '.join(itens2)
 
 
-def mostrar_texto(tela, texto):
+def mostrar_texto(tela, texto: str) -> NoReturn:
+    """Escreve algo na tela."""
     tela.addstr(texto)
     tela.refresh()
 
 
-def terminado(tela):
+def terminado(tela) -> NoReturn:
+    """Mostra uma mensagem na tela que terminou algo."""
     mostrar_texto(tela, '\nDone.')
     sleep(1)
 

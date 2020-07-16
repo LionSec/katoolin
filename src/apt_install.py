@@ -1,8 +1,11 @@
 import apt
+from typing import NoReturn, Callable, List
+
 from .ferramentas import mostrar_menus, mostrar_texto
 
 
-def atualizar_commitar_cache(funcao):
+def atualizar_commitar_cache(funcao: Callable) -> Callable:
+    """Gerencia o cache do apt."""
     def pegar_args(*argumentos, **kwargumentos):
         cache = apt.cache.Cache()
         cache.open()
@@ -13,15 +16,16 @@ def atualizar_commitar_cache(funcao):
 
 
 @atualizar_commitar_cache
-def instalar(nomes, cache):
+def instalar(nomes: List[str], cache) -> NoReturn:
+    """Instala um pacote no linux."""
     pacotes_brutos = map(cache.get, nomes)
     pacotes_filtrados = filter(lambda x: x, pacotes_brutos)
     for pacote in pacotes_filtrados:
         pacote.mark_install()
 
 
-
-def gerenciar_pacotes(tela, menu, programas):
+def gerenciar_pacotes(tela, menu: Callable, programas: List[str]) -> NoReturn:
+    """Gerencia/instala os pacotes do linux."""
     opcoes = list(map(str, range(len(programas))))
     opcoes.append('back')
     programas = dict(zip(opcoes, programas))
@@ -37,7 +41,8 @@ def gerenciar_pacotes(tela, menu, programas):
             programa = programas[tecla]
             programas_para_instalar.append(programa)
     mostrar_texto(tela, 'wait for the command to finish running')
-    instalar(programas_para_instalar)  # install programs
+    if any(programas_para_instalar):
+        instalar(programas_para_instalar)  # install programs
 
 
 # don't need?

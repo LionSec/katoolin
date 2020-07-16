@@ -1,9 +1,12 @@
-from os import devnull, remove
-from os.path import exists
 from subprocess import Popen
+from os import devnull, remove
+from typing import NoReturn
+
+from os.path import exists
 
 
-def adicionar_repositorio(nome, repositorio):
+def adicionar_repositorio(nome: str, repositorio: str) -> NoReturn:
+    """Adiciona um arquivo com um novo repositório."""
     nome = nome.replace(' ', '_')
     local_arquivo = f"/etc/apt/sources.list.d/{nome}.list"
     if not exists(local_arquivo):
@@ -13,14 +16,16 @@ def adicionar_repositorio(nome, repositorio):
             arquivo.write(linhas)
 
 
-def remover_repositorio(nome):
+def remover_repositorio(nome: str) -> NoReturn:
+    """Remove um arquivo com um repositório."""
     nome = nome.replace(' ', '_')
     repositorio = f"/etc/apt/sources.list.d/{nome}.list"
     if exists(repositorio):
         remove(repositorio)
 
 
-def adicionar_kali_repositorio():
+def adicionar_kali_repositorio() -> NoReturn:
+    """Adiciona o repositório do kali-linux."""
     nome = 'kali linux'
     repositorio = (
         'deb http://http.kali.org/kali kali-rolling '
@@ -29,11 +34,13 @@ def adicionar_kali_repositorio():
     adicionar_repositorio(nome, repositorio)
 
 
-def remover_kali_repositorio():
+def remover_kali_repositorio() -> NoReturn:
+    """Remove o repositório do kali-linux."""
     remover_repositorio('kali linux')
 
 
-def adicionar_diesch_repositorio():
+def adicionar_diesch_repositorio() -> NoReturn:
+    """Adiciona o repositório do diesch."""
     nome = 'diesch'
     repositorio = (
         'deb http://ppa.launchpad.net/diesch/testing/ubuntu '
@@ -47,8 +54,8 @@ add_apt_key = (
 )
 
 
-def executar(string):
-    # print('press enter after the command runs\n')
+def executar(string: str) -> NoReturn:
+    """Executa um comando shell na máquina sem exibir qualquer mensagem."""
     Popen(
         string.split(), stdout=open(devnull, 'w'),
         stderr=open(devnull, 'w')
