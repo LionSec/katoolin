@@ -48,8 +48,6 @@ def opcoes_menu_2(tela) -> NoReturn:
             gerenciar_pacotes(tela, *argumentos_pacotes[tecla])
         elif tecla == 'back':
             break
-        tela.erase()
-        tela.refresh()
         terminado(tela)
 
 

@@ -1,18 +1,22 @@
 import apt
 from typing import NoReturn, Callable, List
 
-from .ferramentas import mostrar_menus, mostrar_texto
+from .ferramentas import (
+    mostrar_menus, mostrar_texto, bloquear_print, desbloquear_print
+)
 
 
 def atualizar_commitar_cache(funcao: Callable) -> Callable:
     """Gerencia o cache do apt."""
     def pegar_args(nomes):
         if any(nomes):
+            bloquear_print()
             cache = apt.cache.Cache()
             cache.open()
             funcao(nomes, cache)
             cache.commit()
             cache.close()
+            desbloquear_print()
     return pegar_args
 
 
@@ -40,6 +44,8 @@ def gerenciar_pacotes(tela, menu: Callable, programas: List[str]) -> NoReturn:
             mostrar_texto(tela, 'wait for the command to finish running')
             mostrar_texto(tela, '\ninstalling programs...')
             instalar(programas_para_instalar)  # install programs
+            tela.erase()
+            tela.refresh()
         elif tecla == 'back':  # get out
             break
         else:  # mark to install a program
