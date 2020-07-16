@@ -9,13 +9,12 @@ Automatically install all Kali linux tools
 
 # Requirements
 - Python 3+
+- git
 - An operating system derivated from debian
 
-# Installation
-- sudo su
-- git clone https://github.com/b166erbot/katoolin.git && cp katoolin/katoolin3install.py /usr/bin/katoolin3install
-- chmod +x /usr/bin/katoolin3install
-- sudo katoolin3install
+# How to run
+- sudo python3 katolin3install.py
+- or chmod +x katolin3install.py; ./katolin3install.py
 
 # Video
 https://www.youtube.com/watch?v=8VxCWVoZEEE

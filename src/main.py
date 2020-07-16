@@ -71,10 +71,10 @@ def katoolin_main(tela) -> NoReturn:
                 adicionar_diesch_repositorio()
                 cache_ = cache.Cache()
                 cache_.update()
-                instalar('classicmenu-indicator')
+                instalar(['classicmenu-indicator'])
                 terminado(tela)
             elif tecla == '4':
-                instalar('kali-menu')
+                instalar(['kali-menu'])
                 terminado(tela)
             elif tecla == '5':
                 pass

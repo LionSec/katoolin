@@ -33,7 +33,7 @@ def gerenciar_pacotes(tela, menu: Callable, programas: List[str]) -> NoReturn:
     while True:
         tecla = mostrar_menus(tela, menu, opcoes)
         if tecla == '0':  # mark to install all programs
-            programas_para_instalar = list(programas.values()[1:])
+            programas_para_instalar = list(programas.values())[1:]
             break
         if tecla == 'back':  # get out
             break
