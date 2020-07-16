@@ -23,17 +23,15 @@ def opcoes_menu_1(tela) -> NoReturn:
         if tecla == '1':
             adicionar_kali_repositorio()
             executar(add_apt_key)
-            terminado(tela)
         elif tecla == '2':
             mostrar_texto(tela, 'wait for the command to finish running.')
             cache_ = cache.Cache()
             cache_.update()
-            terminado(tela)
         elif tecla == '3':
             remover_kali_repositorio()
-            terminado(tela)
         elif tecla == 'back':
             break
+        terminado(tela)
 
 
 def opcoes_menu_2(tela) -> NoReturn:
@@ -44,11 +42,11 @@ def opcoes_menu_2(tela) -> NoReturn:
         tecla = mostrar_menus(tela, menu_2, opcoes)
         if tecla == '0':  # install all packages
             instalar(tudo)
+            terminado(tela)
         elif tecla != 'back':
             gerenciar_pacotes(tela, *argumentos_pacotes[tecla])
         elif tecla == 'back':
             break
-        terminado(tela)
 
 
 def katoolin_main(tela) -> NoReturn:

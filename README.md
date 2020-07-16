@@ -9,12 +9,12 @@ Automatically install all Kali linux tools
 
 # Requirements
 - Python 3+
-- git
+- Git
 - An operating system derivated from debian
 
 # How to run
-- sudo python3 katolin3install.py
-- or chmod +x katolin3install.py; ./katolin3install.py
+- sudo python3 katoolin3install.py
+- or chmod +x katoolin3install.py; ./katoolin3install.py
 
 # Video
 https://www.youtube.com/watch?v=8VxCWVoZEEE
@@ -23,7 +23,7 @@ https://www.youtube.com/watch?v=8VxCWVoZEEE
 - Typing the number of a tool will install it
 - Typing 0 will install all Kali Linux tools
 - back : Go back
-- By installing armitage , you will install metasploit
+- install : install the tools you selected
 
 # Warning
 Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .

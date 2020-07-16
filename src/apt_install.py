@@ -2,7 +2,8 @@ import apt
 from typing import NoReturn, Callable, List
 
 from .ferramentas import (
-    mostrar_menus, mostrar_texto, bloquear_print, desbloquear_print
+    mostrar_menus, mostrar_texto, bloquear_print, desbloquear_print,
+    terminado
 )
 
 
