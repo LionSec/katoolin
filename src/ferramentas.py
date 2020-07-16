@@ -51,11 +51,20 @@ def mostrar_banner(tela) -> str:
 
 def formatar_texto(itens) -> str:
     """Formata um texto para exibir os programas instaláveis na tela."""
-    linhas = os.get_terminal_size()[1]
+    linhas = os.get_terminal_size()[1] - 4  # - 4 linhas
     itens2 = [
         f"{numero}) {item}" for numero, item in enumerate(itens)
     ]
-    return ' - '.join(itens2)
+    itens_em_partes = cortar(itens2, linhas)
+    itens_formatados = []
+    for lista in itens_em_partes:
+        tamanho = max(map(len, lista))
+        formato = f'<{tamanho}'
+        itens_formatados.append(
+            list(map(lambda x: format(x, formato), lista))
+        )
+    itens_formatados = list(map(' '.join, zip(*itens_formatados)))
+    return '\n'.join(itens_formatados)
 
 
 def mostrar_texto(tela, texto: str) -> NoReturn:
@@ -68,6 +77,10 @@ def terminado(tela) -> NoReturn:
     """Mostra uma mensagem na tela que terminou algo."""
     mostrar_texto(tela, '\nDone.')
     sleep(1)
+
+
+def cortar(lista, numero):
+    return [lista[x: x + numero] for x in range(0, len(lista), numero)]
 
 
 # def bloquear_print():

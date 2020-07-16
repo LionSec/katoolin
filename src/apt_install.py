@@ -6,12 +6,13 @@ from .ferramentas import mostrar_menus, mostrar_texto
 
 def atualizar_commitar_cache(funcao: Callable) -> Callable:
     """Gerencia o cache do apt."""
-    def pegar_args(*argumentos, **kwargumentos):
-        cache = apt.cache.Cache()
-        cache.open()
-        funcao(*argumentos, cache, **kwargumentos)
-        cache.commit()
-        cache.close()
+    def pegar_args(nomes):
+        if any(nomes):
+            cache = apt.cache.Cache()
+            cache.open()
+            funcao(nomes, cache)
+            cache.commit()
+            cache.close()
     return pegar_args
 
 
@@ -27,7 +28,7 @@ def instalar(nomes: List[str], cache) -> NoReturn:
 def gerenciar_pacotes(tela, menu: Callable, programas: List[str]) -> NoReturn:
     """Gerencia/instala os pacotes do linux."""
     opcoes = list(map(str, range(len(programas))))
-    opcoes.append('back')
+    opcoes += ['back', 'install']
     programas = dict(zip(opcoes, programas))
     programas_para_instalar = []
     while True:
@@ -35,14 +36,16 @@ def gerenciar_pacotes(tela, menu: Callable, programas: List[str]) -> NoReturn:
         if tecla == '0':  # mark to install all programs
             programas_para_instalar = list(programas.values())[1:]
             break
-        if tecla == 'back':  # get out
+        elif tecla == 'install':
+            mostrar_texto(tela, 'wait for the command to finish running')
+            mostrar_texto(tela, '\ninstalling programs...')
+            instalar(programas_para_instalar)  # install programs
+        elif tecla == 'back':  # get out
             break
         else:  # mark to install a program
             programa = programas[tecla]
             programas_para_instalar.append(programa)
-    mostrar_texto(tela, 'wait for the command to finish running')
-    if any(programas_para_instalar):
-        instalar(programas_para_instalar)  # install programs
+
 
 
 # don't need?
