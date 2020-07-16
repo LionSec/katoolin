@@ -17,8 +17,7 @@ def instalar(nomes, cache):
     pacotes_brutos = map(cache.get, nomes)
     pacotes_filtrados = filter(lambda x: x, pacotes_brutos)
     for pacote in pacotes_filtrados:
-        if not pacote.is_installed:
-            pacote.mark_install()
+        pacote.mark_install()
 
 
 

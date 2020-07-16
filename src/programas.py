@@ -117,4 +117,5 @@ tudo = (
     + programas_2_7_reporting_tools + programas_2_8_exploitation_tools
     + programas_2_9_forensics_tools + programas_2_10_stress_testing
     + programas_2_11_password_attacks + programas_2_12_reverse_engine
-    + programas_2_13_hardware_hacking + programas_2_14_extra)
+    + programas_2_13_hardware_hacking + programas_2_14_extra
+)

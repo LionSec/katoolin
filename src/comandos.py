@@ -4,6 +4,7 @@ from subprocess import Popen
 
 
 def adicionar_repositorio(nome, repositorio):
+    nome = nome.replace(' ', '_')
     local_arquivo = f"/etc/apt/sources.list.d/{nome}.list"
     if not exists(local_arquivo):
         with open(local_arquivo, 'a') as arquivo:
@@ -13,6 +14,7 @@ def adicionar_repositorio(nome, repositorio):
 
 
 def remover_repositorio(nome):
+    nome = nome.replace(' ', '_')
     repositorio = f"/etc/apt/sources.list.d/{nome}.list"
     if exists(repositorio):
         remove(repositorio)
