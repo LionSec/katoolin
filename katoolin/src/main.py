@@ -4,7 +4,8 @@ from typing import NoReturn
 
 from .menus import main_menu, menu_1, menu_2
 from .ferramentas import (
-    mostrar_menus, verificar_root, mostrar_banner, mostrar_texto, terminado
+    mostrar_menus, verificar_root, mostrar_banner, mostrar_texto, terminado,
+    limpar
 )
 from .comandos import (
     adicionar_kali_repositorio, remover_kali_repositorio,
@@ -42,6 +43,7 @@ def opcoes_menu_2(tela) -> NoReturn:
         tecla = mostrar_menus(tela, menu_2, opcoes)
         if tecla == '0':  # install all packages
             instalar(tudo)
+            limpar(tela)
             terminado(tela)
         elif tecla != 'back':
             gerenciar_pacotes(tela, *argumentos_pacotes[tecla])
@@ -68,9 +70,11 @@ def katoolin_main(tela) -> NoReturn:
                 cache_ = cache.Cache()
                 cache_.update()
                 instalar(['classicmenu-indicator'])
+                limpar(tela)
                 terminado(tela)
             elif tecla == '4':
                 instalar(['kali-menu'])
+                limpar(tela)
                 terminado(tela)
             elif tecla == '5':
                 pass

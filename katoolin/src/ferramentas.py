@@ -83,13 +83,17 @@ def cortar(lista, numero):
     return [lista[x: x + numero] for x in range(0, len(lista), numero)]
 
 
-def bloquear_print():
-    sys.stderr = open(os.devnull, 'w')
-    sys.stdout = open(os.devnull, 'w')
+def limpar(tela):
+    tela.erase()
+    tela.refresh()
 
-
-def desbloquear_print():
-    sys.stderr.close()
-    sys.stdout.close()
-    sys.stderr = sys.__stderr__
-    sys.stdout = sys.__stdout__
+# def bloquear_print():
+#     sys.stderr = open(os.devnull, 'w')
+#     sys.stdout = open(os.devnull, 'w')
+#
+#
+# def desbloquear_print():
+#     sys.stderr.close()
+#     sys.stdout.close()
+#     sys.stderr = sys.__stderr__
+#     sys.stdout = sys.__stdout__
