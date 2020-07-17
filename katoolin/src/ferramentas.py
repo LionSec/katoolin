@@ -1,11 +1,16 @@
 import os
 from time import sleep
 import sys
+import curses
 from typing import List, NoReturn, Callable
 
+from .arquivo_temporario import arquivo
 
-def mostrar_menus(tela, menu: Callable, teclas: List[str]) -> str:
+
+def mostrar_menus(menu: Callable, teclas: List[str]) -> str:
     """Mostra os menus e retorna uma tecla precionada."""
+    tela = curses.getwin(arquivo)
+    arquivo.seek(0)
     tecla = ''
     while tecla not in teclas:
         tela.erase()
@@ -67,15 +72,17 @@ def formatar_texto(itens) -> str:
     return '\n'.join(itens_formatados)
 
 
-def mostrar_texto(tela, texto: str) -> NoReturn:
+def mostrar_texto(texto: str) -> NoReturn:
     """Escreve algo na tela."""
+    tela = curses.getwin(arquivo)
+    arquivo.seek(0)
     tela.addstr(texto)
     tela.refresh()
 
 
-def terminado(tela) -> NoReturn:
+def terminado() -> NoReturn:
     """Mostra uma mensagem na tela que terminou algo."""
-    mostrar_texto(tela, '\nDone.')
+    mostrar_texto('\nDone.')
     sleep(1)
 
 
@@ -83,9 +90,12 @@ def cortar(lista, numero):
     return [lista[x: x + numero] for x in range(0, len(lista), numero)]
 
 
-def limpar(tela):
+def limpar():
+    tela = curses.getwin(arquivo)
+    arquivo.seek(0)
     tela.erase()
     tela.refresh()
+
 
 # def bloquear_print():
 #     sys.stderr = open(os.devnull, 'w')

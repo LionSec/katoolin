@@ -1,7 +1,9 @@
 import apt
 from typing import NoReturn, Callable, List
+import curses
 
 from .ferramentas import mostrar_menus, mostrar_texto, limpar
+from .arquivo_temporario import arquivo
 
 
 def atualizar_commitar_cache(funcao: Callable) -> Callable:
@@ -25,28 +27,36 @@ def instalar(nomes: List[str], cache) -> NoReturn:
         pacote.mark_install()
 
 
-def gerenciar_pacotes(tela, menu: Callable, programas: List[str]) -> NoReturn:
+def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
     """Gerencia/instala os pacotes do linux."""
+    tela = curses.getwin(arquivo)
+    arquivo.seek(0)
     opcoes = list(map(str, range(len(programas))))
     opcoes += ['back', 'install']
     programas = dict(zip(opcoes, programas))
     programas_para_instalar = []
     while True:
-        tecla = mostrar_menus(tela, menu, opcoes)
+        tecla = mostrar_menus(menu, opcoes)
         if tecla == '0':  # mark to install all programs
             programas_para_instalar = list(programas.values())[1:]
             break
         elif tecla == 'install':
-            mostrar_texto(tela, 'wait for the command to finish running')
-            mostrar_texto(tela, '\ninstalling programs...')
+            mostrar_texto('wait for the command to finish running')
+            mostrar_texto('\ninstalling programs...')
             instalar(programas_para_instalar)  # install programs
-            limpar(tela)
+            limpar()
         elif tecla == 'back':  # get out
             break
         else:  # mark to install a program
             programa = programas[tecla]
             programas_para_instalar.append(programa)
 
+
+def atualizar():
+    cache = apt.cache.Cache()
+    cache.open()
+    cache.update()
+    cache.close()
 
 
 # don't need?
