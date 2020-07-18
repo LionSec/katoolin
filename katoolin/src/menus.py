@@ -1,4 +1,4 @@
-from .ferramentas import formatar_texto
+from .ferramentas import formatar_texto, mostrar
 from .programas import (
     programas_2_1_information_gathering, programas_2_2_vulnerability_analysis,
     programas_2_3_wireless_attacks, programas_2_4_web_applications,
@@ -163,4 +163,15 @@ def menu_2_14() -> str:
     texto = 'choice your programs:\n'
     texto += formatar_texto(programas_2_14_extra)
     texto += '\n\ntype install to install and back to return\n>>> '
+    return texto
+
+
+@mostrar(10)
+def menu_5() -> str:
+    """Retorna uma string do menu 5."""
+    texto = 'first, add kali repository and update\n\n'
+    texto += 'commands:\n'
+    texto += '>>> write the numbers of the programs you want to install\n'
+    texto += 'back = go back\n'
+    texto += 'install = install programs'
     return texto

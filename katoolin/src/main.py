@@ -2,7 +2,7 @@ import curses, os
 from apt import cache
 from typing import NoReturn
 
-from .menus import main_menu, menu_1, menu_2
+from .menus import main_menu, menu_1, menu_2, menu_5
 from .ferramentas import (
     mostrar_menus, verificar_root, mostrar_banner, mostrar_texto, terminado,
     limpar
@@ -70,7 +70,7 @@ def opcoes_menu_principal():
             limpar()
             terminado()
         elif tecla == '5':
-            pass
+            menu_5()
         elif tecla == 'back':
             pass
 
@@ -85,7 +85,7 @@ def katoolin_main(tela) -> NoReturn:
         with arquivo as arquivo_:
             tela.putwin(arquivo_)
             arquivo_.seek(0)
-            mostrar_banner(tela)
+            mostrar_banner()
             opcoes_menu_principal()
     finally:
         curses.endwin()

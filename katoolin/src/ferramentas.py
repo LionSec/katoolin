@@ -28,10 +28,12 @@ def _root() -> bool:
 def mostrar(tempo: int = 2) -> Callable:
     """Mostra uma mensagem durante algum tempo."""
     def pegar_funcao(funcao):
-        def pegar_tela(tela):
-            texto = funcao(tela)
+        def pegar_tela(*args, **kwargs):
+            tela = curses.getwin(arquivo)
+            arquivo.seek(0)
+            texto = funcao(*args, **kwargs)
             tela.erase()
-            tela.addstr(texto[-79*13:])
+            tela.addstr(texto[-79*13:])  # antigo bug. remover slice?
             tela.refresh()
             sleep(tempo)
         return pegar_tela
@@ -48,7 +50,7 @@ def verificar_root(tela) -> NoReturn:
 
 
 @mostrar()
-def mostrar_banner(tela) -> str:
+def mostrar_banner() -> str:
     """Mostra um banner com o logo do katoolin."""
     with open('banner.txt') as file:
         return file.read()
