@@ -15,7 +15,7 @@ setup(
     },
     entry_points = {
         'console_scripts': [
-            'katoolin3=katoolin.katoolin3install:main',
+            'katoolin3=katoolin.katoolin3:main',
         ]
     },
     zip_safe = False

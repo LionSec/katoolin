@@ -9,15 +9,13 @@ Automatically install all Kali linux tools
 
 # Requirements
 - Python 3+
+- python-apt (if not installed). pip install python-apt
 - Git
 - An operating system derivated from debian
 
 # How to run
-- sudo python3 katoolin3install.py
-- or sudo python3 setup.py install; sudo katoolin3install
-
-# Video
-https://www.youtube.com/watch?v=8VxCWVoZEEE
+- sudo python3 katoolin3.py
+- or sudo python3 setup.py install; sudo katoolin3
 
 # Usage
 - Typing the number of a tool will install it
@@ -30,16 +28,4 @@ Before updating your system , please remove all Kali-linux repositories to avoid
 
 # I have some questions!
 
-Please visit https://github.com/LionSec/katoolin/issues and https://github.com/b166erbot/issues
-
-# Donations
-- Paypal : https://www.paypal.me/lionsec
-- skrill : informatica98es@gmail.com
-
-
-# Contact
-- Website : https://neodrix.com
-- Youtube : https://youtube.com/inf98es
-- Facebook : https://facebook.com/in98
-- Twitter: @LionSec1
-- Email : informatica98es@gmail.com
+Please visit https://github.com/b166erbot/issues
