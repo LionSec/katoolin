@@ -16,7 +16,7 @@ Automatically install all Kali linux tools
 - git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
 - chmod +x /usr/bin/katoolin
 - sudo katoolin 
-
+- (for newer versions of Ubantu if file not found use this command : python2 /usr/bin/katoolin) 
 # Video
 https://www.youtube.com/watch?v=8VxCWVoZEEE
 
