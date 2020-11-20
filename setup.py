@@ -5,7 +5,7 @@ setup(
     name = 'katoolin',
     version = '3.0',
     description = 'install kali packages on debian and its derivatives',
-    url = 'https://github.com/b166erobot/katoolin',
+    url = 'https://github.com/b166erbot/katoolin',
     author = 'https://github.com/LionSec',
     licence = 'GNU GENERAL PUBLIC LICENSE',
     packages = find_packages(),
