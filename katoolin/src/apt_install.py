@@ -1,6 +1,7 @@
 import apt
 from typing import NoReturn, Callable, List
 import curses
+from os import system as sy
 
 from .ferramentas import mostrar_menus, mostrar_texto, limpar
 from .arquivo_temporario import arquivo
@@ -39,7 +40,6 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
         tecla = mostrar_menus(menu, opcoes)
         if tecla == '0':  # mark to install all programs
             programas_para_instalar = list(programas.values())[1:]
-            break
         elif tecla == 'install':
             mostrar_texto('wait for the command to finish running')
             mostrar_texto('\ninstalling programs...')
@@ -53,10 +53,13 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
 
 
 def atualizar():
-    cache = apt.cache.Cache()
-    cache.open()
-    cache.update()
-    cache.close()
+    # don't work
+    # cache = apt.cache.Cache()
+    # cache.open()
+    # cache.update()
+    # cache.close()
+    
+    sy('apt update')
 
 
 # don't need?
