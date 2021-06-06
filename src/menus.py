@@ -56,9 +56,9 @@ def menu_2() -> str:
 
 def texto_adicional(funcao):
     def inner(*args):
-        texto = 'choice your programs:\n'
-        texto += funcao(*args)
-        texto += '\n\ntype install to install and back to return\n>>> '
+        texto = funcao(*args)
+        texto += '\n\nchoose your programs and then type install to install '
+        texto += 'and back to return\n>>> '
         return texto
     return inner
 
