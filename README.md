@@ -15,7 +15,6 @@ Automatically install all Kali linux tools
 
 # How to run
 - sudo python3 katoolin3.py
-- or sudo python3 setup.py install; sudo katoolin3
 
 # Usage
 - Typing the number of a tool will install it
