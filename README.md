@@ -37,12 +37,12 @@ Please visit [the project Issues on GitHub](https://github.com/LionSec/katoolin/
 
 # Donations
 - [Paypal](https://www.paypal.me/lionsec).
-- [Skrill][informatica98es@gmail.com).
+- [Skrill](informatica98es@gmail.com).
 
 
 # Contact
 - [Website](https://neodrix.com)
 - [Youtube channel](https://youtube.com/inf98es)
 - [Facebook page](https://facebook.com/in98)
-- Twitter: @LionSec1
+- [Twitter](https://twitter.com/lionsec1?lang=it)
 - Email: informatica98es@gmail.com
