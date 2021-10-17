@@ -16,7 +16,7 @@ Automatically install all Kali Linux tools.
 - Switch to `root` user issuing the command `sudo su`.
 - Clone the repository with `git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin`.
 - Make the script executable with `chmod +x /usr/bin/katoolin`.
-- Start the script with `sudo katoolin`.
+- Start the script with `sudo ./katoolin`.
 
 # Video
 [The dedicated YouTube video](https://www.youtube.com/watch?v=8VxCWVoZEEE).
