@@ -9,7 +9,7 @@ Automatically install all Kali linux tools
 
 # Requirements
 - Python 2.7
-- An operating system (tested on Ubuntu)
+- An operating system (tested on Ubuntu 20.04)
 
 # Installation
 `
