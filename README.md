@@ -12,10 +12,21 @@ Automatically install all Kali linux tools
 - An operating system (tested on Ubuntu)
 
 # Installation
-- sudo su
-- git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
-- chmod +x /usr/bin/katoolin
-- sudo katoolin 
+`
+sudo su
+`
+`
+apt install python2
+`
+`
+git clone https://github.com/nathmo/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
+`
+`
+chmod +x /usr/bin/katoolin
+`
+`
+sudo katoolin 
+`
 
 # Video
 https://www.youtube.com/watch?v=8VxCWVoZEEE
@@ -32,16 +43,8 @@ Before updating your system , please remove all Kali-linux repositories to avoid
 
 # I have some questions!
 
-Please visit https://github.com/LionSec/katoolin/issues
+Please visit https://github.com/nathmo/katoolin/issues
 
-# Donations
-- Paypal : https://www.paypal.me/lionsec
-- skrill : informatica98es@gmail.com
-
-
-# Contact
-- Website : https://neodrix.com
-- Youtube : https://youtube.com/inf98es
-- Facebook : https://facebook.com/in98
-- Twitter: @LionSec1
-- Email : informatica98es@gmail.com
+# Author
+this project was forked from https://github.com/LionSec/katoolin/
+i just added some fix as the project dont seems to be actively maintained anymore
