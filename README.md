@@ -15,15 +15,19 @@ Automatically install all Kali linux tools
 `
 sudo su
 `
+
 `
 apt install python2
 `
+
 `
 git clone https://github.com/nathmo/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
 `
+
 `
 chmod +x /usr/bin/katoolin
 `
+
 `
 sudo katoolin 
 `
