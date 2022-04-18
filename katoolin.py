@@ -21,7 +21,7 @@ def main():
  \__|  \__| \_______|   \____/  \______/  \______/ \__|\__|\__|  \__| V2.0 \033[1;m
 
 
- \033[1;32m+ -- -- +=[ Author: LionSec | Homepage: www.neodrix.com\033[1;m
+ \033[1;32m+ -- -- +=[ Author: LionSec, updated by nathmo
  \033[1;32m+ -- -- +=[ 331 Tools \033[1;m
 
 
