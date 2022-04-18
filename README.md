@@ -1,6 +1,6 @@
 ![katoolin](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
 # katoolin
-Automatically install all Kali linux tools
+Automatically add the kali repo and install all Kali linux tools
 
 # Features
 - Add Kali linux repositories
@@ -9,7 +9,7 @@ Automatically install all Kali linux tools
 
 # Requirements
 - Python 2.7
-- An operating system (tested on Ubuntu 20.04)
+- An (debian based) operating system (tested on Ubuntu 20.04)
 
 # Installation
 `
@@ -43,7 +43,7 @@ https://www.youtube.com/watch?v=8VxCWVoZEEE
 - By installing armitage , you will install metasploit
 
 # Warning
-Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
+once you installed the tools you needed please remove all Kali-linux repositories as this can seriously fuck up your install if you try to update 
 
 # I have some questions!
 
@@ -51,4 +51,5 @@ Please visit https://github.com/nathmo/katoolin/issues
 
 # Author
 this project was forked from https://github.com/LionSec/katoolin/
+
 i just added some fix as the project dont seems to be actively maintained anymore
