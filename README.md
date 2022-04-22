@@ -55,5 +55,5 @@ this project was forked from https://github.com/LionSec/katoolin/
 i just added some fix as the project dont seems to be actively maintained anymore
 
 # TODO
-improve UI (reduce the number of step to install a package, auto add the repo and delete once installed)
-move to python 3
+- improve UI (reduce the number of step to install a package, auto add the repo and delete once installed)
+- move to python 3
