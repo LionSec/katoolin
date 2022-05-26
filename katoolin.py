@@ -1,4 +1,4 @@
-from core import main_opts, sub_opts, categories, tool_command, banner
+from core.resources import main_opts, sub_opts, categories, tool_command, banner
 
 import re
 import os
