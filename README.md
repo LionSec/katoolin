@@ -8,7 +8,7 @@ Automatically install all Kali linux tools
 - Install Kali linux tools
 
 # Requirements
-- Python 2.7
+- Python 3
 - An operating system (tested on Ubuntu)
 
 # Installation
