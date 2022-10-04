@@ -40,7 +40,7 @@ https://www.youtube.com/watch?v=8VxCWVoZEEE
 - Typing 0 will install all Kali Linux tools
 - back : Go back
 - gohome : Go to the main menu
-- By installing armitage , you will install metasploit
+- By installing armitage , you will install metasploit only. its not shipped by default anymore :/
 
 # Warning
 once you installed the tools you needed please remove all Kali-linux repositories as this can seriously fuck up your install if you try to update 
