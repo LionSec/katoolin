@@ -46,6 +46,8 @@ def main():
 2) Update
 3) Remove all kali linux repositories
 4) View the contents of sources.list file
+5) Disable kali linux repositories
+6) Enable kali linux repositories
 
 					''')
 					repo = raw_input("\033[1;32mWhat do you want to do ?> \033[1;m")
@@ -69,6 +71,38 @@ def main():
 						fin.close()
 						fout.close()
 						print ("\033[1;31m\nAll kali linux repositories have been deleted !\n\033[1;m")
+                                        # --------------------------------------------------------------Added-----------------------------------------------------------------------
+                                        elif repo == "5":
+                                                infile = "/etc/apt/sources.list"
+                                                outfile = "/etc/apt/sources.list"
+
+                                                delete_list = ["deb http://http.kali.org/kali kali-rolling main contrib non-free\n"]
+                                                fin = open(infile)
+                                                os.remove("/etc/apt/sources.list")
+                                                fout = open(outfile, "w+")
+                                                for line in fin:
+                                                    for word in delete_list:
+                                                        line = line.replace(word, "# " + word)
+                                                    fout.write(line)
+                                                fin.close()
+                                                fout.close()
+                                                print ("\033[1;31m\nAll kali linux repositories have been disabled !\n\033[1;m")
+                                        elif repo == "6":
+                                                infile = "/etc/apt/sources.list"
+                                                outfile = "/etc/apt/sources.list"
+
+                                                delete_list = ["# deb http://http.kali.org/kali kali-rolling main contrib non-free\n"]
+                                                fin = open(infile)
+                                                os.remove("/etc/apt/sources.list")
+                                                fout = open(outfile, "w+")
+                                                for line in fin:
+                                                    for word in delete_list:
+                                                        line = line.replace(word, word[2:])
+                                                    fout.write(line)
+                                                fin.close()
+                                                fout.close()
+                                                print ("\033[1;31m\nAll kali linux repositories have been enabled !\n\033[1;m")
+                                        # ----------------------------------------------------------End of added--------------------------------------------------------------------
 					elif repo == "back":
 						inicio1()
 					elif repo == "gohome":
