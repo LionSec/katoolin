@@ -5,7 +5,7 @@ import sys, traceback
 
 
 if os.getuid() != 0:
-	print "Sorry. This script requires sudo privledges"
+	print "Sorry, this script requires 'sudo' privileges to run!"
 	sys.exit()
 def main():
 	try:
@@ -25,14 +25,14 @@ def main():
  \033[1;32m+ -- -- +=[ 331 Tools \033[1;m
 
 
-\033[1;91m[W] Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .\033[1;m
+\033[1;91m[W] Before updating your system, please remove all Kali-Linux repositories to avoid any kind of problem.\033[1;m
 		''')
 		def inicio1():
 			while True:
 				print ('''
-1) Add Kali repositories & Update 
-2) View Categories
-3) Install classicmenu indicator
+1) Add Kali Linux repositories & update 
+2) View categories
+3) Install ClassicMenu Indicator
 4) Install Kali menu
 5) Help
 
@@ -42,13 +42,13 @@ def main():
 			
 				while opcion0 == "1":
 					print ('''
-1) Add kali linux repositories
+1) Add Kali Linux repositories
 2) Update
-3) Remove all kali linux repositories
-4) View the contents of sources.list file
+3) Remove all Kali Linux repositories
+4) View the contents of 'sources.list' file
 
 					''')
-					repo = raw_input("\033[1;32mWhat do you want to do ?> \033[1;m")
+					repo = raw_input("\033[1;32mWhat do you want to do?> \033[1;m")
 					if repo == "1":
 						cmd1 = os.system("apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6")
 						cmd2 = os.system("echo '# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list")
@@ -68,7 +68,7 @@ def main():
 						    fout.write(line)
 						fin.close()
 						fout.close()
-						print ("\033[1;31m\nAll kali linux repositories have been deleted !\n\033[1;m")
+						print ("\033[1;31m\nAll Kali Linux repositories have been deleted!\n\033[1;m")
 					elif repo == "back":
 						inicio1()
 					elif repo == "gohome":
@@ -79,7 +79,7 @@ def main():
 						print (file.read())
 
 					else:
-						print ("\033[1;31mSorry, that was an invalid command!\033[1;m") 					
+						print ("\033[1;31mSorry, the issued command was not recognized!\033[1;m") 					
 						
 
 				if opcion0 == "3":
@@ -90,16 +90,16 @@ It provides a simple way to get a classic GNOME-style application menu for those
 
 Like the classic GNOME menu, it includes Wine games and applications if you have those installed.
 
-For more information , please visit : http://www.florian-diesch.de/software/classicmenu-indicator/
+For more information, please visit http://www.florian-diesch.de/software/classicmenu-indicator/.
 
 ''')
-					repo = raw_input("\033[1;32mDo you want to install classicmenu indicator ? [y/n]> \033[1;m")
+					repo = raw_input("\033[1;32mDo you want to install ClassicMenu Indicator? [y/n]> \033[1;m")
 					if repo == "y":
 						cmd1 = os.system("add-apt-repository ppa:diesch/testing && apt-get update")
 						cmd = os.system("sudo apt-get install classicmenu-indicator")
 
 				elif opcion0 == "4"	:
-					repo = raw_input("\033[1;32mDo you want to install Kali menu ? [y/n]> \033[1;m")
+					repo = raw_input("\033[1;32mDo you want to install Kali menu? [y/n]> \033[1;m")
 					if repo == "y":
 						cmd1 = os.system("apt-get install kali-menu")
 				elif opcion0 == "5":
@@ -121,11 +121,11 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 
 1) Information Gathering			8) Exploitation Tools
 2) Vulnerability Analysis			9) Forensics Tools
-3) Wireless Attacks				10) Stress Testing
-4) Web Applications				11) Password Attacks
+3) Wireless Attacks					10) Stress Testing
+4) Web Applications					11) Password Attacks
 5) Sniffing & Spoofing				12) Reverse Engineering
 6) Maintaining Access				13) Hardware Hacking
-7) Reporting Tools 				14) Extra
+7) Reporting Tools 					14) Extra
 									
 0) All
 
