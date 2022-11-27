@@ -1,4 +1,5 @@
 import curses, os
+from shutil import move
 from apt import cache
 from typing import NoReturn
 
@@ -9,7 +10,7 @@ from .ferramentas import (
 )
 from .comandos import (
     adicionar_kali_repositorio, remover_kali_repositorio,
-    adicionar_diesch_repositorio, executar, add_apt_key
+    adicionar_diesch_repositorio, executar
 )
 from .apt_install import instalar, gerenciar_pacotes, atualizar
 from .dicionarios import argumentos_pacotes
@@ -17,14 +18,23 @@ from .programas import tudo
 from .arquivo_temporario import arquivo
 
 
-def opcoes_menu_1() -> NoReturn:
+def opcoes_menu_1(tela) -> NoReturn:
     """Mostra o submenu 1 do menu principal."""
     while True:
         opcoes = ['1','2','3','4', 'back']
         tecla = mostrar_menus(menu_1, opcoes)
         if tecla == '1':
+            tela.clear()
+            tela.refresh()
             adicionar_kali_repositorio()
-            executar(add_apt_key)
+            executar(
+                "apt-key adv --keyserver "
+                "keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6"
+            )
+            os.rename('/etc/apt/trusted.gpg', '/etc/apt/kali-linux.gpg')
+            move('/etc/apt/kali-linux.gpg', '/etc/apt/trusted.gpg.d')
+            tela.clear()
+            tela.refresh()
         elif tecla == '2':
             mostrar_texto('wait for the command to finish running.')
             cache_ = cache.Cache()
@@ -52,16 +62,16 @@ def opcoes_menu_2() -> NoReturn:
             break
 
 
-def opcoes_menu_principal():
+def opcoes_menu_principal(tela):
     while True:
-        tecla = mostrar_menus(main_menu, ['1','2','3','4','5'])
+        tecla = mostrar_menus(main_menu, ['1','2','3','4','5', 'exit'])
         if tecla == '1':
-            opcoes_menu_1()
+            opcoes_menu_1(tela)
         elif tecla == '2':
             opcoes_menu_2()
         elif tecla == '3':
-            adicionar_diesch_repositorio()
-            atualizar()
+            # adicionar_diesch_repositorio()
+            # atualizar()
             instalar(['classicmenu-indicator'])
             limpar()
             terminado()
@@ -71,8 +81,8 @@ def opcoes_menu_principal():
             terminado()
         elif tecla == '5':
             menu_5()
-        elif tecla == 'back':
-            pass
+        elif tecla == 'exit':
+            exit()
 
 
 def katoolin_main(tela) -> NoReturn:
@@ -86,6 +96,6 @@ def katoolin_main(tela) -> NoReturn:
             tela.putwin(arquivo_)
             arquivo_.seek(0)
             mostrar_banner()
-            opcoes_menu_principal()
+            opcoes_menu_principal(tela)
     finally:
         curses.endwin()

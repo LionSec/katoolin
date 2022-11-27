@@ -1,5 +1,4 @@
-from subprocess import Popen
-from os import devnull, remove
+from os import remove, system
 from typing import NoReturn
 
 from os.path import exists
@@ -11,7 +10,7 @@ def adicionar_repositorio(nome: str, repositorio: str) -> NoReturn:
     local_arquivo = f"/etc/apt/sources.list.d/{nome}.list"
     if not exists(local_arquivo):
         with open(local_arquivo, 'a') as arquivo:
-            linhas = f"# Repositório {nome}\n"
+            linhas = f"# {nome} repository\n"
             linhas += repositorio + '\n'
             arquivo.write(linhas)
 
@@ -49,14 +48,19 @@ def adicionar_diesch_repositorio() -> NoReturn:
     adicionar_repositorio(nome, repositorio)
 
 
-add_apt_key = (
-    "apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys 7D8D0BF6"
-)
-
-
-def executar(string: str) -> NoReturn:
+def executar(comando: str) -> NoReturn:
     """Executa um comando shell na máquina sem exibir qualquer mensagem."""
-    Popen(
-        string.split(), stdout=open(devnull, 'w'),
-        stderr=open(devnull, 'w')
-    )
+    system(comando)
+
+
+# def ler_arquivo_na_web(url_arquivo):
+#     http = PoolManager()
+#     request = http.request('GET', url_arquivo, preload_content=False)
+#     texto = request.read()
+#     return texto
+
+
+# def retornar_arquivo_temporario(texto):
+#     arquivo = NamedTemporaryFile()
+#     arquivo.write(texto)
+#     return arquivo

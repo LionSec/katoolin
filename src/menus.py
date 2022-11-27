@@ -18,7 +18,7 @@ def main_menu() -> str:
     3) Install classicmenu indicator
     4) Install Kali menu
     5) Help
-    or press 'ctrl' + 'c' to finish.
+    or press 'exit' to finish.
 
     >>> """.replace('    ', '')
     return menu

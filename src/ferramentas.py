@@ -88,24 +88,13 @@ def terminado() -> NoReturn:
     sleep(1)
 
 
-def cortar(lista, numero):
+def cortar(lista: list, numero: int) -> list[list]:
     return [lista[x: x + numero] for x in range(0, len(lista), numero)]
 
 
-def limpar():
+def limpar() -> NoReturn:
     tela = curses.getwin(arquivo)
     arquivo.seek(0)
     tela.erase()
     tela.refresh()
 
-
-# def bloquear_print():
-#     sys.stderr = open(os.devnull, 'w')
-#     sys.stdout = open(os.devnull, 'w')
-#
-#
-# def desbloquear_print():
-#     sys.stderr.close()
-#     sys.stdout.close()
-#     sys.stderr = sys.__stderr__
-#     sys.stdout = sys.__stdout__
