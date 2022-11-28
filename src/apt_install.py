@@ -32,9 +32,10 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
     """Gerencia/instala os pacotes do linux."""
     tela = curses.getwin(arquivo)
     arquivo.seek(0)
-    opcoes = list(map(str, range(1, len(programas) + 1)))
+    opcoes = list(map(str, range(len(programas) + 1)))
     opcoes += ['back', 'install']
-    programas = dict(zip(opcoes, programas))
+    _numeros = map(str, range(1, len(programas) + 1))
+    programas = dict(zip(_numeros, programas))
     programas_para_instalar = set()
     while True:
         tecla = mostrar_menus(menu, opcoes)

@@ -60,7 +60,7 @@ def formatar_texto(itens) -> str:
     """Formata um texto para exibir os programas instaláveis na tela."""
     linhas = os.get_terminal_size()[1] - 4  # - 4 linhas
     itens2 = [
-        f"{numero}) {item}" for numero, item in enumerate(itens)
+        f"{numero}) {item}" for numero, item in enumerate(itens, 1)
     ]
     itens_em_partes = cortar(itens2, linhas)
     itens_formatados = []
