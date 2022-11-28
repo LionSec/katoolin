@@ -30,5 +30,5 @@ argumentos_pacotes = [
     (menu_2_14, programas_2_14_extra)
 ]
 
-_numeros = map(str, range(1, len(argumentos_pacotes) + 1))
-argumentos_pacotes = dict(zip(_numeros, argumentos_pacotes))
+numeros = map(str, range(1, len(argumentos_pacotes) + 1))
+argumentos_pacotes = dict(zip(numeros, argumentos_pacotes))

@@ -32,14 +32,14 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
     """Gerencia/instala os pacotes do linux."""
     tela = curses.getwin(arquivo)
     arquivo.seek(0)
-    opcoes = list(map(str, range(len(programas))))
+    opcoes = list(map(str, range(1, len(programas) + 1)))
     opcoes += ['back', 'install']
     programas = dict(zip(opcoes, programas))
     programas_para_instalar = set()
     while True:
         tecla = mostrar_menus(menu, opcoes)
         if tecla == '0':  # mark to install all programs
-            programas_para_instalar = set(list(programas.values())[1:])
+            programas_para_instalar = set(programas.values())
         elif tecla == 'install':
             mostrar_texto('wait for the command to finish running')
             mostrar_texto('\ninstalling programs...')
@@ -47,7 +47,7 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
             limpar()
         elif tecla == 'back':  # get out
             break
-        else:  # mark to install a program
+        else:  # add a program to be installed
             programa = programas[tecla]
             programas_para_instalar.add(programa)
 
