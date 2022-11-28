@@ -10,8 +10,8 @@ from .arquivo_temporario import arquivo
 def limpar_tela_decorator(funcao):
     def pegar_args(*args):
         funcao(*args)
-        arquivo.seek(0)
         tela = curses.getwin(arquivo)
+        arquivo.seek(0)
         tela.clear()
         tela.refresh()
     return pegar_args
@@ -105,6 +105,6 @@ def cortar(lista: list, numero: int) -> list[list]:
 def limpar() -> NoReturn:
     tela = curses.getwin(arquivo)
     arquivo.seek(0)
-    tela.erase()
+    tela.clear()
     tela.refresh()
 

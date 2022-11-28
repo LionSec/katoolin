@@ -1,6 +1,5 @@
 import curses, os
 from shutil import move
-from apt import cache
 from typing import NoReturn
 
 from .menus import main_menu, menu_1, menu_2, menu_5
@@ -24,21 +23,18 @@ def opcoes_menu_1(tela) -> NoReturn:
         opcoes = ['1','2','3','4', 'back']
         tecla = mostrar_menus(menu_1, opcoes)
         if tecla == '1':
-            tela.clear()
-            tela.refresh()
             adicionar_kali_repositorio()
+            curses.endwin()
             executar(
                 "apt-key adv --keyserver "
                 "keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6"
             )
             os.rename('/etc/apt/trusted.gpg', '/etc/apt/kali-linux.gpg')
             move('/etc/apt/kali-linux.gpg', '/etc/apt/trusted.gpg.d')
-            tela.clear()
-            tela.refresh()
+            limpar()
         elif tecla == '2':
             mostrar_texto('wait for the command to finish running.')
-            cache_ = cache.Cache()
-            cache_.update()
+            atualizar()
         elif tecla == '3':
             remover_kali_repositorio()
         elif tecla == 'back':
