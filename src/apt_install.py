@@ -3,7 +3,10 @@ from typing import NoReturn, Callable, List, Set
 import curses
 from os import system as sy
 
-from .ferramentas import mostrar_menus, mostrar_texto, limpar
+from .ferramentas import (
+    mostrar_menus, mostrar_texto, limpar,
+    limpar_tela_decorator
+)
 from .arquivo_temporario import arquivo
 
 
@@ -19,6 +22,7 @@ def atualizar_commitar_cache(funcao: Callable) -> Callable:
     return pegar_args
 
 
+@limpar_tela_decorator
 @atualizar_commitar_cache
 def instalar(nomes: Set[str], cache) -> NoReturn:
     """Instala um pacote no linux."""

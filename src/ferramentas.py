@@ -7,6 +7,16 @@ from typing import List, NoReturn, Callable
 from .arquivo_temporario import arquivo
 
 
+def limpar_tela_decorator(funcao):
+    def pegar_args(*args):
+        funcao(*args)
+        arquivo.seek(0)
+        tela = curses.getwin(arquivo)
+        tela.clear()
+        tela.refresh()
+    return pegar_args
+
+
 def mostrar_menus(menu: Callable, teclas: List[str]) -> str:
     """Mostra os menus e retorna uma tecla precionada."""
     tela = curses.getwin(arquivo)
