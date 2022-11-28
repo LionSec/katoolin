@@ -56,7 +56,7 @@ def opcoes_menu_2() -> NoReturn:
             instalar(tudo)
             limpar()
             terminado()
-        elif tecla != 'back':
+        elif tecla.isnumeric():
             gerenciar_pacotes(*argumentos_pacotes[tecla])
         elif tecla == 'back':
             break
@@ -72,11 +72,11 @@ def opcoes_menu_principal(tela):
         elif tecla == '3':
             # adicionar_diesch_repositorio()
             # atualizar()
-            instalar(['classicmenu-indicator'])
+            instalar({'classicmenu-indicator'})
             limpar()
             terminado()
         elif tecla == '4':
-            instalar(['kali-menu'])
+            instalar({'kali-menu'})
             limpar()
             terminado()
         elif tecla == '5':
