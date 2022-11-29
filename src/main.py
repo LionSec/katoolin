@@ -41,7 +41,9 @@ def opcoes_menu_1(tela) -> NoReturn:
 
 def opcoes_menu_2() -> NoReturn:
     """Mostra o submenu 2 do menu principal."""
-    opcoes = list(map(str, range(15)))
+    opcoes = list(map(
+        str, range(len(argumentos_pacotes) + 1)
+    ))
     opcoes.append('back')
     while True:
         tecla = mostrar_menus(menu_2, opcoes)
@@ -56,6 +58,7 @@ def opcoes_menu_2() -> NoReturn:
 
 
 def opcoes_menu_principal(tela) -> NoReturn:
+    """Menu principal."""
     while True:
         tecla = mostrar_menus(main_menu, ['1','2','3','4','5', 'exit'])
         if tecla == '1':

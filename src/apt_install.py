@@ -55,6 +55,7 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
                 '\ninstalling programs...'
             )
             instalar(programas_para_instalar)  # install programs
+            programas_para_instalar = set()
         elif tecla == 'back':  # get out
             break
         else:  # add a program to be installed
@@ -63,6 +64,7 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
 
 
 def atualizar() -> NoReturn:
+    """Atualiza os pacotes do repositório."""
     # cache = apt.cache.Cache()
     # cache.open()
     # cache.update()

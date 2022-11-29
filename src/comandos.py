@@ -53,6 +53,7 @@ def executar(comando: str) -> NoReturn:
 
 
 def adicionar_kali_gpg_key() -> NoReturn:
+    """Adiciona uma gpg key do kali linux."""
     if not Path('/etc/apt/trusted.gpg.d/kali-linux.gpg').exists():
         curses.endwin()
         executar(
@@ -64,6 +65,7 @@ def adicionar_kali_gpg_key() -> NoReturn:
 
 
 def remover_kali_gpg_key() -> NoReturn:
+    """Remove uma gpg key do kali linux."""
     kali_gpg_key = Path('/etc/apt/trusted.gpg.d/kali-linux.gpg')
     if kali_gpg_key.exists():
         kali_gpg_key.unlink()

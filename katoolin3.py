@@ -17,7 +17,7 @@ except ImportError:
 
 
 def main() -> NoReturn:
-    """Main function."""
+    """Função principal."""
     aqui = Path(__file__).parent
     chdir(aqui)
     with suppress((KeyboardInterrupt, EOFError)):

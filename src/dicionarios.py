@@ -27,7 +27,7 @@ argumentos_pacotes = [
     (menu_2_11, programas_2_11_password_attacks),
     (menu_2_12, programas_2_12_reverse_engine),
     (menu_2_13, programas_2_13_hardware_hacking),
-    (menu_2_14, programas_2_14_extra)
+    # (menu_2_14, programas_2_14_extra)
 ]
 
 numeros = map(str, range(1, len(argumentos_pacotes) + 1))

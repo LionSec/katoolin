@@ -50,7 +50,7 @@ def menu_2() -> str:
     4) Web Applications				    11) Password Attacks
     5) Sniffing & Spoofing				12) Reverse Engineering
     6) Maintaining Access				13) Hardware Hacking
-    7) Reporting Tools 				    14) Extra
+    7) Reporting Tools 				    
 
     0) All
 
