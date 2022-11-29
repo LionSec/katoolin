@@ -1,4 +1,4 @@
-import curses, os
+import curses
 from shutil import move
 from typing import NoReturn
 
@@ -52,7 +52,9 @@ def opcoes_menu_2() -> NoReturn:
         if tecla == '0':  # install all packages
             curses.endwin()
             print(
-                'wait for the command to finish running'
+                '\nprograms that are not listed '
+                'here were not found in the repository.'
+                '\nwait for the command to finish running'
                 '\ninstalling programs...'
             )
             instalar(tudo)
@@ -91,7 +93,6 @@ def opcoes_menu_principal(tela) -> NoReturn:
 def katoolin_main(tela) -> NoReturn:
     """Função principal."""
     try:
-        colunas, linhas = os.get_terminal_size()
         curses.initscr()
         curses.echo()
         verificar_root(tela)
