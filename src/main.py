@@ -20,7 +20,7 @@ from .programas import tudo
 from .arquivo_temporario import arquivo
 
 
-def opcoes_menu_1(tela) -> NoReturn:
+def opcoes_menu_1() -> NoReturn:
     """Mostra o submenu 1 do menu principal."""
     while True:
         opcoes = ['1','2','3','4', 'back']
@@ -66,12 +66,12 @@ def opcoes_menu_2() -> NoReturn:
             break
 
 
-def opcoes_menu_principal(tela) -> NoReturn:
+def opcoes_menu_principal() -> NoReturn:
     """Menu principal."""
     while True:
         tecla = mostrar_menus(main_menu, ['1','2','3','4','5', 'exit'])
         if tecla == '1':
-            opcoes_menu_1(tela)
+            opcoes_menu_1()
         elif tecla == '2':
             opcoes_menu_2()
         elif tecla == '3':
@@ -100,6 +100,6 @@ def katoolin_main(tela) -> NoReturn:
             tela.putwin(arquivo_)
             arquivo_.seek(0)
             mostrar_banner()
-            opcoes_menu_principal(tela)
+            opcoes_menu_principal()
     finally:
         curses.endwin()
