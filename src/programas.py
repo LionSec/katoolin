@@ -38,10 +38,10 @@ programas_2_3_wireless_attacks = {
     'bluesnarfer', 'bully', 'cowpatty', 'crackle', 'eapmd5pass',
     'fern-wifi-cracker', 'kalibrate-rtl',
     'kismet', 'mdk3', 'mfcuk', 'mfoc', 'mfterm', 'multimon-ng',
-    'pixiewps', 'reaver', 'redfang', 'spooftooph', 'wifi-honey',
-    'wifite'
+    'pixiewps', 'reaver', 'redfang', 'spooftooph', 'wifi-honey'
 }
 # ghost-phisher, giskismet, gqrx, killerbee
+# wifite -> this program throws an error when downloading it
 
 
 programas_2_4_web_applications = {

@@ -2,7 +2,10 @@ import curses, os
 from shutil import move
 from typing import NoReturn
 
-from .menus import main_menu, menu_1, menu_2, menu_5
+from .menus import (
+    main_menu, menu_1, menu_2, menu_5,
+    mostrar_apps_instalar
+)
 from .ferramentas import (
     mostrar_menus, verificar_root, mostrar_banner, mostrar_texto, terminado,
     limpar
@@ -48,6 +51,12 @@ def opcoes_menu_2() -> NoReturn:
     while True:
         tecla = mostrar_menus(menu_2, opcoes)
         if tecla == '0':  # install all packages
+            mostrar_apps_instalar(tudo)
+            curses.endwin()
+            print(
+                'wait for the command to finish running'
+                '\ninstalling programs...'
+            )
             instalar(tudo)
             limpar()
             terminado()

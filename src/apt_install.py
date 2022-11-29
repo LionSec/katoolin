@@ -5,8 +5,7 @@ import curses
 # from os import system as sy
 
 from .ferramentas import (
-    mostrar_menus, mostrar_texto, limpar,
-    limpar_tela_decorator
+    mostrar_menus, limpar_tela_decorator, terminado
 )
 from .arquivo_temporario import arquivo
 from .menus import mostrar_apps_instalar
@@ -55,6 +54,7 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
                 '\ninstalling programs...'
             )
             instalar(programas_para_instalar)  # install programs
+            terminado()
             programas_para_instalar = set()
         elif tecla == 'back':  # get out
             break
