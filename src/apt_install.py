@@ -2,13 +2,14 @@ import apt
 from apt.cache import Cache
 from typing import NoReturn, Callable, List, Set
 import curses
-from os import system as sy
+# from os import system as sy
 
 from .ferramentas import (
     mostrar_menus, mostrar_texto, limpar,
     limpar_tela_decorator
 )
 from .arquivo_temporario import arquivo
+from .menus import mostrar_apps_instalar
 
 
 def atualizar_commitar_cache(funcao: Callable) -> Callable:
@@ -47,6 +48,7 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
         if tecla == '0':  # mark to install all programs
             programas_para_instalar = set(programas.values())
         elif tecla == 'install':
+            mostrar_apps_instalar(programas_para_instalar)
             curses.endwin()
             print(
                 'wait for the command to finish running'
@@ -60,16 +62,14 @@ def gerenciar_pacotes(menu: Callable, programas: List[str]) -> NoReturn:
             programas_para_instalar.add(programa)
 
 
-def atualizar():
-    # don't work
+def atualizar() -> NoReturn:
     # cache = apt.cache.Cache()
     # cache.open()
     # cache.update()
     # cache.close()
     cache_ = Cache()
     cache_.update()
-    
-    sy('apt update')
+    # sy('apt update')
 
 
 # don't need?

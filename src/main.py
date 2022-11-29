@@ -9,7 +9,8 @@ from .ferramentas import (
 )
 from .comandos import (
     adicionar_kali_repositorio, remover_kali_repositorio,
-    adicionar_diesch_repositorio, executar
+    adicionar_diesch_repositorio, adicionar_kali_gpg_key,
+    remover_kali_gpg_key
 )
 from .apt_install import instalar, gerenciar_pacotes, atualizar
 from .dicionarios import argumentos_pacotes
@@ -24,19 +25,15 @@ def opcoes_menu_1(tela) -> NoReturn:
         tecla = mostrar_menus(menu_1, opcoes)
         if tecla == '1':
             adicionar_kali_repositorio()
-            curses.endwin()
-            executar(
-                "apt-key adv --keyserver "
-                "keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6"
-            )
-            os.rename('/etc/apt/trusted.gpg', '/etc/apt/kali-linux.gpg')
-            move('/etc/apt/kali-linux.gpg', '/etc/apt/trusted.gpg.d')
+            adicionar_kali_gpg_key()
             limpar()
         elif tecla == '2':
             mostrar_texto('wait for the command to finish running.')
             atualizar()
+            limpar()
         elif tecla == '3':
             remover_kali_repositorio()
+            remover_kali_gpg_key()
         elif tecla == 'back':
             break
         terminado()
@@ -58,7 +55,7 @@ def opcoes_menu_2() -> NoReturn:
             break
 
 
-def opcoes_menu_principal(tela):
+def opcoes_menu_principal(tela) -> NoReturn:
     while True:
         tecla = mostrar_menus(main_menu, ['1','2','3','4','5', 'exit'])
         if tecla == '1':

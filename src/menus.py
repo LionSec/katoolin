@@ -1,4 +1,9 @@
-from .ferramentas import formatar_texto, mostrar
+from typing import Callable
+
+from .ferramentas import (
+    formatar_texto, mostrar_texto_tempo,
+    pegar_programas_instalaveis
+)
 from .programas import (
     programas_2_1_information_gathering, programas_2_2_vulnerability_analysis,
     programas_2_3_wireless_attacks, programas_2_4_web_applications,
@@ -54,115 +59,117 @@ def menu_2() -> str:
     return menu
 
 
-def texto_adicional(funcao):
+def texto_adicional_opcoes(funcao) -> Callable:
     def inner(*args):
         texto = funcao(*args)
-        texto += '\n\nchoose your programs and then type install to install '
-        texto += 'and back to return\n>>> '
+        texto += '\n\ntype 0 to choose all programs'
+        texto += '\nchoose your programs and then type install to install '
+        texto += 'and back to return'
+        texto += '\n>>> '
         return texto
     return inner
 
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_1() -> str:
     """Retorna uma string do submenu 1 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_1_information_gathering)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_2() -> str:
     """Retorna uma string do submenu 2 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_2_vulnerability_analysis)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_3() -> str:
     """Retorna uma string do submenu 3 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_3_wireless_attacks)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_4() -> str:
     """Retorna uma string do submenu 4 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_4_web_applications)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_5() -> str:
     """Retorna uma string do submenu 5 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_5_sniffing_and_spoofing)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_6() -> str:
     """Retorna uma string do submenu 6 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_6_maintaining_access)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_7() -> str:
     """Retorna uma string do submenu 7 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_7_reporting_tools)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_8() -> str:
     """Retorna uma string do submenu 8 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_8_exploitation_tools)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_9() -> str:
     """Retorna uma string do submenu 9 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_9_forensics_tools)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_10() -> str:
     """Retorna uma string do submenu 10 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_10_stress_testing)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_11() -> str:
     """Retorna uma string do submenu 11 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_11_password_attacks)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_12() -> str:
     """Retorna uma string do submenu 12 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_12_reverse_engine)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_13() -> str:
     """Retorna uma string do submenu 13 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_13_hardware_hacking)
     return texto
 
 
-@texto_adicional
+@texto_adicional_opcoes
 def menu_2_14() -> str:
     """Retorna uma string do submenu 14 do submenu 2 do menu principal."""
     texto = formatar_texto(programas_2_14_extra)
     return texto
 
 
-@mostrar(10)
+@mostrar_texto_tempo(10)
 def menu_5() -> str:
     """Retorna uma string do menu 5."""
     texto = 'first, add kali repository and update\n\n'
@@ -170,4 +177,19 @@ def menu_5() -> str:
     texto += '>>> write the numbers of the programs you want to install\n'
     texto += 'back = go back\n'
     texto += 'install = install programs'
+    texto += 'don\'t forget to remove the kali linux'
+    texto += ' repository so there is no problem'
+    return texto
+
+
+@pegar_programas_instalaveis
+@mostrar_texto_tempo(5)
+def mostrar_apps_instalar(apps) -> str:
+    """Retorna uma string com os apps à serem instalados."""
+    texto = 'Programs to be installed:\n'
+    texto += formatar_texto(apps)
+    texto += (
+        '\nprograms that are not listed '
+        'here were not found in the repository'
+    )
     return texto
