@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2.7
 
 import os
 import sys, traceback
@@ -431,7 +431,8 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 11) eapmd5pass				27) redfang
 12) Fern Wifi Cracker			28) RTLSDR Scanner
 13) Ghost Phisher			29) Spooftooph
-14) GISKismet				30) Wifi Honey				31) Wifitap
+14) GISKismet				30) Wifi Honey
+15) -					31) Wifitap
 16) gr-scan				32) Wifite 
 
 0) Install all Wireless Attacks tools
