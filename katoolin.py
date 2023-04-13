@@ -350,7 +350,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "7":
 								cmd = os.system("apt-get install copy-router-config")
 							elif opcion2 == "8":
-								cmd = os.system("apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install")
+								cmd = os.system("apt-get install git && git clone https://github.com/commixproject/commix.git commix && cd commix && python ./commix.py --install")
 							elif opcion2 == "9":
 								cmd = os.system("echo 'download page : http://www.cqure.net/wp/tools/database/dbpwaudit/'")
 							elif opcion2 == "10":
