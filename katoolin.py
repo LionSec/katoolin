@@ -57,18 +57,22 @@ def main():
 					elif repo == "3":
 						infile = "/etc/apt/sources.list"
 						outfile = "/etc/apt/sources.list"
-
-						delete_list = ["# Kali linux repositories | Added by Katoolin\n", "deb http://http.kali.org/kali kali-rolling main contrib non-free\n"]
-						fin = open(infile)
-						os.remove("/etc/apt/sources.list")
-						fout = open(outfile, "w+")
-						for line in fin:
-						    for word in delete_list:
-						        line = line.replace(word, "")
-						    fout.write(line)
-						fin.close()
-						fout.close()
-						print ("\033[1;31m\nAll kali linux repositories have been deleted !\n\033[1;m")
+						purge = raw_input("\033[1;32mDo you want to use ppa-purge to gracefully downgrade packages the Kali linux repository provided to packages provided by official repositories? (This could take a while) [y/n]> \033[1;m")
+						if purge == "y":
+							os.system("ppa-purge -s http.kali.org -o kali -p dists")
+							print ("\033[1;31m\nAll kali linux repositories have been removed with ppa-purge!\n\033[1;m")
+						else:
+							delete_list = ["# Kali linux repositories | Added by Katoolin\n", "deb http://http.kali.org/kali kali-rolling main contrib non-free\n"]
+							fin = open(infile)
+							os.remove("/etc/apt/sources.list")
+							fout = open(outfile, "w+")
+							for line in fin:
+						    		for word in delete_list:
+						        		line = line.replace(word, "")
+						    		fout.write(line)
+							fin.close()
+							fout.close()
+							print ("\033[1;31m\nAll kali linux repositories have been deleted !\n\033[1;m")
 					elif repo == "back":
 						inicio1()
 					elif repo == "gohome":
