@@ -18,8 +18,9 @@ jobs:
       - name: Install poetry and setuptools on ubuntu
         if: ${{ matrix.config.os == 'ubuntu-22.04'}}
         run: |
-          sudo apt-get update
-          sudo apt install -y python3-dev python3-setuptools python3-poetry
+          apt-get update
+          apt install -y python3-dev python3-pip
+          pip3 install poetry
 
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,7 +28,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.4'
+          python-version: '3.10.8'
 
       - name: Install dependencies for ${{ matrix.config.os }}
         run: poetry install
