@@ -3,6 +3,9 @@ Automatically install all Kali linux tools
 
 > Now works on arch linux!
 
+# How does it work?
+[![asciicast](https://asciinema.org/a/o1YteA16HrSGzDL8p9cFsV6hf.svg)](https://asciinema.org/a/o1YteA16HrSGzDL8p9cFsV6hf)
+
 # Features
 - Add Kali/Archstrike linux repositories
 - Remove Kali/Archstrike repositories
