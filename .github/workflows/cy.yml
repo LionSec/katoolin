@@ -28,7 +28,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12.0-rc.1'
+          python-version: '3.11.4'
 
       - name: Install dependencies for ${{ matrix.config.os }}
         run: poetry install

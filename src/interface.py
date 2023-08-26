@@ -354,8 +354,11 @@ class KatoolinApp(App):
             lambda programas: programas.split(' | '), programas_multiplos
         ))
         for recorte in programas_unicos:
-            comando = f"{comando_instalar} {' '.join(recorte)}"
-            system(f"{comando} 1>/dev/null 2>/dev/null")
+            comando = (
+                f"{comando_instalar} {' '.join(recorte)} "
+                "1>/dev/null 2>/dev/null"
+            )
+            system(comando)
             if progressbar_carregamento2.percentage * 100 <= 90:
                 progressbar_carregamento2.advance(15)
             label_carregamento2.update(
