@@ -20,7 +20,7 @@ Automatically install all Kali linux tools
 | git                 | git                     |
 
 # Download:
-### Using releases:
+### Using executable from releases:
 - Download here: [releases](https://github.com/b166erbot/katoolin/releases)
 ### Using git for development:
 - ```mkdir ~/git && cd ~/git```
@@ -28,10 +28,15 @@ Automatically install all Kali linux tools
 
 # How to run
 ### Using Executable:
+> Extract and set execute permission once:
+- Extract the contents of the zip file: ```unzip katoolin3.zip```
+- Enter the folder: ```cd dist-ubuntu-22.04```
+- Give the file execute permission: ```chmod +x katoolin3```
+> Run:
 - ./katoolin3
 
 ### Using virtual environment for development:
-#### Activate the virtual environment and run:
+> Activate the virtual environment and run:
 1. runs once: ```poetry install```
 2. ```poetry shell```
 3. ```sudo `which python3` katoolin3.py```
