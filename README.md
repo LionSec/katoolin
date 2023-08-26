@@ -28,12 +28,10 @@ Automatically install all Kali linux tools
 
 # How to run
 ### Using Executable:
-> Extract and set execute permission once:
-- Extract the contents of the zip file: ```unzip katoolin3.zip```
-- Enter the folder: ```cd dist-ubuntu-22.04```
+> Set execute permission once:
 - Give the file execute permission: ```chmod +x katoolin3```
 > Run:
-- ./katoolin3
+- sudo ./katoolin3
 
 ### Using virtual environment for development:
 > Activate the virtual environment and run:
