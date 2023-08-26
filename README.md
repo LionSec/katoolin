@@ -1,42 +1,45 @@
-![katoolin](https://raw.githubusercontent.com/b166erbot/katoolin/master/preview/preview.jpg)
-# katoolin
+# katoolin3
 Automatically install all Kali linux tools
 
-# Features
-- Add Kali linux repositories
-- Remove kali linux repositories
-- Install Kali linux tools
+> Now works on arch linux!
 
-# Requirements
-- Python 3+
-- python-apt (if not installed). pip install python-apt
-- Git
-- An operating system derivated from debian
+# Features
+- Add Kali/Archstrike linux repositories
+- Remove Kali/Archstrike repositories
+- Install Kali/Archstrike linux tools
+
+# Dependences
+### Using executable:
+- You dont need any dependence
+
+### Using virtual environment for development:
+| derived from debian | derived from arch linux |
+| --- | --- |
+| python3             | python                  |
+| python3-poetry      | python-poetry           |
+| git                 | git                     |
+
+# Download:
+### Using releases:
+- Download here: [releases](https://github.com/b166erbot/katoolin/releases)
+### Using git for development:
+- ```mkdir ~/git && cd ~/git```
+- ```git clone https://github.com/b166erbot/katoolin```
 
 # How to run
-- sudo python3 katoolin3.py
+### Using Executable:
+- ./katoolin3
+
+### Using virtual environment for development:
+#### Activate the virtual environment and run:
+1. ```poetry shell```
+2. ```sudo `which python3` katoolin3.py```
 
 # Usage
-- Typing the number of a tool will install it
-- Typing 0 will install all Kali Linux tools
-- back : Go back
-- install : install the tools you selected
+1. Install the repository (automatically installs for your distribution).
+2. Select the programs you want and click in install button.
+3. Uninstall the repositories to not crash your sistem.
 
-# Warning
-Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
+# Bugs?
 
-# I have some questions!
-
-Please visit https://github.com/LionSec/katoolin/issues
-
-
-# Donations
-- Paypal : https://www.paypal.me/lionsec
-- skrill : informatica98es@gmail.com
-
-# Contact
-- Website : https://neodrix.com
-- Youtube : https://youtube.com/inf98es
-- Facebook : https://facebook.com/in98
-- Twitter: @LionSec1
-- Email : informatica98es@gmail.com
+- [go to the issues tab and report](https://github.com/b166erbot/katoolin/issues)

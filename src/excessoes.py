@@ -1,0 +1,3 @@
+class SystemNotSupported(Exception):
+    """Erro de sistema operacional não suportado."""
+    ...

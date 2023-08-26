@@ -1,28 +1,20 @@
 #!usr/bin/python3
 
 
-from contextlib import suppress
-from curses import wrapper
-from typing import NoReturn
-from pathlib import Path
 from os import chdir
+from pathlib import Path
+
+aqui = Path(__file__).parent
+chdir(aqui)
+
+from src.comandos import sistema
+from src.interface import KatoolinApp
 
 
-try:
-    from .src.main import katoolin_main
-    from .src.ferramentas import verificar_root
-except ImportError:
-    from src.main import katoolin_main
-    from src.ferramentas import verificar_root
-
-
-def main() -> NoReturn:
+def main() -> None:
     """Função principal."""
-    aqui = Path(__file__).parent
-    chdir(aqui)
-    with suppress((KeyboardInterrupt, EOFError)):
-        wrapper(katoolin_main)
+    app = KatoolinApp()
+    app.run()
 
 
-if __name__ == '__main__':
-    main()
+main()

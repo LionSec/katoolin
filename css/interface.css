@@ -1,0 +1,76 @@
+/* com padding o height precisa ser 5, caso contrário, height 3 */
+
+
+/* containers */
+
+#vertical_bem_vindo {
+    layout: grid;
+    border: panel $warning;
+    border-title-align: center;
+    align: center top;
+    padding: 1 2;
+    min-height: 19;
+}
+
+/* #tab_programas {
+    border-title-align: center;
+    border: panel $warning;
+} */
+
+#vertical_programas {
+    border: panel $warning;
+    min-height: 25;
+}
+
+.horizontal_botoes_programas {
+    grid-size: 2 0;
+    height: 3;
+    grid-gutter: 4 4;
+}
+
+.container_generico {
+    layout: grid;
+    border: panel $warning;
+    border-title-align: center;
+    align: center middle;
+}
+
+#container_erro {
+    align: center middle;
+    border: panel $error;
+    border-title-align: center;
+}
+
+/* labels */
+
+#label_bem_vindo {
+    border: round $warning;
+    height: 16;
+}
+
+.label_repositorios {
+    height: 5;
+    border: round $warning;
+}
+
+#label_aviso_programas {
+    height: 3;
+}
+
+#label_erro {
+    align: center middle;
+    border: round $error;
+}
+
+/* botões */
+
+.botoes_em_baixo {
+    height: 3;
+    dock: bottom;
+}
+
+/* classes python */
+
+SelectionList {
+    border: round $warning;
+}

@@ -1,0 +1,367 @@
+{
+    "kalilinux": {
+        "information-gathering": [
+            "0trace", "arping | iputils-arping", "braa", "dmitry", "dnsenum",
+            "dnsmap", "dnsrecon", "dnstracer", "dnswalk", "enum4linux",
+            "fierce", "firewalk", "fping", "fragrouter", "ftester", "hping3",
+            "ike-scan", "intrace", "irpas", "lbd", "legion", "maltego",
+            "masscan", "metagoofil", "nbtscan", "ncat", "netdiscover",
+            "netmask", "nmap", "onesixtyone", "p0f", "qsslcaudit", "recon-ng",
+            "smbmap", "smtp-user-enum", "snmpcheck", "ssldump", "sslh",
+            "sslscan", "sslyze", "swaks", "thc-ipv6", "theharvester", "tlssled",
+            "twofi", "unicornscan", "urlcrazy", "wafw00f"
+        ],
+        "vulnerability": [
+            "afl++", "bed", "cisco-auditing-tool", "cisco-global-exploiter",
+            "cisco-ocs", "cisco-torch", "copy-router-config", "dhcpig",
+            "enumiax", "gvm", "iaxflood", "inviteflood", "legion", "lynis",
+            "nikto", "nmap", "ohrwurm", "peass", "protos-sip", "rtpbreak",
+            "rtpflood", "rtpinsertsound", "rtpmixsound", "sctpscan", "sfuzz",
+            "siege", "siparmyknife", "sipp", "sipsak", "sipvicious",
+            "slowhttptest", "spike", "t50", "thc-ssl-dos", "unix-privesc-check",
+            "voiphopper", "yersinia"
+        ],
+        "web": [
+            "apache-users", "apache2", "beef-xss", "burpsuite", "cadaver",
+            "commix", "cutycapt", "davtest", "default-mysql-server", "dirb",
+            "dirbuster", "dotdotpwn", "eyewitness", "ferret-sidejack",
+            "ftester", "hakrawler", "hamster-sidejack", "heartleech",
+            "httprint", "httrack", "hydra", "hydra-gtk", "jboss-autopwn",
+            "joomscan", "jsql-injection", "laudanum", "lbd", "maltego",
+            "medusa", "mitmproxy", "ncrack", "nikto", "nishang", "nmap",
+            "oscanner", "owasp-mantra-ff", "padbuster", "paros", "patator",
+            "php", "php-mysql", "proxychains4", "proxytunnel", "qsslcaudit",
+            "redsocks", "sidguesser", "siege", "skipfish", "slowhttptest",
+            "sqldict", "sqlitebrowser", "sqlmap", "sqlninja", "sqlsus",
+            "ssldump", "sslh", "sslscan", "sslsniff", "sslsplit", "sslyze",
+            "stunnel4", "thc-ssl-dos", "tlssled", "tnscmd10g", "uniscan",
+            "wafw00f", "wapiti", "watobo", "webacoo", "webscarab", "webshells",
+            "weevely", "wfuzz", "whatweb", "wireshark", "wpscan", "xsser",
+            "zaproxy"
+        ],
+        "database": [
+            "jsql-injection", "mdbtools", "oscanner", "sidguesser", "sqldict",
+            "sqlitebrowser", "sqlmap", "sqlninja", "sqlsus", "tnscmd10g"
+        ],
+        "passwords": [
+            "kali-tools-gpu", "cewl", "chntpw", "cisco-auditing-tool",
+            "cmospwd", "crackle", "creddump7", "crunch", "fcrackzip",
+            "freerdp2-x11", "gpp-decrypt", "hash-identifier", "hashcat",
+            "hashcat-utils", "hashid", "hydra", "hydra-gtk", "john", "johnny",
+            "maskprocessor", "medusa", "mimikatz", "ncrack", "onesixtyone",
+            "ophcrack", "ophcrack-cli", "pack", "pack2", "passing-the-hash",
+            "patator", "pdfcrack", "pipal", "polenum", "rainbowcrack",
+            "rarcrack", "rcracki-mt", "rsmangler", "samdump2", "seclists",
+            "sipcrack", "sipvicious", "smbmap", "sqldict", "statsprocessor",
+            "sucrack", "thc-pptp-bruter", "truecrack", "twofi", "wordlists"
+        ],
+        "wireless": [
+            "kali-tools-802-11", "kali-tools-bluetooth", "kali-tools-rfid",
+            "kali-tools-sdr", "rfcat", "rfkill", "sakis3g", "spectools",
+            "wireshark"
+        ],
+        "reverse-engineering": [
+            "apktool", "bytecode-viewer", "clang", "dex2jar", "edb-debugger",
+            "jadx", "javasnoop", "jd-gui", "metasploit-framework", "ollydbg",
+            "radare2", "rizin-cutter", "rz-ghidra"
+        ],
+        "exploitation": [
+            "armitage", "beef-xss", "exploitdb", "metasploit-framework",
+            "msfpc", "set", "shellnoob", "sqlmap", "termineter"
+        ],
+        "social-engineering": [
+            "backdoor-factory", "beef-xss", "maltego", "msfpc", "set", "veil"
+        ],
+        "sniffing-spoofing": [
+            "bettercap", "darkstat", "dnschef", "driftnet", "dsniff",
+            "ettercap-graphical | ettercap-text-only", "ferret-sidejack",
+            "fiked", "hamster-sidejack", "hexinject", "isr-evilgrade",
+            "macchanger", "mitmproxy", "netsniff-ng", "rebind", "responder",
+            "sniffjoke", "sslsniff", "sslsplit", "tcpflow", "tcpreplay",
+            "wifi-honey", "wireshark", "yersinia"
+        ],
+        "post-exploitation": [
+            "backdoor-factory", "cymothoa", "dbd", "dns2tcp", "exe2hexbat",
+            "iodine", "laudanum", "mimikatz", "miredo", "nishang",
+            "powersploit", "proxychains4", "proxytunnel", "ptunnel", "pwnat",
+            "sbd", "shellter", "sslh", "stunnel4", "udptunnel", "veil",
+            "webacoo", "weevely"
+        ],
+        "forensics": [
+            "afflib-tools", "apktool", "autopsy", "binwalk", "bulk-extractor",
+            "bytecode-viewer", "cabextract", "chkrootkit", "creddump7", "dc3dd",
+            "dcfldd", "ddrescue", "dumpzilla", "edb-debugger", "ewf-tools",
+            "exifprobe", "exiv2", "ext3grep", "ext4magic", "extundelete",
+            "fcrackzip", "firmware-mod-kit", "foremost", "forensic-artifacts",
+            "forensics-colorize", "galleta", "gdb", "gpart", "gparted",
+            "grokevt", "guymager", "hashdeep", "inetsim", "jadx", "javasnoop",
+            "libhivex-bin", "libsmali-java", "lvm2", "lynis", "mac-robber",
+            "magicrescue", "md5deep", "mdbtools", "memdump", "metacam",
+            "missidentify", "myrescue", "nasm", "nasty", "ollydbg",
+            "p7zip-full", "parted", "pasco", "pdfid", "pdf-parser", "pev",
+            "plaso", "polenum", "pst-utils", "python3-capstone",
+            "python3-dfdatetime", "python3-dfvfs", "python3-dfwinreg",
+            "python3-distorm3", "radare2", "recoverdm", "recoverjpeg",
+            "reglookup", "regripper", "rephrase", "rifiuti", "rifiuti2",
+            "rizin-cutter", "rkhunter", "rsakeyfind", "rz-ghidra", "safecopy",
+            "samdump2", "scalpel", "scrounge-ntfs", "sleuthkit",
+            "sqlitebrowser", "ssdeep", "tcpdump", "tcpflow", "tcpick",
+            "tcpreplay", "truecrack", "undbx", "unhide", "unrar | unar",
+            "upx-ucl", "vinetto", "wce", "winregfs", "wireshark", "xmount",
+            "xplico", "yara"
+        ],
+        "reporting": [
+            "cutycapt", "dradis", "eyewitness", "faraday", "maltego",
+            "metagoofil", "pipal", "recordmydesktop"
+        ]
+    },
+
+
+    "archstrike": {
+        "wireless": [
+            "airoscript-git", "batman-alfred", "eapmd5pass",
+            "fern-wifi-cracker-git", "g72x", "hostapd-wpe", "kismon", "mdk3",
+            "mdk4", "mfcuk", "netdiscover", "rfidtool", "spectools",
+            "ufo-wardriving", "wepbuster", "wifi-honey", "wifiphisher-git",
+            "wlan2eth", "zizzania", "zulu"
+        ],
+        "crackers": [
+            "acccheck", "asleap", "beleth-git", "bkhive", "brut3k1t-git",
+            "cewl", "cisco-ocs","cmospwd", "crackle-git", "crunch",
+            "cupp-git", "dbpwaudit", "eapmd5pass", "fern-wifi-cracker-git",
+            "ikecrack", "interrogate", "jbrute", "johnny", "khc", "kwprocessor",
+            "lodowep", "maskprocessor", "mdcrack", "onesixtyone", "patator",
+            "phoss", "phrasendrescher", "rainbowcrack", "ridenum-git", "shard",
+            "sidguesser", "sqlpat", "statsprocessor", "sucrack",
+            "thc-pptp-bruter", "thcsmartbrute", "ufo-wardriving", "vncrack",
+            "zulu"
+        ],
+        "tunnel": ["chisel", "chownat", "firecat", "icmptx", "udptunnel"],
+        "fuzzers": [
+            "bt_audit", "burpsuite", "doona-git", "dotdotpwn", "easyfuzzer",
+            "fakenetbios-git", "ffuf", "firewalk", "ftester", "http-fuzz",
+            "ikeprober", "inception-git", "jbrofuzz", "mdk3",
+            "metasploit-framework", "mkbrutus", "od1n-git", "ohrwurm-git",
+            "pentbox", "sqlninja", "termineter", "trinity", "wapiti", "wfuzz",
+            "xsser"
+        ],
+        "malware": [
+            "malheur", "metasploit-payload-creator", "origami", "ps1encode-git",
+            "python-amoco", "rspet-git", "ssma-git"
+        ],
+        "discovery": ["dirble"],
+        "intel": ["forager", "missidentify", "python-maryam-git"],
+        "analysis": [
+            "bindead-git", "box-js", "elidecode-git", "forager", "fpdns-git",
+            "openstego", "pcapfix", "pipal-git", "plasma-git", "pwatch",
+            "python-maryam-git", "python-miasm-git", "quicksand_lite", "rr-git",
+            "sagan", "ssma-git", "stegsolve", "triad-decompiler", "xmount"
+        ],
+        "bruteforce": [
+            "bruteforce-wallet", "creds.py-git", "crowbar", "kerbrute-git",
+            "xsss"
+        ],
+        "decompile": [
+            "elfparser", "jd-gui", "pwndbg-git", "python-miasm-git",
+            "python-uncompyle6", "triad-decompiler"
+        ],
+        "scanner": ["ntlmrecon-git", "scannerl-git", "xsstrike"],
+        "desktop": ["i3-config", "openbox-config", "wallpapers", "xfce-config"],
+        "proxy": ["burpsuite", "dnschef", "fakedns-git", "hyperfox-git"],
+        "hardware": [
+            "chipsec", "dex2jar", "kraken-git", "mfterm", "rtlamr-git",
+            "sdrangelove-git"
+        ],
+        "honeypots": ["ghostpop3"],
+        "logging": ["derrick"],
+        "meta": ["meta-upstream-all"],
+        "bluetooth": [
+            "blueprint", "bluesnarfer", "bt_audit", "carwhisperer",
+            "crackle-git", "redfang", "spooftooph", "tbear", "ubertooth-git"
+        ],
+        "reverse": [
+            "dex2jar", "edb", "elidecode-git", "jd-gui", "packerid-git", "pev",
+            "swfintruder", "udis86", "xorsearch", "xorstrings"
+        ],
+        "enumeration": [
+            "amass", "gobuster", "kerbrute-git", "smbmap-git"
+        ],
+        "webapp": ["xsstrike"],
+        "fingerprinting": [
+            "asp-audit", "cisco-torch", "cms-explorer", "dnsmap", "ftpmap",
+            "httprint", "plecost", "smtpscan", "xprobe2"
+        ],
+        "backdoors": [
+            "cymothoa", "empire", "hotpatch-git", "ms-sys", "webacoo", "weevely"
+        ],
+        "drone": ["mavlink-git"],
+        "crypto": [
+            "auto-xor-decryptographyr-git", "bletchley", "ciphertest-git",
+            "codecrypt", "cryptmount", "deen", "interlock-git", "nassl",
+            "openstego", "outguess", "rr-git", "sbd", "ssss", "xorsearch",
+            "xorstrings"
+        ],
+        "dos": [
+            "davoset", "goldeneye-git", "iaxflood", "inviteflood", "nkiller2",
+            "t50"
+        ],
+        "webapps": [
+            "asp-audit", "bsqlbf", "burpsuite", "cms-explorer", "commix-git",
+            "cryptonark", "csrftester", "dff-scanner", "dirbuster", "dirsearch",
+            "easyfuzzer", "gobuster", "joomscan", "laudanum", "od1n-git",
+            "paros", "plecost", "powerupsql-git", "see-surf-git", "sqlninja",
+            "urlcrazy", "vega", "wapiti", "webacoo", "webrute", "weevely",
+            "wfuzz", "whatweb-git", "wig-git", "xsser", "xssf", "xsss",
+            "xssscan-git"
+        ],
+        "database": ["blindsql", "getsids", "metacoretex", "minimysqlator"],
+        "dns": ["dns-spoof-git", "scrape-dns-git", "sublist3r-git", "urlcrazy"],
+        "exploits": ["metasploit-framework"],
+        "debugging": ["edb", "elidecode-git", "lisa.py-git", "udis86"],
+        "ddos": ["hulk-git", "ufonet"],
+        "source-audit": ["pscan"],
+        "scanners": [
+            "asp-audit", "bittwist", "braa", "burpsuite", "canari", "changeme",
+            "cisco-torch", "davtest", "dirbuster", "dnsa", "dnsenum",
+            "dnspredict", "dnswalk", "driftnet", "dripper-git", "enum4linux",
+            "enumiax", "fierce-git", "firewalk", "ftpmap", "gitminer-git",
+            "google-explorer-git", "icmpquery", "ike-scan", "ipscan", "jigsaw",
+            "jsql", "linenum-git", "maltego", "metasploit-framework",
+            "mssqlscan", "nbtool-git", "nmbscan", "o-saft-git", "onesixtyone",
+            "onetwopunch-git", "onionscan-git", "pacemaker-git", "paketto",
+            "pentbox", "pnscan", "redfang", "redpoint-git", "ruler-git",
+            "samhain", "scansploit-git", "scanssh", "scrape-dns-git",
+            "smtp-user-enum", "snmpscan", "snort", "stickykeyshunter-git",
+            "sublist3r-git", "synscan", "tiger", "tlssled", "tnscmd10g",
+            "unicornscan", "unix-privesc-check", "upnpscan", "vbscan-git",
+            "videosnarf", "wafw00f", "wapiti", "webrute", "wig-git", "yersinia",
+            "zgrab"
+        ],
+        "wordlists": ["mentalist", "mutator"],
+        "defense": [
+            "argus", "arpalert", "chkrootkit", "dbpwaudit", "inetsim",
+            "quicksand_lite", "sec", "secure-delete", "usbkill-git"
+        ],
+        "voip": [
+            "ace", "erase-registrations", "g711conversions", "hack_library",
+            "iaxflood", "pcapsipdump", "protos-sip", "redirectpoison", "sipp",
+            "sipsak", "voiphopper", "voipong"
+        ],
+        "networking": [
+            "aiengine", "airgeddon-git", "argus", "chisel", "cjdns-git",
+            "cjdnsify-git", "dinouml", "evil-winrm", "exabgp", "goldeneye-git",
+            "hostapd-wpe", "hyenae", "ip2clue", "ipaudit", "ipdecap", "jnetmap",
+            "mylg", "nbtool-git", "netmap", "nfdump", "nield", "nightfall",
+            "nkiller2", "nsoq", "packetsender", "packit", "perl-tftp",
+            "pkt2flow", "prometheus-git", "pwnat-git", "salsapipe-git",
+            "samhain", "sbd", "sessionlist", "silk", "sniffles", "snmpcheck",
+            "snort", "sps", "t50", "tcptraceroute", "udptunnel", "yersinia",
+            "zeek"
+        ],
+        "forensics": [
+            "afflib", "air", "autopsy", "canari", "chipsec", "chkrootkit",
+            "dumpzilla", "eindeutig", "firmwalker-git", "guymager",
+            "interrogate", "iphoneanalyzer", "malheur", "maltego", "memdump",
+            "memfetch", "ms-sys", "openstego", "pasco", "pcapfix", "pdf-parser",
+            "pev", "recoverjpeg", "reglookup", "rifiuti2", "safecopy",
+            "scalpel", "scrounge-ntfs", "secure-delete", "stegsolve"
+        ],
+        "sniffers": [
+            "cdpsnarf", "driftnet", "hexinject", "httpry", "mitmap",
+            "passivedns", "pcredz", "phoss", "sessionlist", "ssldump-git",
+            "tcpick", "tuxcut", "xspy"
+        ],
+        "recon": [
+            "amass", "bing-ip2hosts", "canari", "cr3dov3r-git", "dnsenum",
+            "dnsrecon", "dnswalk", "enum4linux", "enum4linux-ng-git",
+            "eyewitness-git", "goofile", "gowitness-git", "intrace-git", "lbd",
+            "lft", "linux-exploit-suggester-git", "maltego", "nbtool-git",
+            "netdiscover", "netmask", "ntlmrecon-git", "operative-framework",
+            "parsero-git", "python-maryam-git", "recon-ng-git", "redpoint-git",
+            "rifiuti2", "smtp-user-enum", "snmpcheck", "snmpenum",
+            "theharvester-git", "twint", "twofi", "urlcrazy", "whatweb-git"
+        ],
+        "exploit": [
+            "armitage", "arpoison", "bed", "beef-git", "bfbtester",
+            "cacdec-git", "cisco-torch", "crackmapexec", "dotdotpwn", "empire",
+            "firstexecution-git", "gef-git", "hcraft", "htshells-git",
+            "jboss-autopwn-git", "lisa.py-git", "magic-unicorn", "mdk4",
+            "meltdown-git", "metasploitavevasion-git", "mimikatz",
+            "mimikittenz-git", "mitmap", "pocsuite3", "pompem-git",
+            "powershell-payload-excel-delivery-git", "powersploit-git",
+            "ps1encode-git", "pwntools", "ropeme", "rspet-git", "set-git",
+            "simple-ducky-git", "sqlninja", "windows-exploit-suggester-git",
+            "xcat", "xsser"
+        ],
+        "stego": ["outguess", "pngcheck", "stegsolve"],
+        "misc": [
+            "3proxy", "buildhosts-git", "bvi", "centry-git",
+            "cisco-router-config", "cryptcat", "crypthook-git", "dbd", "deen",
+            "dhcdrop", "dradis", "dvcs-ripper-git", "elettra", "ent",
+            "evilgrade-git", "flare", "geoipgen", "hex2bin", "http-put",
+            "imagejs-git", "inundator", "laudanum", "leo", "mibble", "nassl",
+            "nightfall", "pcapfix", "pentmenu", "perl-tftp", "powerupsql-git",
+            "pulledpork-git", "pwntools", "python-tls_parser", "rr-git", "sec",
+            "squashfuse-git", "sslyze", "sstat-git", "stompy", "tcpxtract",
+            "wcc-git", "wuzz", "yaf"
+        ],
+        "autonomous": [
+            "cewl", "crunch", "gooscan", "mitmap", "rsmangler", "samhain",
+            "simple-ducky-git", "snort", "tiger", "tlssled",
+            "unix-privesc-check", "username-anarchy", "voiphopper"
+        ],
+        "info": ["gitminer-git"],
+        "reversing": ["rbasefind"],
+        "mitm": ["snarf-git"],
+        "spoof": [
+            "arpoison", "fakedns-git", "inundator", "lsrtunnel", "multimac",
+            "nbnspoof"
+        ],
+        "social-engineering": ["cr3dov3r-git", "gophish", "jigsaw", "set-git"]
+    },
+
+
+    "ferramentas_extras_kalilinux": {
+        "kali-tools-gpu": ["oclgausscrack", "truecrack"],
+        "kali-tools-hardware": [
+            "binwalk", "cutecom", "flashrom", "minicom", "openocd",
+            "qemu-system-x86", "qemu-user, radare2", "rizin-cutter", "rz-ghidra"
+        ],
+        "kali-tools-crypto-stego": [
+            "aesfix", "aeskeyfind", "ccrypt", "outguess", "steghide", "stegsnow"
+        ],
+        "kali-tools-fuzzing": ["afl++", "sfuzz", "spike", "wfuzz"],
+        "kali-tools-802-11": [
+            "aircrack-ng", "airgeddon", "asleap", "bully", "cowpatty",
+            "eapmd5pass", "fern-wifi-cracker", "freeradius-wpe", "hashcat",
+            "hostapd-wpe", "iw", "kismet", "macchanger", "mdk3", "mdk4",
+            "pixiewps", "reaver", "wifi-honey", "wifite"
+        ],
+        "kali-tools-bluetooth": [
+            "bluelog", "blueranger", "bluesnarfer", "bluez", "bluez-hcidump",
+            "btscanner", "crackle", "redfang", "spooftooph", "ubertooth"
+        ],
+        "kali-tools-rfid": [
+            "gnuradio", "libfreefare-bin", "libnfc-bin", "mfcuk", "mfoc",
+            "mfterm", "proxmark3", "rfdump"
+        ],
+        "kali-tools-sdr": [
+            "chirp", "gnuradio", "gqrx-sdr", "gr-air-modes", "gr-iqbal",
+            "gr-osmosdr", "hackrf", "inspectrum", "kalibrate-rtl",
+            "multimon-ng", "rtlsdr-scanner", "uhd-host", "uhd-images"
+        ],
+        "kali-tools-voip": [
+            "enumiax", "iaxflood", "inviteflood", "libfindrtp", "nmap",
+            "ohrwurm", "protos-sip", "rtpbreak", "rtpflood", "rtpinsertsound",
+            "rtpmixsound", "sctpscan", "siparmyknife", "sipcrack", "sipp",
+            "sipvicious", "voiphopper", "wireshark"
+        ],
+        "kali-tools-windows-resources": [
+            "dbd", "dnschef", "heartleech", "hyperion", "mimikatz", "ncat-w32",
+            "ollydbg", "powercat", "regripper", "sbd",
+            "secure-socket-funneling-windows-binaries", "shellter", "tftpd32",
+            "wce", "windows-binaries", "windows-privesc-check"
+        ],
+        "kali-linux-labs": ["dvwa", "juice-shop"]
+    }
+}
