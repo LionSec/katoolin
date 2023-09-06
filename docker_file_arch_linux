@@ -1,6 +1,6 @@
 FROM archlinux
 RUN pacman -Sy --noconfirm && \
-    pacman -S python python-poetry --noconfirm
+    pacman -S python python-poetry glibc nano --noconfirm
 
 COPY . /app
 

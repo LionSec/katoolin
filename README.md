@@ -1,52 +1,68 @@
-# katoolin3
+# katoolin3 🐍
 Automatically install all Kali linux tools
 
-> Now works on arch linux!
+> Now works on arch linux! 🎉🥳🎈
 
-# How does it work?
-[![asciicast](https://asciinema.org/a/o1YteA16HrSGzDL8p9cFsV6hf.svg)](https://asciinema.org/a/o1YteA16HrSGzDL8p9cFsV6hf)
+# Supported repositories 🐧
+### debian or derived
+- kali linux
+- parrot
+- backbox
 
-# Features
-- Add Kali/Archstrike linux repositories
-- Remove Kali/Archstrike repositories
-- Install Kali/Archstrike linux tools
+### arch linux or derived
+- blackarch
+- archstrike
 
-# Dependences
-### Using executable:
+# Features 🛠️
+- Add linux repositories based on your distribution
+- Install tools
+
+# Dependences 📦
+## Using executable:
 - You dont need any dependence
 
-### Using virtual environment for development:
+## Using virtual environment for development:
 | derived from debian | derived from arch linux |
 | --- | --- |
 | python3             | python                  |
 | python3-poetry      | python-poetry           |
+| glibc               | libc6                   |
 | git                 | git                     |
 
-# Download:
+# Download 📥
 ### Using executable from releases:
 - Download here: [releases](https://github.com/b166erbot/katoolin/releases)
 ### Using git for development:
-- ```mkdir ~/git && cd ~/git```
-- ```git clone https://github.com/b166erbot/katoolin```
+- `mkdir ~/git && cd ~/git`
+- `git clone https://github.com/b166erbot/katoolin`
 
-# How to run
+# How to run ▶️
 ### Using Executable:
-> Set execute permission once:
-- Give the file execute permission: ```chmod +x katoolin3```
-> Run:
-- sudo ./katoolin3
+- Set execute permission once: `chmod +x katoolin3`
+- run: `sudo ./katoolin3`
 
 ### Using virtual environment for development:
-> Activate the virtual environment and run:
-1. runs once: ```poetry install```
-2. ```poetry shell```
+1. runs once: `poetry install`
+2. `poetry shell`
 3. ```sudo `which python3` katoolin3.py```
 
-# Usage
-1. Install the repository (automatically installs for your distribution).
-2. Select the programs you want and click in install button.
-3. Uninstall the repositories to not crash your sistem.
+# Build the executable by yourself 📦💼
+### build
+> I assume you already ran the `poetry install` command
+1. `poetry shell`
+2. `pyinstaller main.spec`
+>the executable will be in the dist folder
+### execute
+1. `cd dist`
+2. `chmod +x katoolin3`
+3. `sudo ./katoolin3`
 
-# Bugs?
+# Usage 📋
+1. Install the repositories.
+2. choice one or more repositories for your distribution.
+3. Select the programs you want and click in install button.
+- Done!
+
+# Bugs? 🐞
 
 - [go to the issues tab and report](https://github.com/b166erbot/katoolin/issues)

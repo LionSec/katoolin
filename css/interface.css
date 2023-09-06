@@ -12,11 +12,6 @@
     min-height: 19;
 }
 
-/* #tab_programas {
-    border-title-align: center;
-    border: panel $warning;
-} */
-
 #vertical_programas {
     border: panel $warning;
     min-height: 25;
@@ -24,8 +19,13 @@
 
 .horizontal_botoes_programas {
     grid-size: 2 0;
-    height: 3;
+    height: 5;
     grid-gutter: 4 4;
+}
+
+.horizontal_botoes_programas_ {
+    border: round $warning;
+    border-title-align: center;
 }
 
 .container_generico {

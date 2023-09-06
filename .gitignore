@@ -63,3 +63,4 @@ check.sh
 executar*.sh
 # cy.yaml não gera um binário que funciona na minha máquina.
 .github
+rodar*.py

@@ -226,7 +226,7 @@ watch = ["watchdog"]
 name = "certifi"
 version = "2023.7.22"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -238,7 +238,7 @@ files = [
 name = "charset-normalizer"
 version = "3.2.0"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7.0"
 files = [
@@ -557,7 +557,7 @@ test = ["objgraph", "psutil"]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 files = [
@@ -1020,7 +1020,7 @@ toml = ["tomli (>=2.0.1)"]
 name = "requests"
 version = "2.31.0"
 description = "Python HTTP for Humans."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -1154,7 +1154,7 @@ test = ["coverage", "pytest", "pytest-cov"]
 name = "urllib3"
 version = "2.0.4"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -1287,4 +1287,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "9f7843f434aeb1c4d7a62f2335af7204e5ed62758f254752f10ec359f3a30d54"
+content-hash = "ac510da0d2e45aeba8353699a26b7b8704fcb5e20a9630371f3d9d1cdb77131f"

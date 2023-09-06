@@ -3,7 +3,6 @@ Now it [green]works on archlinux[/] too!
 How to use:
 1 - [dodger_blue2]Install the kali/archstrike repository and then update.[/]
 2 - [dodger_blue2]Browse and select the programs you want to install from the tabs and then click install.[/]
-3 - [dodger_blue2]Remove the kali/archstrike repository and then update.[/]
 [green]Done[/]!
 Note: do not use the package manager while you are using this program.
 Say thanks to [green]https://github.com/b166erbot/katoolin[/].
