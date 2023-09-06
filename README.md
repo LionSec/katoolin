@@ -18,10 +18,10 @@ Automatically install all Kali linux tools
 - Install tools
 
 # Dependences 📦
-## Using executable:
+### Using executable:
 - You dont need any dependence
 
-## Using virtual environment for development:
+### Using virtual environment for development:
 | derived from debian | derived from arch linux |
 | --- | --- |
 | python3             | python                  |
