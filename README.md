@@ -3,6 +3,9 @@ Automatically install all Kali linux tools
 
 > Now works on arch linux! 🎉🥳🎈
 
+# Preview
+![katoolin3](pre_visualizacao/katoolin3.png)
+
 # Supported repositories 🐧
 ### debian or derived
 - kali linux

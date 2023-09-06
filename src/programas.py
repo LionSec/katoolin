@@ -18,8 +18,8 @@ sistemas = [
     'lubuntu', 'kde'
 ]
 if sub_sistema() not in sistemas:
-    xprobe = Programas('xprobe', '', 'backbox')
-    tinyhoneypot = Programas('tinyhoneypot', '', 'backbox')
+    xprobe = Programas('xprobe', 'backbox')
+    tinyhoneypot = Programas('tinyhoneypot', 'backbox')
     backbox = programas['backbox']
     index_programa = (
         backbox['information-gathering'].index(xprobe)
