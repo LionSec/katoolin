@@ -131,7 +131,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 			 ''')
 						print ("\033[1;32mSelect a category or press (0) to install all Kali linux tools .\n\033[1;m")
 
-						opcion1 = _input("\033[1;36mkat > \033[1;m")
+						opcion1 = input("\033[1;36mkat > \033[1;m")
 						if opcion1 == "back":
 							inicio1()
 						elif opcion1 == "gohome":
