@@ -5,6 +5,6 @@ How to use:
 2 - [dodger_blue2]Browse and select the programs you want to install from the tabs and then click install.[/]
 [green]Done[/]!
 Note: do not use the package manager while you are using this program.
-Say thanks to [green]https://github.com/b166erbot/katoolin[/].
+Say thanks to [green]b166erbot[/] and [green]LionSec[/].
 
 Click [green]start[/] to start.
