@@ -47,7 +47,7 @@ Automatically install all Kali linux tools
 ### Using virtual environment for development:
 1. runs once: `poetry install`
 2. `poetry shell`
-3. ```sudo `which python3` katoolin3.py```
+3. ```sudo `which python3` katoolin.py```
 
 # Build the executable by yourself 📦💼
 ### build
