@@ -1,47 +1,71 @@
-![katoolin](https://cloud.githubusercontent.com/assets/8742190/9415562/83397aae-4840-11e5-8f72-28dfffcc70a9.png)
-# katoolin
+# katoolin3 🐍
 Automatically install all Kali linux tools
 
-# Features
-- Add Kali linux repositories
-- Remove kali linux repositories
-- Install Kali linux tools
+> Now works on arch linux! 🎉🥳🎈
 
-# Requirements
-- Python 2.7
-- An operating system (tested on Ubuntu)
+# Preview
+![katoolin3](pre_visualizacao/katoolin3.png)
 
-# Installation
-- sudo su
-- git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
-- chmod +x /usr/bin/katoolin
-- sudo katoolin 
+# Supported repositories 🐧
+### debian or derived
+- kali linux
+- parrot
+- backbox
 
-# Video
-https://www.youtube.com/watch?v=8VxCWVoZEEE
+### arch linux or derived
+- blackarch
+- archstrike
 
-# Usage
-- Typing the number of a tool will install it
-- Typing 0 will install all Kali Linux tools
-- back : Go back
-- gohome : Go to the main menu
-- By installing armitage , you will install metasploit
+# Features 🛠️
+- Add linux repositories based on your distribution
+- Install tools
 
-# Warning
-Before updating your system , please remove all Kali-linux repositories to avoid any kind of problem .
+# Dependences 📦
+### Using executable:
+- You dont need any dependence
 
-# I have some questions!
+### Using virtual environment for development:
+| derived from debian | derived from arch linux |
+| --- | --- |
+| python3             | python                  |
+| python3-poetry      | python-poetry           |
+| glibc               | libc6                   |
+| git                 | git                     |
 
-Please visit https://github.com/LionSec/katoolin/issues
+# Download 📥
+### Using executable from releases:
+- Download here: [releases](https://github.com/b166erbot/katoolin/releases)
+### Using git for development:
+- `mkdir ~/git && cd ~/git`
+- `git clone https://github.com/b166erbot/katoolin`
 
-# Donations
-- Paypal : https://www.paypal.me/lionsec
-- skrill : informatica98es@gmail.com
+# How to run ▶️
+### Using Executable:
+- Set execute permission once: `chmod +x katoolin3`
+- run: `sudo ./katoolin3`
 
+### Using virtual environment for development:
+1. runs once: `poetry install`
+2. `poetry shell`
+3. ```sudo `which python3` katoolin.py```
 
-# Contact
-- Website : https://neodrix.com
-- Youtube : https://youtube.com/inf98es
-- Facebook : https://facebook.com/in98
-- Twitter: @LionSec1
-- Email : informatica98es@gmail.com
+# Build the executable by yourself 📦💼
+### build
+> I assume you already ran the `poetry install` command
+1. `poetry shell`
+2. `pyinstaller main.spec`
+>the executable will be in the dist folder
+### execute
+1. `cd dist`
+2. `chmod +x katoolin3`
+3. `sudo ./katoolin3`
+
+# Usage 📋
+1. Install the repositories.
+2. choice one or more repositories for your distribution.
+3. Select the programs you want and click in install button.
+- Done!
+
+# Bugs? 🐞
+
+- [go to the issues tab and report](https://github.com/b166erbot/katoolin/issues)

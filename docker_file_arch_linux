@@ -1,0 +1,11 @@
+FROM archlinux
+RUN pacman -Sy --noconfirm && \
+    pacman -S python python-poetry glibc nano --noconfirm
+
+COPY . /app
+
+RUN cd /app && poetry install
+
+WORKDIR /app
+
+CMD ["poetry", "run", "python3", "katoolin3.py"]

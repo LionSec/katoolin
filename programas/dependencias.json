@@ -1,0 +1,153 @@
+{
+    "sqlitebrowser": [
+        "libstdc++6"
+    ],
+    "afl++": [
+        "libstdc++6"
+    ],
+    "nmap": [
+        "nmap-common"
+    ],
+    "proxychains4": [
+        "libproxychains4"
+    ],
+    "sleuthkit": [
+        "libtsk19"
+    ],
+    "gnuradio": [
+        "libvolk-bin",
+        "libgmp10",
+        "libgnuradio-analog3.10.7",
+        "libgnuradio-audio3.10.7",
+        "libgnuradio-blocks3.10.7",
+        "libgnuradio-channels3.10.7",
+        "libgnuradio-digital3.10.7",
+        "libgnuradio-dtv3.10.7",
+        "libgnuradio-fec3.10.7",
+        "libgnuradio-fft3.10.7",
+        "libgnuradio-filter3.10.7",
+        "libgnuradio-iio3.10.7",
+        "libgnuradio-network3.10.7",
+        "libgnuradio-pdu3.10.7",
+        "libgnuradio-pmt3.10.7",
+        "libgnuradio-qtgui3.10.7",
+        "libgnuradio-runtime3.10.7",
+        "libgnuradio-soapy3.10.7",
+        "libgnuradio-trellis3.10.7",
+        "libgnuradio-uhd3.10.7",
+        "libgnuradio-video-sdl3.10.7",
+        "libgnuradio-vocoder3.10.7",
+        "libgnuradio-wavelet3.10.7",
+        "libgnuradio-zeromq3.10.7",
+        "libstdc++6",
+        "libvolk3.0"
+    ],
+    "gqrx-sdr": [
+        "libgnuradio-analog3.10.7",
+        "libgnuradio-blocks3.10.7",
+        "libgnuradio-digital3.10.7",
+        "libgnuradio-fft3.10.7",
+        "libgnuradio-filter3.10.7",
+        "libgnuradio-network3.10.7",
+        "libgnuradio-pmt3.10.7",
+        "libgnuradio-runtime3.10.7",
+        "libstdc++6",
+        "libvolk3.0"
+    ],
+    "hydra": [
+        "libbson-1.0-0",
+        "libmongoc-1.0-0"
+    ],
+    "rizin-cutter": [
+        "libpyside2-py3-5.15",
+        "libshiboken2-py3-5.15",
+        "libstdc++6"
+    ],
+    "wireshark": [
+        "wireshark-qt"
+    ],
+    "john": [
+        "john-data"
+    ],
+    "kismet-core": [
+        "libstdc++6"
+    ],
+    "kismet-logtools": [
+        "libstdc++6"
+    ],
+    "metasploit-framework": [
+        "libstdc++6",
+        "nmap",
+        "john"
+    ],
+    "tcpflow": [
+        "libstdc++6"
+    ],
+    "bluez": [
+        "libglib2.0-0"
+    ],
+    "python3-distorm3": [
+        "libdistorm3-3"
+    ],
+    "gr-air-modes": [
+        "libgnuradio-air-modes1",
+        "libgnuradio-runtime3.10.7",
+        "libstdc++6"
+    ],
+    "hackrf": [
+        "libhackrf0"
+    ],
+    "smbclient": [
+        "samba-common",
+        "samba-libs"
+    ],
+    "winexe": [
+        "libwbclient0",
+        "samba-libs"
+    ],
+    "freerdp2-x11": [
+        "libfreerdp-client2-2"
+    ],
+    "etherape": [
+        "etherape-data"
+    ],
+    "gr-iqbal": [
+        "libgnuradio-iqbalance3.9.0",
+        "libgnuradio-runtime3.10.7"
+    ],
+    "parted": [
+        "libparted2"
+    ],
+    "ubertooth": [
+        "ubertooth-firmware"
+    ],
+    "rz-ghidra": [
+        "libstdc++6"
+    ],
+    "ruby-glu": [
+        "ruby"
+    ],
+    "edb-debugger": [
+        "libstdc++6"
+    ],
+    "python3-dfvfs": [
+        "python3-tsk"
+    ],
+    "ewf-tools": [
+        "libewf2"
+    ],
+    "gr-osmosdr": [
+        "libgnuradio-runtime3.10.7",
+        "libstdc++6"
+    ],
+    "gvm": [
+        "gsad",
+        "gvmd",
+        "notus-scanner",
+        "openvas-scanner",
+        "ospd-openvas"
+    ],
+    "openssh-server": [
+        "openssh-client"
+    ]
+}

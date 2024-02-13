@@ -27,7 +27,7 @@ var/
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
-*.spec
+# *.spec
 
 # Installer logs
 pip-log.txt
@@ -55,3 +55,12 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+# my configurations
+Pipfile*
+check.sh
+executar*.sh
+# cy.yaml não gera um binário que funciona na minha máquina.
+.github
+rodar*.py

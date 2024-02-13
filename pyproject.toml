@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "katoolin"
+version = "0.1.0"
+description = ""
+authors = ["b166erobot <bernard0freitas@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+textual = "^0.33.0"
+typing-extensions = "^4.7.1"
+
+
+[tool.poetry.group.dev.dependencies]
+textual-dev = "^1.1.0"
+bpython = "^0.24"
+radon = "^6.0.1"
+isort = "^5.12.0"
+pycodestyle = "^2.11.0"
+pyinstaller = "^5.13.0"
+pyinstaller-hooks-contrib = "^2023.7"
+
+[tool.isort]
+line_length = 80
+multi_line_output = 4
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
