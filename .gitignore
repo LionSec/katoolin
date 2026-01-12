@@ -58,3 +58,6 @@ target/
 
 # Useless files
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/

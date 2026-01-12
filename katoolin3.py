@@ -3,15 +3,78 @@
 import os
 import sys
 import traceback
+import subprocess
 
 
 def setup():
     if os.geteuid() != 0:
         print(
             "You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
-        sys.exit()
-    else:
-        os.system("clear")
+        return False
+    os.system("clear")
+    return True
+
+
+def run_shell(cmd):
+    return subprocess.run(cmd, shell=True).returncode == 0
+
+
+def add_kali_key():
+    cmd = (
+        "wget -q -O - https://archive.kali.org/archive-key.asc | "
+        "gpg --dearmor | tee /usr/share/keyrings/kali-archive-keyring.gpg >/dev/null"
+    )
+    if not run_shell(cmd):
+        return False
+    try:
+        os.chmod("/usr/share/keyrings/kali-archive-keyring.gpg", 0o644)
+    except OSError:
+        return False
+    return True
+
+
+def write_kali_repo():
+    repo_path = "/etc/apt/sources.list.d/katoolin.list"
+    repo_line = (
+        "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.gpg] "
+        "https://http.kali.org/kali kali-rolling main contrib non-free\n"
+    )
+    if os.path.exists(repo_path):
+        return "exists"
+    try:
+        with open(repo_path, "w") as repo_file:
+            repo_file.write("# Kali linux repositories | Added by Katoolin\n")
+            repo_file.write(repo_line)
+    except IOError:
+        return "error"
+    return "added"
+
+
+def remove_kali_repo():
+    repo_path = "/etc/apt/sources.list.d/katoolin.list"
+    removed_repo = False
+    if os.path.exists(repo_path):
+        os.remove(repo_path)
+        removed_repo = True
+    sources_path = "/etc/apt/sources.list"
+    delete_list = [
+        "# Kali linux repositories | Added by Katoolin\n",
+        "deb http://http.kali.org/kali kali-rolling main contrib non-free\n",
+        "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.gpg] "
+        "https://http.kali.org/kali kali-rolling main contrib non-free\n",
+    ]
+    try:
+        with open(sources_path, "r") as fin:
+            lines = fin.readlines()
+        with open(sources_path, "w") as fout:
+            for line in lines:
+                if line in delete_list:
+                    removed_repo = True
+                    continue
+                fout.write(line)
+    except IOError:
+        return False
+    return removed_repo
 
 
 def help_menu():
@@ -35,8 +98,8 @@ def main_menu():
     print("")
     print("")
     print(" \033[1;32m+ -- -- +=[ Original Script by: LionSec | Homepage: www.neodrix.com \033[1;m")
-    print(" \033[1;32m+ -- -- +=[ Rewrites and maintained by: Nysioko\033[1;m")
-    print(" \033[1;32m+ -- -- +=[ Latest update: 17/05/2022\033[1;m")
+    print(" \033[1;32m+ -- -- +=[ Rewrites and maintained by: 0xGuigui\033[1;m")
+    print(" \033[1;32m+ -- -- +=[ Latest update: 1/12/2026\033[1;m")
     print("")
     print("")
     print("\033[1;91m[W] Before updating and upgrading your system, please remove all Kali-linux repositories to "
@@ -48,7 +111,8 @@ def main_menu():
 
 def main():
     try:
-        setup()
+        if not setup():
+            return
         main_menu()
 
         def initio1():
@@ -74,30 +138,33 @@ def main():
                     repo = input(
                         "\033[1;32mWhat do you want to do ?> \033[1;m")
                     if repo == "1":
-                        cmd1 = os.system(
-                            "wget -q -O - archive.kali.org/archive-key.asc | sudo  apt-key add")
-                        cmd2 = os.system(
-                            "echo '# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali "
-                            "kali-rolling main contrib non-free' >> /etc/apt/sources.list")
+                        if not add_kali_key():
+                            print(
+                                "\033[1;31m\nFailed to add Kali repository key.\n\033[1;m")
+                            continue
+                        repo_status = write_kali_repo()
+                        if repo_status == "added":
+                            print(
+                                "\033[1;32m\nKali repositories have been added.\n\033[1;m")
+                        elif repo_status == "exists":
+                            print(
+                                "\033[1;33m\nKali repositories are already present.\n\033[1;m")
+                        else:
+                            print(
+                                "\033[1;31m\nFailed to add Kali repositories.\n\033[1;m")
                     elif repo == "2":
-                        cmd3 = os.system("apt-get update -m")
+                        if run_shell("apt-get update"):
+                            print("\033[1;32m\nUpdate completed.\n\033[1;m")
+                        else:
+                            print("\033[1;31m\nUpdate failed.\n\033[1;m")
                     elif repo == "3":
-                        infile = '/etc/apt/sources.list'
-                        outfile: str = "/etc/apt/sources.list"
-
-                        delete_list: list[str] = ["# Kali linux repositories | Added by Katoolin\n",
-                                                  "deb http://http.kali.org/kali kali-rolling main contrib non-free\n"]
-                        fin = open(infile)
-                        os.remove("/etc/apt/sources.list")
-                        out = open(outfile, "w+")
-                        for line in fin:
-                            for word in delete_list:
-                                line = line.replace(word, "")
-                            out.write(line)
-                        fin.close()
-                        out.close()
-                        print(
-                            "\033[1;31m\nAll kali linux repositories have been deleted !\n\033[1;m")
+                        removed = remove_kali_repo()
+                        if removed:
+                            print(
+                                "\033[1;31m\nAll kali linux repositories have been deleted !\n\033[1;m")
+                        else:
+                            print(
+                                "\033[1;33m\nNo Kali repositories were found.\n\033[1;m")
                     elif repo == "back":
                         initio1()
                     elif repo == "gohome":
