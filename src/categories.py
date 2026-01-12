@@ -1,6 +1,8 @@
 import os
 import sys
 
+from commands import open_shell
+
 # Menu actions mostly call apt-get install to fetch packages.
 
 
@@ -14,7 +16,12 @@ CATEGORIES_MENU_TEXT = '''
 5) Sniffing & Spoofing\t\t\t\t12) Reverse Engineering
 6) Maintaining Access\t\t\t\t13) Hardware Hacking
 7) Reporting Tools \t\t\t\t14) Extra
-\t\t\t\t\t\n0) All
+\t\t\t\t\t
+0) All
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
+shell) Open system shell
 
 \t\t\t '''
 
@@ -88,6 +95,9 @@ def category_information_gathering():
 29) goofile
 
 0) Install all Information Gathering tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -218,6 +228,8 @@ def category_information_gathering():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "exit" or option2 == "quit":
             sys.exit()
         elif option2 == "help":
@@ -258,6 +270,9 @@ def category_vulnerability_analysis():
 \t\t\t\t\t35) Yersinia
 
 0) Install all Vulnerability Analysis tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -350,6 +365,8 @@ def category_vulnerability_analysis():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia")
@@ -379,6 +396,9 @@ def category_wireless_attacks():
 16) gr-scan\t\t\t32) Wifite
 
 0) Install all Wireless Attacks tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -461,6 +481,8 @@ def category_wireless_attacks():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         else:
             print(
                 "\033[1;31mSorry, that was an invalid command!\033[1;m")
@@ -493,6 +515,9 @@ def category_web_applications():
 \t\t\t\t\t41) zaproxy
 
 0) Install all Web Applications tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -591,6 +616,8 @@ def category_web_applications():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy")
@@ -621,6 +648,9 @@ def category_sniffing_spoofing():
 16) rtpinsertsound\t\t32) zaproxy
 
 0) Install all Sniffing & Spoofing tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -698,6 +728,8 @@ def category_sniffing_spoofing():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
 
         elif option2 == "0":
             cmd = os.system(
@@ -729,6 +761,9 @@ def category_maintaining_access():
 16) Weevely
 
 0) Install all Maintaining Access tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -771,6 +806,8 @@ def category_maintaining_access():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely")
@@ -794,6 +831,9 @@ def category_reporting_tools():
 9) pipal
 
 0) Install all Reporting Tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -822,6 +862,8 @@ def category_reporting_tools():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal")
@@ -853,6 +895,9 @@ def category_exploitation_tools():
 17) Yersinia
 
 0) Install all Exploitation Tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -904,6 +949,8 @@ def category_exploitation_tools():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss")
@@ -931,6 +978,9 @@ def category_forensics_tools():
 \t\t\t\t\t23) Xplico
 
 0) Install all Forensics Tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -991,6 +1041,8 @@ def category_forensics_tools():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico")
@@ -1019,6 +1071,9 @@ def category_stress_testing():
 14) THC-SSL-DOS
 
 0) Install all Stress Testing tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1058,6 +1113,8 @@ def category_stress_testing():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos")
@@ -1090,6 +1147,9 @@ def category_password_attacks():
 18) Maltego Teeth\t\t36) zaproxy
 
 0) Install all Password Attacks tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1182,6 +1242,8 @@ def category_password_attacks():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy")
@@ -1207,6 +1269,9 @@ def category_reverse_engineering():
 11) YARA
 
 0) Install all Reverse Engineering tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1240,6 +1305,8 @@ def category_reverse_engineering():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y apktool dex2jar python-diStorm3 edb-debugger jad javasnoop JD OllyDbg smali Valgrind YARA")
@@ -1260,6 +1327,9 @@ def category_hardware_hacking():
  6) smali
 
 0) Install all Hardware Hacking tools
+back) Go back
+gohome) Go to main menu
+shell) Open system shell
 
 \t\t\t\t\t\t''')
         print("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1283,6 +1353,8 @@ def category_hardware_hacking():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
         elif option2 == "0":
             cmd = os.system(
                 "apt-get install -y android-sdk apktool arduino dex2jar sakis3g smali")
@@ -1297,6 +1369,8 @@ def category_extra():
               '\n'
               '1) Wifresti\n'
               '2) Squid3\n'
+              'back) Go back\n'
+              'gohome) Go to main menu\n'
               '\t\t\t\t\t\t')
         print(
             "\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
@@ -1312,6 +1386,8 @@ def category_extra():
             return "back"
         elif option2 == "gohome":
             return "gohome"
+        elif option2 == "shell":
+            open_shell()
 
 def run_categories_menu():
     # Dispatcher for the category submenus.
@@ -1325,6 +1401,8 @@ def run_categories_menu():
             return
         elif option == "gohome":
             return
+        elif option == "shell":
+            open_shell()
         elif option == "exit" or option == "quit":
             print("Shutdown requested...Goodbye...")
             sys.exit()

@@ -25,6 +25,7 @@ def repo_menu():
         print("2) Update")
         print("3) Remove all kali linux repositories")
         print("4) View the contents of sources.list file")
+        print("back) Go back")
         print("")
         repo = input(
             "\033[1;32mWhat do you want to do ?> \033[1;m")

@@ -6,6 +6,7 @@ def help_menu():
     print("****************** +Commands+ ******************\n")
     print("\033[1;32mback\033[1;m \t\033[1;33mGo back\033[1;m")
     print("\033[1;32mgohome\033[1;m\t\033[1;33mGo to the main menu\033[1;m")
+    print("\033[1;32mshell\033[1;m \t\033[1;33mOpen system shell\033[1;m")
     print("\033[1;32mhelp\033[1;m \t\033[1;33mShow this help menu\033[1;m")
     print("\033[1;32mExit\033[1;m\t\033[1;33mExit the script\033[1;m")
 
