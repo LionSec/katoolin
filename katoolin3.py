@@ -19,6 +19,37 @@ def run_shell(cmd):
     return subprocess.run(cmd, shell=True).returncode == 0
 
 
+def run_shell_capture(cmd):
+    proc = subprocess.run(cmd, shell=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if proc.stdout:
+        print(proc.stdout, end="")
+    return proc.returncode, proc.stdout or ""
+
+
+def print_separator():
+    print("\n" + "-" * 64 + "\n")
+
+
+def show_sources_list():
+    files = [
+        ("/etc/apt/sources.list", "sources.list"),
+        ("/etc/apt/sources.list.d/katoolin.list", "katoolin.list"),
+    ]
+    found = False
+    for path, label in files:
+        if not os.path.exists(path):
+            continue
+        found = True
+        print("\033[1;36m[%s]\033[1;m %s\n" % (label, path))
+        try:
+            with open(path, "r") as src:
+                print(src.read())
+        except IOError:
+            print("\033[1;31mUnable to read %s.\033[1;m\n" % path)
+    if not found:
+        print("\033[1;33mNo sources list files were found.\033[1;m")
+
+
 def add_kali_key():
     cmd = (
         "wget -q -O - https://archive.kali.org/archive-key.asc | "
@@ -86,16 +117,17 @@ def help_menu():
 
 
 def main_menu():
-    print("")
-    print(" $$\   $$\           $$\                         $$\ $$\            $$$$$$\  ")
-    print(" $$ | $$  |          $$ |                        $$ |\__|          $$ ___$$\ ")
-    print(" $$ |$$  / $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$ |$$\ $$$$$$$\  \_/   $$ |")
-    print(" $$$$$  /  \____$$\\_$$  _|  $$  __$$\ $$  __$$\ $$ |$$ |$$  __$$\   $$$$$ / ")
-    print(" $$  $$<   $$$$$$$ | \033[1;34mKali-Linux tools installer\033[1;m |$$ |$$ |$$ |  $$ |  \___$$\ ")
-    print(" \033[1;34m$$ |\$$\ $$  __$$ | $$ |$$\ $$ |  $$ |$$ |  $$ |$$ |$$ |$$ |  $$ |$$\   $$ |")
-    print(" $$ | \$$\\$$$$$$$  | \$$$$  |\$$$$$$  |\$$$$$$  |$$ |$$ |$$ |  $$ |\$$$$$$  |")
-    print(" \__|  \__|\_______|  \____/  \______/  \______/ \__|\__|\__|  \__| \______/ V3.0\033[1;m")
-    print("")
+    banner = r"""
+ $$\   $$\           $$\                         $$\ $$\            $$$$$$\  
+ $$ | $$  |          $$ |                        $$ |\__|          $$ ___$$\ 
+ $$ |$$  / $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$ |$$\ $$$$$$$\  \_/   $$ |
+ $$$$$  /  \____$$\\_$$  _|  $$  __$$\ $$  __$$\ $$ |$$ |$$  __$$\   $$$$$ / 
+ $$  $$<   $$$$$$$ | \033[1;34mKali-Linux tools installer\033[1;m |$$ |$$ |$$ |  $$ |  \___$$\ 
+ \033[1;34m$$ |\$$\ $$  __$$ | $$ |$$\ $$ |  $$ |$$ |  $$ |$$ |$$ |$$ |  $$ |$$\   $$ |
+ $$ | \$$\\$$$$$$$  | \$$$$  |\$$$$$$  |\$$$$$$  |$$ |$$ |$$ |  $$ |\$$$$$$  |
+ \__|  \__|\_______|  \____/  \______/  \______/ \__|\__|\__|  \__| \______/ V3.0\033[1;m
+"""
+    print(banner)
     print("")
     print(" \033[1;32m+ -- -- +=[ Original Script by: LionSec | Homepage: www.neodrix.com \033[1;m")
     print(" \033[1;32m+ -- -- +=[ Rewrites and maintained by: 0xGuigui\033[1;m")
@@ -141,6 +173,7 @@ def main():
                         if not add_kali_key():
                             print(
                                 "\033[1;31m\nFailed to add Kali repository key.\n\033[1;m")
+                            print_separator()
                             continue
                         repo_status = write_kali_repo()
                         if repo_status == "added":
@@ -152,11 +185,16 @@ def main():
                         else:
                             print(
                                 "\033[1;31m\nFailed to add Kali repositories.\n\033[1;m")
+                        print_separator()
                     elif repo == "2":
-                        if run_shell("apt-get update"):
+                        rc, output = run_shell_capture("apt-get update")
+                        if rc == 0 and "W:" not in output and "E:" not in output:
                             print("\033[1;32m\nUpdate completed.\n\033[1;m")
+                        elif rc == 0:
+                            print("\033[1;33m\nUpdate completed with warnings.\n\033[1;m")
                         else:
                             print("\033[1;31m\nUpdate failed.\n\033[1;m")
+                        print_separator()
                     elif repo == "3":
                         removed = remove_kali_repo()
                         if removed:
@@ -165,6 +203,7 @@ def main():
                         else:
                             print(
                                 "\033[1;33m\nNo Kali repositories were found.\n\033[1;m")
+                        print_separator()
                     elif repo == "back":
                         initio1()
                     elif repo == "gohome":
@@ -173,9 +212,8 @@ def main():
                         print("Shutdown requested...Goodbye...")
                         sys.exit()
                     elif repo == "4":
-                        file = open('/etc/apt/sources.list', 'r')
-
-                        print(file.read())
+                        show_sources_list()
+                        print_separator()
                     else:
                         print(
                             "\033[1;31mSorry, that was an invalid command!\033[1;m")
