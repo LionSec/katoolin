@@ -1,11 +1,11 @@
 from style import C_BLUE, C_GREEN, C_RED, C_RESET, print_header
 
-def print_separator():
+def print_separator() -> None:
     print("\n" + "-" * 64 + "\n")
 
 
 
-def help_menu():
+def help_menu() -> None:
     print_header("Commands")
     print(f"{C_GREEN}back{C_RESET}   \tGo back")
     print(f"{C_GREEN}gohome{C_RESET} \tGo to the main menu")
@@ -14,7 +14,7 @@ def help_menu():
     print(f"{C_GREEN}exit{C_RESET}   \tExit the script")
 
 
-def main_banner():
+def main_banner() -> None:
     banner = fr"""
 {C_BLUE}
  $$\   $$\           $$\                         $$\ $$\            $$$$$$\  
