@@ -9,6 +9,7 @@ from menus import CLASSICMENU_INFO, help_menu, main_banner, print_separator
 from repo import add_kali_key, remove_kali_repo, show_sources_list, write_kali_repo
 from style import print_menu, clear, wait_for_input
 from logger import logger, setup_logger
+from update import check_update
 
 
 def setup() -> bool:
@@ -107,6 +108,10 @@ def repo_menu() -> None:
 def main() -> None:
     try:
         setup_logger() # Initialize logger
+        
+        # Check for updates
+        check_update()
+        
         if not setup():
             return
 
