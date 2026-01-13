@@ -1,0 +1,1256 @@
+{
+    "Information Gathering": [
+        {
+            "name": "acccheck",
+            "command": "apt-get install acccheck"
+        },
+        {
+            "name": "ace-voip",
+            "command": "apt-get install ace-voip"
+        },
+        {
+            "name": "Amap",
+            "command": "apt-get install amap"
+        },
+        {
+            "name": "Automater",
+            "command": "apt-get install automater"
+        },
+        {
+            "name": "bing-ip2hosts",
+            "command": "wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/"
+        },
+        {
+            "name": "braa",
+            "command": "apt-get install braa"
+        },
+        {
+            "name": "CaseFile",
+            "command": "apt-get install casefile"
+        },
+        {
+            "name": "CDPSnarf",
+            "command": "apt-get install cdpsnarf"
+        },
+        {
+            "name": "cisco-torch",
+            "command": "apt-get install cisco-torch"
+        },
+        {
+            "name": "Cookie Cadger",
+            "command": "apt-get install cookie-cadger"
+        },
+        {
+            "name": "copy-router-config",
+            "command": "apt-get install copy-router-config"
+        },
+        {
+            "name": "DMitry",
+            "command": "apt-get install dmitry"
+        },
+        {
+            "name": "dnmap",
+            "command": "apt-get install dnmap"
+        },
+        {
+            "name": "dnsenum",
+            "command": "apt-get install dnsenum"
+        },
+        {
+            "name": "dnsmap",
+            "command": "apt-get install dnsmap"
+        },
+        {
+            "name": "DNSRecon",
+            "command": "apt-get install dnsrecon"
+        },
+        {
+            "name": "dnstracer",
+            "command": "apt-get install dnstracer"
+        },
+        {
+            "name": "dnswalk",
+            "command": "apt-get install dnswalk"
+        },
+        {
+            "name": "DotDotPwn",
+            "command": "apt-get install dotdotpwn"
+        },
+        {
+            "name": "enum4linux",
+            "command": "apt-get install enum4linux"
+        },
+        {
+            "name": "enumIAX",
+            "command": "apt-get install enumiax"
+        },
+        {
+            "name": "exploitdb",
+            "command": "apt-get install exploitdb"
+        },
+        {
+            "name": "Fierce",
+            "command": "apt-get install fierce"
+        },
+        {
+            "name": "Firewalk",
+            "command": "apt-get install firewalk"
+        },
+        {
+            "name": "fragroute",
+            "command": "apt-get install fragroute"
+        },
+        {
+            "name": "fragrouter",
+            "command": "apt-get install fragrouter"
+        },
+        {
+            "name": "Ghost Phisher",
+            "command": "apt-get install ghost-phisher"
+        },
+        {
+            "name": "GoLismero",
+            "command": "apt-get install golismero"
+        },
+        {
+            "name": "goofile",
+            "command": "apt-get install goofile"
+        },
+        {
+            "name": "lbd",
+            "command": "apt-get install lbd"
+        },
+        {
+            "name": "Maltego Teeth",
+            "command": "apt-get install maltego-teeth"
+        },
+        {
+            "name": "masscan",
+            "command": "apt-get install masscan"
+        },
+        {
+            "name": "Metagoofil",
+            "command": "apt-get install metagoofil"
+        },
+        {
+            "name": "Miranda",
+            "command": "apt-get install miranda"
+        },
+        {
+            "name": "Nmap",
+            "command": "apt-get install nmap"
+        },
+        {
+            "name": "p0f",
+            "command": "apt-get install p0f"
+        },
+        {
+            "name": "Parsero",
+            "command": "apt-get install parsero"
+        },
+        {
+            "name": "Recon-ng",
+            "command": "apt-get install recon-ng"
+        },
+        {
+            "name": "SET",
+            "command": "apt-get install set"
+        },
+        {
+            "name": "smtp-user-enum",
+            "command": "apt-get install smtp-user-enum"
+        },
+        {
+            "name": "snmpcheck",
+            "command": "apt-get install snmpcheck"
+        },
+        {
+            "name": "sslcaudit",
+            "command": "apt-get install sslcaudit"
+        },
+        {
+            "name": "SSLsplit",
+            "command": "apt-get install sslsplit"
+        },
+        {
+            "name": "sslstrip",
+            "command": "apt-get install sslstrip"
+        },
+        {
+            "name": "SSLyze",
+            "command": "apt-get install sslyze"
+        },
+        {
+            "name": "THC-IPV6",
+            "command": "apt-get install thc-ipv6"
+        },
+        {
+            "name": "theHarvester",
+            "command": "apt-get install theharvester"
+        },
+        {
+            "name": "TLSSLed",
+            "command": "apt-get install tlssled"
+        },
+        {
+            "name": "twofi",
+            "command": "apt-get install twofi"
+        },
+        {
+            "name": "URLCrazy",
+            "command": "apt-get install urlcrazy"
+        },
+        {
+            "name": "Wireshark",
+            "command": "apt-get install wireshark"
+        },
+        {
+            "name": "WOL-E",
+            "command": "apt-get install wol-e"
+        },
+        {
+            "name": "Xplico",
+            "command": "apt-get install xplico"
+        },
+        {
+            "name": "iSMTP",
+            "command": "apt-get install ismtp"
+        },
+        {
+            "name": "InTrace",
+            "command": "apt-get install intrace"
+        },
+        {
+            "name": "hping3",
+            "command": "apt-get install hping3"
+        }
+    ],
+    "Vulnerability Analysis": [
+        {
+            "name": "BBQSQL",
+            "command": "apt-get install bbqsql"
+        },
+        {
+            "name": "BED",
+            "command": "apt-get install bed"
+        },
+        {
+            "name": "cisco-auditing-tool",
+            "command": "apt-get install cisco-auditing-tool"
+        },
+        {
+            "name": "cisco-global-exploiter",
+            "command": "apt-get install cisco-global-exploiter"
+        },
+        {
+            "name": "cisco-ocs",
+            "command": "apt-get install cisco-ocs"
+        },
+        {
+            "name": "cisco-torch",
+            "command": "apt-get install cisco-torch"
+        },
+        {
+            "name": "copy-router-config",
+            "command": "apt-get install copy-router-config"
+        },
+        {
+            "name": "commix",
+            "command": "apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install"
+        },
+        {
+            "name": "DBPwAudit",
+            "command": "echo 'download page : http://www.cqure.net/wp/tools/database/dbpwaudit/'"
+        },
+        {
+            "name": "DoonaDot",
+            "command": "apt-get install doona"
+        },
+        {
+            "name": "DotPwn",
+            "command": "apt-get install dotdotpwn"
+        },
+        {
+            "name": "Greenbone Security Assistant",
+            "command": "apt-get install greenbone-security-assistant"
+        },
+        {
+            "name": "GSD",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/gsd.git"
+        },
+        {
+            "name": "HexorBase",
+            "command": "apt-get install hexorbase"
+        },
+        {
+            "name": "jSQL",
+            "command": "apt-get install jsql"
+        },
+        {
+            "name": "Lynis",
+            "command": "apt-get install lynis"
+        },
+        {
+            "name": "Nmap",
+            "command": "apt-get install nmap"
+        },
+        {
+            "name": "ohrwurm",
+            "command": "apt-get install ohrwurm"
+        },
+        {
+            "name": "openvas-administrator",
+            "command": "apt-get install openvas-administrator"
+        },
+        {
+            "name": "openvas-cli",
+            "command": "apt-get install openvas-cli"
+        },
+        {
+            "name": "openvas-manager",
+            "command": "apt-get install openvas-manager"
+        },
+        {
+            "name": "openvas-scanner",
+            "command": "apt-get install openvas-scanner"
+        },
+        {
+            "name": "Oscanner",
+            "command": "apt-get install oscanner"
+        },
+        {
+            "name": "Powerfuzzer",
+            "command": "apt-get install powerfuzzer"
+        },
+        {
+            "name": "sfuzz",
+            "command": "apt-get install sfuzz"
+        },
+        {
+            "name": "SidGuesser",
+            "command": "apt-get install sidguesser"
+        },
+        {
+            "name": "SIPArmyKnife",
+            "command": "apt-get install siparmyknife"
+        },
+        {
+            "name": "sqlmap",
+            "command": "apt-get install sqlmap"
+        },
+        {
+            "name": "Sqlninja",
+            "command": "apt-get install sqlninja"
+        },
+        {
+            "name": "sqlsus",
+            "command": "apt-get install sqlsus"
+        },
+        {
+            "name": "THC-IPV6",
+            "command": "apt-get install thc-ipv6"
+        },
+        {
+            "name": "tnscmd10g",
+            "command": "apt-get install tnscmd10g"
+        },
+        {
+            "name": "unix-privesc-check",
+            "command": "apt-get install unix-privesc-check"
+        },
+        {
+            "name": "Yersinia",
+            "command": "apt-get install yersinia"
+        }
+    ],
+    "Wireless Attacks": [
+        {
+            "name": "Aircrack-ng",
+            "command": "apt-get install aircrack-ng"
+        },
+        {
+            "name": "Asleap",
+            "command": "apt-get install asleap"
+        },
+        {
+            "name": "Bluelog",
+            "command": "apt-get install bluelog"
+        },
+        {
+            "name": "BlueMaho",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/bluemaho.git"
+        },
+        {
+            "name": "Bluepot",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/bluepot.git"
+        },
+        {
+            "name": "BlueRanger",
+            "command": "apt-get install blueranger"
+        },
+        {
+            "name": "Bluesnarfer",
+            "command": "apt-get install bluesnarfer"
+        },
+        {
+            "name": "Bully",
+            "command": "apt-get install bully"
+        },
+        {
+            "name": "coWPAtty",
+            "command": "apt-get install cowpatty"
+        },
+        {
+            "name": "crackle",
+            "command": "apt-get install crackle"
+        },
+        {
+            "name": "eapmd5pass",
+            "command": "apt-get install eapmd5pass"
+        },
+        {
+            "name": "Fern Wifi Cracker",
+            "command": "apt-get install fern-wifi-cracker"
+        },
+        {
+            "name": "Ghost Phisher",
+            "command": "apt-get install ghost-phisher"
+        },
+        {
+            "name": "GISKismet",
+            "command": "apt-get install giskismet"
+        },
+        {
+            "name": "gr-scan",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/gr-scan.git"
+        },
+        {
+            "name": "kalibrate-rtl",
+            "command": "apt-get install kalibrate-rtl"
+        },
+        {
+            "name": "KillerBee",
+            "command": "apt-get install killerbee"
+        },
+        {
+            "name": "Kismet",
+            "command": "apt-get install kismet"
+        },
+        {
+            "name": "mdk3",
+            "command": "apt-get install mdk3"
+        },
+        {
+            "name": "mfcuk",
+            "command": "apt-get install mfcuk"
+        },
+        {
+            "name": "mfoc",
+            "command": "apt-get install mfoc"
+        },
+        {
+            "name": "mfterm",
+            "command": "apt-get install mfterm"
+        },
+        {
+            "name": "Multimon-NG",
+            "command": "apt-get install multimon-ng"
+        },
+        {
+            "name": "PixieWPS",
+            "command": "apt-get install pixiewps"
+        },
+        {
+            "name": "Reaver",
+            "command": "apt-get install reaver"
+        },
+        {
+            "name": "redfang",
+            "command": "apt-get install redfang"
+        },
+        {
+            "name": "RTLSDR Scanner",
+            "command": "apt-get install rtlsdr-scanner"
+        },
+        {
+            "name": "Spooftooph",
+            "command": "apt-get install spooftooph"
+        },
+        {
+            "name": "Wifi Honey",
+            "command": "apt-get install wifi-honey"
+        },
+        {
+            "name": "Wifitap",
+            "command": "apt-get install wifitap"
+        },
+        {
+            "name": "Wifite",
+            "command": "apt-get install wifite"
+        }
+    ],
+    "Web Applications": [
+        {
+            "name": "apache-users",
+            "command": "apt-get install apache-users"
+        },
+        {
+            "name": "Arachni",
+            "command": "apt-get install arachni"
+        },
+        {
+            "name": "BBQSQL",
+            "command": "apt-get install bbqsql"
+        },
+        {
+            "name": "BlindElephant",
+            "command": "apt-get install blindelephant"
+        },
+        {
+            "name": "Burp Suite",
+            "command": "apt-get install burpsuite"
+        },
+        {
+            "name": "commix",
+            "command": "apt-get install cutycapt"
+        },
+        {
+            "name": "CutyCapt",
+            "command": "apt-get install git && git clone https://github.com/stasinopoulos/commix.git commix && cd commix && python ./commix.py --install"
+        },
+        {
+            "name": "DAVTest",
+            "command": "apt-get install davtest"
+        },
+        {
+            "name": "deblaze",
+            "command": "apt-get install deblaze"
+        },
+        {
+            "name": "DIRB",
+            "command": "apt-get install dirb"
+        },
+        {
+            "name": "DirBuster",
+            "command": "apt-get install dirbuster"
+        },
+        {
+            "name": "fimap",
+            "command": "apt-get install fimap"
+        },
+        {
+            "name": "FunkLoad",
+            "command": "apt-get install funkload"
+        },
+        {
+            "name": "Grabber",
+            "command": "apt-get install grabber"
+        },
+        {
+            "name": "jboss-autopwn",
+            "command": "apt-get install jboss-autopwn"
+        },
+        {
+            "name": "joomscan",
+            "command": "apt-get install joomscan"
+        },
+        {
+            "name": "jSQL",
+            "command": "apt-get install jsql"
+        },
+        {
+            "name": "Maltego Teeth",
+            "command": "apt-get install maltego-teeth"
+        },
+        {
+            "name": "PadBuster",
+            "command": "apt-get install padbuster"
+        },
+        {
+            "name": "Paros",
+            "command": "apt-get install paros"
+        },
+        {
+            "name": "Parsero",
+            "command": "apt-get install parsero"
+        },
+        {
+            "name": "plecost",
+            "command": "apt-get install plecost"
+        },
+        {
+            "name": "Powerfuzzer",
+            "command": "apt-get install powerfuzzer"
+        },
+        {
+            "name": "ProxyStrike",
+            "command": "apt-get install proxystrike"
+        },
+        {
+            "name": "Recon-ng",
+            "command": "apt-get install recon-ng"
+        },
+        {
+            "name": "Skipfish",
+            "command": "apt-get install skipfish"
+        },
+        {
+            "name": "sqlmap",
+            "command": "apt-get install sqlmap"
+        },
+        {
+            "name": "Sqlninja",
+            "command": "apt-get install sqlninja"
+        },
+        {
+            "name": "sqlsus",
+            "command": "apt-get install sqlsus"
+        },
+        {
+            "name": "ua-tester",
+            "command": "apt-get install ua-tester"
+        },
+        {
+            "name": "Uniscan",
+            "command": "apt-get install uniscan"
+        },
+        {
+            "name": "Vega",
+            "command": "apt-get install vega"
+        },
+        {
+            "name": "w3af",
+            "command": "apt-get install w3af"
+        },
+        {
+            "name": "WebScarab",
+            "command": "apt-get install webscarab"
+        },
+        {
+            "name": "WebSlayer",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/webslayer.git"
+        },
+        {
+            "name": "WebSploit",
+            "command": "apt-get install websploit"
+        },
+        {
+            "name": "Wfuzz",
+            "command": "apt-get install wfuzz"
+        },
+        {
+            "name": "WPScan",
+            "command": "apt-get install wpscan"
+        },
+        {
+            "name": "XSSer",
+            "command": "apt-get install xsser"
+        },
+        {
+            "name": "zaproxy",
+            "command": "apt-get install zaproxy"
+        }
+    ],
+    "Sniffing & Spoofing": [
+        {
+            "name": "Burp Suite",
+            "command": "apt-get install burpsuite"
+        },
+        {
+            "name": "dnschef",
+            "command": "apt-get install dnschef"
+        },
+        {
+            "name": "fiked",
+            "command": "apt-get install fiked"
+        },
+        {
+            "name": "hamster-sidejack",
+            "command": "apt-get install hamster-sidejack"
+        },
+        {
+            "name": "hexinject",
+            "command": "apt-get install hexinject"
+        },
+        {
+            "name": "iaxflood",
+            "command": "apt-get install iaxflood"
+        },
+        {
+            "name": "inviteflood",
+            "command": "apt-get install inviteflood"
+        },
+        {
+            "name": "ismtp",
+            "command": "apt-get install ismtp"
+        },
+        {
+            "name": "isr-evilgrade",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/isr-evilgrade.git"
+        },
+        {
+            "name": "mitmproxy",
+            "command": "apt-get install mitmproxy"
+        },
+        {
+            "name": "ohrwurm",
+            "command": "apt-get install ohrwurm"
+        },
+        {
+            "name": "protos-sip",
+            "command": "apt-get install protos-sip"
+        },
+        {
+            "name": "rebind",
+            "command": "apt-get install rebind"
+        },
+        {
+            "name": "Responder",
+            "command": "apt-get install responder"
+        },
+        {
+            "name": "rtpbreak",
+            "command": "apt-get install rtpbreak"
+        },
+        {
+            "name": "rtpinsertsound",
+            "command": "apt-get install rtpinsertsound"
+        },
+        {
+            "name": "rtpmixsound",
+            "command": "apt-get install rtpmixsound"
+        },
+        {
+            "name": "sctpscan",
+            "command": "apt-get install sctpscan"
+        },
+        {
+            "name": "siparmyknife",
+            "command": "apt-get install siparmyknife"
+        },
+        {
+            "name": "sipp",
+            "command": "apt-get install sipp"
+        },
+        {
+            "name": "sipvicious",
+            "command": "apt-get install sipvicious"
+        },
+        {
+            "name": "sniffjoke",
+            "command": "apt-get install sniffjoke"
+        },
+        {
+            "name": "sslsplit",
+            "command": "apt-get install sslsplit"
+        },
+        {
+            "name": "sslstrip",
+            "command": "apt-get install sslstrip"
+        },
+        {
+            "name": "THC-IPV6",
+            "command": "apt-get install thc-ipv6"
+        },
+        {
+            "name": "voiphopper",
+            "command": "apt-get install voiphopper"
+        },
+        {
+            "name": "WebScarab",
+            "command": "apt-get install webscarab"
+        },
+        {
+            "name": "Wifi Honey",
+            "command": "apt-get install wifi-honey"
+        },
+        {
+            "name": "Wireshark",
+            "command": "apt-get install wireshark"
+        },
+        {
+            "name": "xspy",
+            "command": "apt-get install xspy"
+        },
+        {
+            "name": "Yersinia",
+            "command": "apt-get install yersinia"
+        },
+        {
+            "name": "zaproxy",
+            "command": "apt-get install zaproxy"
+        }
+    ],
+    "Maintaining Access": [
+        {
+            "name": "CryptCat",
+            "command": "apt-get install cryptcat"
+        },
+        {
+            "name": "Cymothoa",
+            "command": "apt-get install cymothoa"
+        },
+        {
+            "name": "dbd",
+            "command": "apt-get install dbd"
+        },
+        {
+            "name": "dns2tcp",
+            "command": "apt-get install dns2tcp"
+        },
+        {
+            "name": "http-tunnel",
+            "command": "apt-get install http-tunnel"
+        },
+        {
+            "name": "HTTPTunnel",
+            "command": "apt-get install httptunnel"
+        },
+        {
+            "name": "Intersect",
+            "command": "apt-get install intersect"
+        },
+        {
+            "name": "Nishang",
+            "command": "apt-get install nishang"
+        },
+        {
+            "name": "polenum",
+            "command": "apt-get install polenum"
+        },
+        {
+            "name": "PowerSploit",
+            "command": "apt-get install powersploit"
+        },
+        {
+            "name": "pwnat",
+            "command": "apt-get install pwnat"
+        },
+        {
+            "name": "RidEnum",
+            "command": "apt-get install ridenum"
+        },
+        {
+            "name": "sbd",
+            "command": "apt-get install sbd"
+        },
+        {
+            "name": "U3-Pwn",
+            "command": "apt-get install u3-pwn"
+        },
+        {
+            "name": "Webshells",
+            "command": "apt-get install webshells"
+        },
+        {
+            "name": "Weevely",
+            "command": "apt-get install weevely"
+        }
+    ],
+    "Reporting Tools": [
+        {
+            "name": "CaseFile",
+            "command": "apt-get install casefile"
+        },
+        {
+            "name": "CutyCapt",
+            "command": "apt-get install cutycapt"
+        },
+        {
+            "name": "dos2unix",
+            "command": "apt-get install dos2unix"
+        },
+        {
+            "name": "Dradis",
+            "command": "apt-get install dradis"
+        },
+        {
+            "name": "KeepNote",
+            "command": "apt-get install keepnote"
+        },
+        {
+            "name": "MagicTree",
+            "command": "apt-get install magictree"
+        },
+        {
+            "name": "Metagoofil",
+            "command": "apt-get install metagoofil"
+        },
+        {
+            "name": "Nipper-ng",
+            "command": "apt-get install nipper-ng"
+        },
+        {
+            "name": "pipal",
+            "command": "apt-get install pipal"
+        }
+    ],
+    "Forensics Tools": [
+        {
+            "name": "Binwalk",
+            "command": "apt-get install binwalk"
+        },
+        {
+            "name": "bulk-extractor",
+            "command": "apt-get install bulk-extractor"
+        },
+        {
+            "name": "Capstone",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/capstone.git"
+        },
+        {
+            "name": "chntpw",
+            "command": "apt-get install chntpw"
+        },
+        {
+            "name": "Cuckoo",
+            "command": "apt-get install cuckoo"
+        },
+        {
+            "name": "dc3dd",
+            "command": "apt-get install dc3dd"
+        },
+        {
+            "name": "ddrescue",
+            "command": "apt-get install ddrescue"
+        },
+        {
+            "name": "diStorm3",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/distorm3.git"
+        },
+        {
+            "name": "Dumpzilla",
+            "command": "apt-get install dumpzilla"
+        },
+        {
+            "name": "extundelete",
+            "command": "apt-get install extundelete"
+        },
+        {
+            "name": "Foremost",
+            "command": "apt-get install foremost"
+        },
+        {
+            "name": "Galleta",
+            "command": "apt-get install galleta"
+        },
+        {
+            "name": "Guymager",
+            "command": "apt-get install guymager"
+        },
+        {
+            "name": "iPhone Backup Analyzer",
+            "command": "apt-get install iphone-backup-analyzer"
+        },
+        {
+            "name": "p0f",
+            "command": "apt-get install p0f"
+        },
+        {
+            "name": "pdf-parser",
+            "command": "apt-get install pdf-parser"
+        },
+        {
+            "name": "pdfid",
+            "command": "apt-get install pdfid"
+        },
+        {
+            "name": "pdgmail",
+            "command": "apt-get install pdgmail"
+        },
+        {
+            "name": "peepdf",
+            "command": "apt-get install peepdf"
+        },
+        {
+            "name": "Volatility",
+            "command": "apt-get install volatility"
+        },
+        {
+            "name": "Xplico",
+            "command": "apt-get install xplico"
+        }
+    ],
+    "Stress Testing": [
+        {
+            "name": "DHCPig",
+            "command": "apt-get install dhcpig"
+        },
+        {
+            "name": "FunkLoad",
+            "command": "apt-get install funkload"
+        },
+        {
+            "name": "iaxflood",
+            "command": "apt-get install iaxflood"
+        },
+        {
+            "name": "Inundator",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/inundator.git"
+        },
+        {
+            "name": "inviteflood",
+            "command": "apt-get install inviteflood"
+        },
+        {
+            "name": "ipv6-toolkit",
+            "command": "apt-get install ipv6-toolkit"
+        },
+        {
+            "name": "mdk3",
+            "command": "apt-get install mdk3"
+        },
+        {
+            "name": "Reaver",
+            "command": "apt-get install reaver"
+        },
+        {
+            "name": "rtpflood",
+            "command": "apt-get install rtpflood"
+        },
+        {
+            "name": "SlowHTTPTest",
+            "command": "apt-get install slowhttptest"
+        },
+        {
+            "name": "t50",
+            "command": "apt-get install t50"
+        },
+        {
+            "name": "Termineter",
+            "command": "apt-get install termineter"
+        },
+        {
+            "name": "THC-IPV6",
+            "command": "apt-get install thc-ipv6"
+        },
+        {
+            "name": "THC-SSL-DOS",
+            "command": "apt-get install thc-ssl-dos "
+        }
+    ],
+    "Password Attacks": [
+        {
+            "name": "acccheck",
+            "command": "apt-get install acccheck"
+        },
+        {
+            "name": "Burp Suite",
+            "command": "apt-get install burpsuite"
+        },
+        {
+            "name": "CeWL",
+            "command": "apt-get install cewl"
+        },
+        {
+            "name": "chntpw",
+            "command": "apt-get install chntpw"
+        },
+        {
+            "name": "cisco-auditing-tool",
+            "command": "apt-get install cisco-auditing-tool"
+        },
+        {
+            "name": "CmosPwd",
+            "command": "apt-get install cmospwd"
+        },
+        {
+            "name": "creddump",
+            "command": "apt-get install creddump"
+        },
+        {
+            "name": "crunch",
+            "command": "apt-get install crunch"
+        },
+        {
+            "name": "DBPwAudit",
+            "command": "apt-get install git && git clone git://git.kali.org/packages/dbpwaudit.git"
+        },
+        {
+            "name": "findmyhash",
+            "command": "apt-get install findmyhash"
+        },
+        {
+            "name": "gpp-decrypt",
+            "command": "apt-get install gpp-decrypt"
+        },
+        {
+            "name": "hash-identifier",
+            "command": "apt-get install hash-identifier"
+        },
+        {
+            "name": "HexorBase",
+            "command": "apt-get install hexorbase"
+        },
+        {
+            "name": "THC-Hydra",
+            "command": "echo 'please visit : https://www.thc.org/thc-hydra/' "
+        },
+        {
+            "name": "John the Ripper",
+            "command": "apt-get install john"
+        },
+        {
+            "name": "Johnny",
+            "command": "apt-get install johnny"
+        },
+        {
+            "name": "keimpx",
+            "command": "apt-get install keimpx"
+        },
+        {
+            "name": "Maltego Teeth",
+            "command": "apt-get install maltego-teeth"
+        },
+        {
+            "name": "Maskprocessor",
+            "command": "apt-get install maskprocessor"
+        },
+        {
+            "name": "multiforcer",
+            "command": "apt-get install multiforcer"
+        },
+        {
+            "name": "Ncrack",
+            "command": "apt-get install ncrack"
+        },
+        {
+            "name": "oclgausscrack",
+            "command": "apt-get install oclgausscrack"
+        },
+        {
+            "name": "PACK",
+            "command": "apt-get install pack"
+        },
+        {
+            "name": "patator",
+            "command": "apt-get install patator"
+        },
+        {
+            "name": "phrasendrescher",
+            "command": "echo 'please visit : http://www.leidecker.info/projects/phrasendrescher/index.shtml' "
+        },
+        {
+            "name": "polenum",
+            "command": "apt-get install polenum"
+        },
+        {
+            "name": "RainbowCrack",
+            "command": "apt-get install rainbowcrack"
+        },
+        {
+            "name": "rcracki-mt",
+            "command": "apt-get install rcracki-mt"
+        },
+        {
+            "name": "RSMangler",
+            "command": "apt-get install rsmangler"
+        },
+        {
+            "name": "Statsprocessor",
+            "command": "apt-get install statsprocessor"
+        },
+        {
+            "name": "THC-pptp-bruter",
+            "command": "apt-get install thc-pptp-bruter"
+        },
+        {
+            "name": "TrueCrack",
+            "command": "apt-get install truecrack"
+        },
+        {
+            "name": "WebScarab",
+            "command": "apt-get install webscarab"
+        },
+        {
+            "name": "wordlists",
+            "command": "apt-get install wordlists"
+        },
+        {
+            "name": "zaproxy",
+            "command": "apt-get install zaproxy"
+        }
+    ],
+    "Reverse Engineering": [
+        {
+            "name": "apktool",
+            "command": "apt-get install apktool"
+        },
+        {
+            "name": "dex2jar",
+            "command": "apt-get install dex2jar"
+        },
+        {
+            "name": "diStorm3",
+            "command": "apt-get install python-diStorm3"
+        },
+        {
+            "name": "edb-debugger",
+            "command": "apt-get install edb-debugger"
+        },
+        {
+            "name": "jad",
+            "command": "apt-get install jad"
+        },
+        {
+            "name": "javasnoop",
+            "command": "apt-get install javasnoop"
+        },
+        {
+            "name": "JD-GUI",
+            "command": "apt-get install JD"
+        },
+        {
+            "name": "OllyDbg",
+            "command": "apt-get install OllyDbg"
+        },
+        {
+            "name": "smali",
+            "command": "apt-get install smali"
+        },
+        {
+            "name": "Valgrind",
+            "command": "apt-get install Valgrind"
+        },
+        {
+            "name": "YARA",
+            "command": "apt-get install YARA"
+        }
+    ],
+    "Hardware Hacking": [
+        {
+            "name": "android-sdk",
+            "command": "apt-get install android-sdk"
+        },
+        {
+            "name": "apktool",
+            "command": "apt-get install apktool"
+        },
+        {
+            "name": "Arduino",
+            "command": "apt-get install arduino"
+        },
+        {
+            "name": "dex2jar",
+            "command": "apt-get install dex2jar"
+        },
+        {
+            "name": "Sakis3G",
+            "command": "apt-get install sakis3g"
+        },
+        {
+            "name": "smali",
+            "command": "apt-get install smali"
+        }
+    ],
+    "Extra": [
+        {
+            "name": "Wifresti",
+            "command": "git clone https://github.com/LionSec/wifresti.git && cp wifresti/wifresti.py /usr/bin/wifresti && chmod +x /usr/bin/wifresti && wifresti"
+        },
+        {
+            "name": "Squid3",
+            "command": "apt-get install squid3"
+        }
+    ]
+}
