@@ -17,20 +17,17 @@ def help_menu() -> None:
 def main_banner() -> None:
     banner = fr"""
 {C_BLUE}
- $$\   $$\           $$\                         $$\ $$\            $$$$$$\  
- $$ | $$  |          $$ |                        $$ |\__|          $$ ___$$\ 
- $$ |$$  / $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$ |$$\ $$$$$$$\  \_/   $$ |
- $$$$$  /  \____$$\_$$  _|  $$  __$$\ $$  __$$\ $$ |$$ |$$  __$$\   $$$$$ / 
- $$  $$<   $$$$$$$ | {C_RED}Kali-Linux tools installer{C_BLUE} |$$ |$$ |$$ |  $$ |  \___$$\ 
- $$ |\$$\ $$  __$$ | $$ |\$$\ $$ |  $$|$$ | $$ |$$ |$$ |$$ |  $$ |\$$\   $$ |
- $$ | \$$\\$$$$$$$ | \$$$$  |\$$$$$$  |\$$$$$$  |$$ |$$ |$$ |  $$ |\$$$$$$  |
- \__|  \__|\_______|  \____/  \______/  \______/ \__|\__|\__|  \__| \______/ V3.1
+  _  __      _              _ _       _____ 
+ | |/ / __ _| |_ ___   ___ | (_)_ __ |___ / 
+ | ' / / _` | __/ _ \ / _ \| | | '_ \  |_ \ 
+ | . \| (_| | || (_) | (_) | | | | | |___) |
+ |_|\_\\__,_|\__\___/ \___/|_|_|_| |_|____/ 
 {C_RESET}
 """
     print(banner)
     print(f" {C_GREEN}+ -- -- +=[ Original Script by: LionSec | Homepage: www.neodrix.com {C_RESET}")
     print(f" {C_GREEN}+ -- -- +=[ Rewrites and maintained by: 0xGuigui{C_RESET}")
-    print(f" {C_GREEN}+ -- -- +=[ Latest update: 1/12/2026{C_RESET}")
+    print(f" {C_GREEN}+ -- -- +=[ Latest update: 13/01/2026{C_RESET}")
     print("")
     print(f"{C_RED}[W] Before updating and upgrading your system, please remove all Kali-linux repositories to avoid any kind of problem.{C_RESET}")
     print(f"{C_RED}[W] In some cases, Kali-Linux repositories can destabilize your system or worse, completely destroy it.{C_RESET}")

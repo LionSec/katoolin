@@ -3,7 +3,7 @@ import sys
 import traceback
 from typing import List, Tuple, Optional
 
-from categories import run_categories_menu
+from categories import run_categories_menu, run_search_menu
 from commands import run_shell_capture, exec_system_command
 from menus import CLASSICMENU_INFO, help_menu, main_banner, print_separator
 from repo import add_kali_key, remove_kali_repo, show_sources_list, write_kali_repo
@@ -118,9 +118,10 @@ def main() -> None:
             options: List[Tuple[str, str]] = [
                 ("1", "Add Kali repositories & Update"),
                 ("2", "View Categories"),
-                ("3", "Install classicmenu indicator"),
-                ("4", "Install Kali menu"),
-                ("5", "Help"),
+                ("3", "Search for tools"),
+                ("4", "Install classicmenu indicator"),
+                ("5", "Install Kali menu"),
+                ("6", "Help"),
             ]
             # Tell print_menu NOT to clear and NOT to show nav options
             print_menu("Main Menu", options, tools_mode=False, show_navigation=False, clear_screen=False)
@@ -134,6 +135,8 @@ def main() -> None:
             elif option0 == "2":
                 run_categories_menu()
             elif option0 == "3":
+                run_search_menu()
+            elif option0 == "4":
                 print(CLASSICMENU_INFO)
                 repo = input(
                     "\033[1;32mDo you want to install classicmenu indicator ? [y/n]> \033[1;m")
@@ -142,18 +145,18 @@ def main() -> None:
                     exec_system_command("add-apt-repository ppa:diesch/testing && apt-get update")
                     exec_system_command("apt-get install classicmenu-indicator")
                 wait_for_input()
-            elif option0 == "help":
+            elif option0 == "6":
                 print("")
                 help_menu()
                 wait_for_input()
-            elif option0 == "4":
+            elif option0 == "5":
                 repo = input(
                     "\033[1;32mDo you want to install Kali menu ? [y/n]> \033[1;m")
                 if repo == "y":
                     logger.info("Installing kali-menu")
                     exec_system_command("apt-get install kali-menu")
                 wait_for_input()
-            elif option0 == "5":
+            elif option0 == "help":
                 help_menu()
                 wait_for_input()
             else:

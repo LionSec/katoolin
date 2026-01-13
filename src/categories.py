@@ -147,3 +147,39 @@ def run_categories_menu() -> None:
         else:
              print("\033[1;31mSorry, that was an invalid command!\033[1;m")
              wait_for_input()
+
+def run_search_menu() -> None:
+    """Search for tools and display results."""
+    tools_data = load_tools()
+    
+    while True:
+        print("\n\033[1;36mSearch Tool (type 'back' to return)\033[1;m")
+        query = input("\033[1;32mEnter search query > \033[1;m").strip()
+        
+        if query.lower() in ["back", "exit", "quit"]:
+            return
+            
+        if not query:
+            continue
+            
+        # Flatten all tools
+        all_tools = []
+        for cat_tools in tools_data.values():
+            all_tools.extend(cat_tools)
+            
+        # Filter
+        found_tools = [
+            t for t in all_tools 
+            if query.lower() in t.get("name", "").lower()
+        ]
+        
+        if not found_tools:
+            print(f"\n\033[1;33mNo tools found matching '{query}'.\033[1;m\n")
+            wait_for_input()
+            continue
+            
+        # Reuse category menu logic to display results
+        # We pass the found tools as a "virtual" category
+        result = run_category_menu(f"Search: '{query}' ({len(found_tools)} found)", found_tools)
+        if result == "gohome":
+            return
