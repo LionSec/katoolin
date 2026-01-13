@@ -3,9 +3,9 @@ import sys
 import traceback
 from typing import List, Tuple, Optional
 
-from categories import run_categories_menu, run_search_menu
-from commands import run_shell_capture, exec_system_command
-from menus import CLASSICMENU_INFO, help_menu, main_banner, print_separator
+from categories import run_categories_menu, run_search_menu, load_tools
+from commands import run_shell_capture, exec_system_command, uninstall_tools
+from menus import CLASSICMENU_INFO, help_menu, main_banner, print_separator, C_RED, C_RESET
 from repo import add_kali_key, remove_kali_repo, show_sources_list, write_kali_repo
 from style import print_menu, clear, wait_for_input
 from logger import logger, setup_logger
@@ -127,6 +127,7 @@ def main() -> None:
                 ("4", "Install classicmenu indicator"),
                 ("5", "Install Kali menu"),
                 ("6", "Help"),
+                ("7", "Uninstall all tools (WIP)"),
             ]
             # Tell print_menu NOT to clear and NOT to show nav options
             print_menu("Main Menu", options, tools_mode=False, show_navigation=False, clear_screen=False)
@@ -161,6 +162,24 @@ def main() -> None:
                     logger.info("Installing kali-menu")
                     exec_system_command("apt-get install kali-menu")
                 wait_for_input()
+            elif option0 == "7":
+                print(f"\n{C_RED}[CAUTION] This will uninstall ALL tools listed in Katoolin3 that were installed via apt.{C_RESET}")
+                print(f"{C_RED}Tools installed manually (git clone, etc.) will NOT be removed.{C_RESET}")
+                confirm = input(f"\n{C_RED}Are you sure you want to proceed? [type 'YES' to confirm] > {C_RESET}")
+                if confirm == "YES":
+                    logger.info("Starting mass uninstallation...")
+                    tools_data = load_tools()
+                    all_commands = []
+                    for cat_tools in tools_data.values():
+                        for t in cat_tools:
+                            all_commands.append(t["command"])
+                    
+                    uninstall_tools(all_commands)
+                    print("\n\033[1;32mUninstallation complete.\033[1;m")
+                    wait_for_input()
+                else:
+                    print("\nOperation cancelled.")
+                    wait_for_input()
             elif option0 == "help":
                 help_menu()
                 wait_for_input()

@@ -93,6 +93,37 @@ def install_tools(commands: List[str]) -> None:
         # Continue execution even if one fails
         exec_system_command(cmd)
 
+def uninstall_tools(commands: List[str]) -> None:
+    """
+    Uninstall tools that were installed via apt-get.
+    Ignores non-apt commands for safety.
+    """
+    apt_packages: List[str] = []
+
+    for cmd in commands:
+        cmd = cmd.strip()
+        # Check for simple apt-get install commands
+        if cmd.startswith("apt-get install ") and "&&" not in cmd and ";" not in cmd and "|" not in cmd:
+            pkg_part = cmd.replace("apt-get install", "").strip()
+            pkgs = [p for p in pkg_part.split() if not p.startswith("-")]
+            apt_packages.extend(pkgs)
+            
+    if not apt_packages:
+        logger.warning("No apt packages found to uninstall in the provided commands.")
+        return
+
+    # Remove duplicates
+    apt_packages = list(set(apt_packages))
+    logger.info(f"Uninstalling {len(apt_packages)} packages...")
+    
+    # Run aggregated remove
+    full_remove_cmd = f"apt-get remove -y {' '.join(apt_packages)}"
+    exec_system_command(full_remove_cmd)
+    
+    # Autoremove cleanup
+    logger.info("Running autoremove to clean up dependencies...")
+    exec_system_command("apt-get autoremove -y")
+
 def open_shell() -> None:
     """Open an interactive shell."""
     print("\033[1;33mStarting shell... Type 'exit' to return to Katoolin3.\033[1;m")
