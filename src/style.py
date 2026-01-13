@@ -2,6 +2,7 @@
 import os
 import shutil
 import math
+from typing import List, Tuple
 
 # Colors
 C_RESET = "\033[0m"
@@ -23,22 +24,22 @@ BOX_V = "║"
 BOX_L = "╠"
 BOX_R = "╣"
 
-def clear():
+def clear() -> None:
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def print_header(text):
+def print_header(text: str) -> None:
     """Prints a styled header."""
     width = min(shutil.get_terminal_size().columns, 100)
     print(f"\n{C_CYAN}{'='*width}")
     print(f"{text.center(width)}")
     print(f"{'='*width}{C_RESET}\n")
 
-def wait_for_input():
+def wait_for_input() -> None:
     """Waits for user input to continue."""
     print(f"\n{C_YELLOW}Press Enter to continue...{C_RESET}")
     input()
 
-def print_status(text, status_type="info"):
+def print_status(text: str, status_type: str = "info") -> None:
     """Prints a status message."""
     if status_type == "success":
         print(f"{C_GREEN}[+] {text}{C_RESET}")
@@ -49,11 +50,12 @@ def print_status(text, status_type="info"):
     else:
         print(f"{C_BLUE}[*] {text}{C_RESET}")
 
-def print_menu(title, items, tools_mode=False, clear_screen=True):
+def print_menu(title: str, items: List[Tuple[str, str]], tools_mode: bool = False, show_navigation: bool = True, clear_screen: bool = True) -> None:
     """
     Prints a menu in a nice box grid.
     items: list of (key, label) tuples.
-    tools_mode: If True, auto-appends '0) Install All', 'back', 'gohome', 'shell'.
+    tools_mode: If True, auto-appends '0) Install All Tools'.
+    show_navigation: If True, auto-appends 'back', 'gohome', 'shell'.
     """
     if clear_screen:
         clear()
@@ -68,17 +70,9 @@ def print_menu(title, items, tools_mode=False, clear_screen=True):
     
     # Calculate title padding
     title_space = box_width - 2
-    styled_title = f"{C_BOLD}{C_BLUE} {title} {C_RESET}"
-    
-    # We need visible length for center calculation, excluding color codes
-    # Approximate visible length
     
     print(f"{C_CYAN}{BOX_TL}{BOX_H * title_space}{BOX_TR}{C_RESET}")
-    # Title row
-    # To center the title properly with color codes, we just print a header or reuse the box logic
-    # For simplicity, let's just use the box border for the title area?
-    # Actually, a simple centered title inside the box looks good.
-    
+
     # Let's rebuild the items list to include extra tools if needed
     menu_items = list(items)
     
@@ -86,10 +80,10 @@ def print_menu(title, items, tools_mode=False, clear_screen=True):
     if tools_mode:
         extra_options.append(("0", "Install All Tools"))
     
-    # Standard navigation
-    extra_options.append(("back", "Go back"))
-    extra_options.append(("gohome", "Go to main menu"))
-    extra_options.append(("shell", "Open system shell"))
+    if show_navigation:
+        extra_options.append(("back", "Go back"))
+        extra_options.append(("gohome", "Go to main menu"))
+        extra_options.append(("shell", "Open system shell"))
 
     # Calculate Grid
     # Find max length of "key) label"
@@ -124,41 +118,7 @@ def print_menu(title, items, tools_mode=False, clear_screen=True):
     num_items = len(all_display_items)
     num_rows = math.ceil(num_items / num_cols)
     
-    for r in range(num_rows):
-        row_str = f"{C_CYAN}{BOX_V}{C_RESET} "
-        current_len = 1 # padding space
-        
-        for c in range(num_cols):
-            idx = r * num_cols + c
-            if idx < num_items:
-                key, label = all_display_items[idx]
-                
-                # Construct colored string
-                item_str = f"{C_GREEN}{key}){C_RESET} {label}"
-                visible_len = len(key) + 2 + len(label)
-                
-                row_str += item_str
-                
-                # Padding to fill column
-                padding = col_width - visible_len
-                # If last column, we might have more space to fill to reach the right border
-                if c == num_cols - 1:
-                   padding = (box_width - 3) - current_len - visible_len
-                
-                row_str += " " * padding
-                current_len += visible_len + padding
-            else:
-                # Empty cell
-                # padding = (box_width - 3) - current_len 
-                # wait, if it's empty we just fill to the end if it is the last one?
-                pass
-                
-        # Final adjustment to ensure right border alignment
-        # It's safer to calculate exactly how much space is left
-        # We used visual lengths.
-        # Let's simplify:
-        # We print columns of fixed width.
-        pass
+    # Clean up old dead code loop was here
         
     # Re-do print loop with simpler logic
     # rows of strings
@@ -202,7 +162,8 @@ def print_menu(title, items, tools_mode=False, clear_screen=True):
         print(f"{C_CYAN}{BOX_V}{C_RESET}{line_content}{C_CYAN}{BOX_V}{C_RESET}")
 
     # Output Extra Options Separator
-    print(f"{C_CYAN}{BOX_L}{BOX_H * (box_width - 2)}{BOX_R}{C_RESET}")
+    if extra_options:
+        print(f"{C_CYAN}{BOX_L}{BOX_H * (box_width - 2)}{BOX_R}{C_RESET}")
     
     # Extra Options Logic (similar grid or list?)
     # A list 2-per-row usually fits well for these standard options
