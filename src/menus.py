@@ -1,4 +1,5 @@
 from style import C_BLUE, C_GREEN, C_RED, C_RESET, print_header
+from version import VERSION
 
 def print_separator() -> None:
     print("\n" + "-" * 64 + "\n")
@@ -27,7 +28,7 @@ def main_banner() -> None:
     print(banner)
     print(f" {C_GREEN}+ -- -- +=[ Original Script by: LionSec | Homepage: www.neodrix.com {C_RESET}")
     print(f" {C_GREEN}+ -- -- +=[ Rewrites and maintained by: 0xGuigui{C_RESET}")
-    print(f" {C_GREEN}+ -- -- +=[ Latest update: 13/01/2026{C_RESET}")
+    print(f" {C_GREEN}+ -- -- +=[ Version: {VERSION} {C_RESET}")
     print("")
     print(f"{C_RED}[W] Before updating and upgrading your system, please remove all Kali-linux repositories to avoid any kind of problem.{C_RESET}")
     print(f"{C_RED}[W] In some cases, Kali-Linux repositories can destabilize your system or worse, completely destroy it.{C_RESET}")
