@@ -1,105 +1,76 @@
 # Katoolin 3
 
-[![Licence - GNU General Public License v2.0](https://img.shields.io/badge/Licence-GNU_General_Public_License_v2.0-2ea44f)](https://github.com/0xGuigui/Katoolin3/blob/master/LICENCE)
-[![Python 3](https://img.shields.io/badge/Python_3-gray?logo=python)](https://www.python.org/)
-[![Katoolin 3](https://img.shields.io/badge/Katoolin_3-darkgreen?logo=Kali+Linux&logoColor=white)](https://github.com/0xGuigui/Katoolin3/)
+[![Licence](https://img.shields.io/badge/Licence-GNU_GPL_v2.0-blue)](https://github.com/0xGuigui/Katoolin3/blob/master/LICENCE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 
-![Logo](https://i.imgur.com/FbsdrLU.png)
-
-Install Kali Tools on Your Ubuntu/Debian distribution!
-
-## Authors
-
-- Original code by [@LionSec](https://github.com/LionSec)
-- Updated by [@0xGuigui](https://github.com/0xGuigui)
+Install Kali Linux tools on your Debian/Ubuntu distribution.
 
 ## Requirements
 
-- Python 3.10 >=
-- Ubuntu or Debian system
+- Python 3.10 or higher
+- Debian or Ubuntu based system
 
-## Tested systems
+## Installation
 
-- [x] Ubuntu
-- [x] ZorinOS
-- [x] Debian
+Clone the repository and run the script:
+
+```bash
+git clone https://github.com/0xGuigui/Katoolin3.git
+cd Katoolin3
+chmod +x katoolin3.py
+sudo ./katoolin3.py
+```
+
+## Usage
+
+Once the script is running, you can navigate using the following commands:
+
+- **0**: Install all Kali Linux tools
+- **Back**: Go back to the previous menu
+- **GoHome**: Return to the main menu
+- **Exit**: Close the script
+
+*Note: As a standard behavior or this tool, installing 'armitage' will automatically install 'metasploit'.*
 
 ## Features
 
-- Add Kali linux repositories
-- Remove kali linux repositories
-- Install Kali linux tools
+- Add Kali Linux repositories
+- Remove Kali Linux repositories
+- Install Kali Linux tools (individually or in bulk)
 
-## How to use
+## Tested Systems
 
-At first, clone the repo with the command:
+- Ubuntu
+- Debian
+- ZorinOS
 
-    git clone https://github.com/0xGuigui/Katoolin3.git && cd Katoolin3
+## Important Note
 
-Assign the necessary permissions to the file for it to run as a program:
+Before performing a system update, it is highly recommended to remove all Kali Linux repositories using the menu option to prevent potential package conflicts.
 
-    chmod +x katoolin3.py
+## Project Status
 
-Then run the Katoolin3 script as sudo:
-
-    sudo ./katoolin3.py
-
-When you started the script, you can:
-
-- Typing the number of a tool will install it
-- Typing 0 will install all Kali Linux tools
-- back: Go back
-- gohome: Go to the main menu
-- exit: To exit the script
-- By installing armitage , you will install metasploit
-
-## BE CAREFUL
-
-Before updating your system, please remove all Kali-linux repositories to avoid any kind of problem!
-
-## Optimizations
-
-The base code is filthy, I tried to do what I could to restructure the thing but it's complicated without breaking
-everything...
-
-Otherwise the script is only Python3 compatible, so it works on most machines now
+This project is a modernization of the original Katoolin by LionSec. It has been updated to support Python 3 and fix various compatibility issues with modern distributions. While the core logic remains similar, the codebase is being actively improved for better stability and maintainability.
 
 ## FAQ
 
-#### I can use this script on any Linux distribution?
+**Can I use this on any Linux distribution?**
+This script is specifically designed for Debian-based systems (Ubuntu, Debian, etc.). Usage on other distributions is not supported and may cause issues.
 
-No, this script was designed for Ubuntu/Debian systems by the original author. It is nonetheless usable on distributions
-based on these, but remember that it was not intended for!
+**Why a separate repository?**
+The original repository appears unmaintained. This fork exists to provide necessary updates and fixes while retaining credit to the original author.
 
-#### Why didn't you make a pull request to the original author?
+**Is it safe?**
+The script automates the installation of robust tools. However, adding third-party repositories always carries some risk. Use with caution and ensure you understand the changes being made to your package manager sources.
 
-I already offered my update on a previous repository, however, no news from the base author, so I decided to make it a
-separate repo to be better referenced while mentioning the base author !
-
-However if he wants me to delete the repo in the future or if he wants to get the code back, I'll do whatever he wants.
-
-#### Is using this script safe?
-
-Honestly, yes and no. It is clear that some tools are too old/not functional today, or even can crash your distribution.
-However, it remains usable and not everything is to be thrown away, which is why I reworked it.
-
-#### I have a problem with the script... What to do?
-
-Please visit https://github.com/LionSec/katoolin/issues
-
-or visit https://github.com/0xGuigui/Katoolin3/issues
-
-## Informations
-
-You can still find the base script in the /old/ folder in the repo, but it is not maintained anymore.
+**Reporting Issues**
+For issues specific to this version, please open an issue on the [GitHub repository](https://github.com/0xGuigui/Katoolin3/issues).
 
 ## License
 
-This project is licensed under the GNU General Public License v2.0 - see
-the [LICENSE](https://github.com/0xGuigui/Katoolin3/blob/master/LICENCE) file for details
+This project is licensed under the GNU General Public License v2.0.
 
-## Contact
+## Authors
 
-If you want to contact me you can reach me at:
-
-- [Email](mailto:0xguigui@proton.me)
+- **LionSec** (Original Author)
+- **0xGuigui** (Maintainer)
